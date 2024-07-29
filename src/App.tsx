@@ -19,7 +19,7 @@ function App() {
           <Route path='/Sponsors' element={<Sponsor />} />
         </Routes>
       </MainDiv>
-      <h1>Hello</h1>
+     
     </BrowserRouter>
 
   );
