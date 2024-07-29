@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* .video-background {
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto; 
+  z-index: -100;
+  background-size: cover;
+}
+video { 
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    background: url(./assets/vecteezy_binary-code-with-numbers-moving-downward-on-screen_2015336.mov) no-repeat;
+    background-size: cover;
+} */
+/* .video-background video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+} */
+    </style>
+   
+</head>
+<body>
+    <main class=" ">
+
+        <!-- <div class="video-background">
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+              <source src="./assets/vecteezy_binary-code-with-numbers-moving-downward-on-screen_2015336.mov" type="video/mp4">
+            </video>
+          </div> -->
+
+        <video autoplay muted loop id="myVideo" class=" fixed right-0 bottom-0 min-w-full min-h-ful top-0 max-w-0">
+            <source src="./assets/vecteezy_binary-code-with-numbers-moving-downward-on-screen_2015336.mov" type="video/mp4">
+          </video>
+
+          <div class="fixed flex p-2 flex-col top-1/4 justify-center text-center m-auto w-full ">
+
+              <!-- <h1 class="text-4xl font-bold  underline xl:my-16">Temperature Convertor</h1> -->
+              <h1 class="text-9xl font-semibold text-white xl:my-16">Matrix</h1>
+              
+            
+            </div>
+
+    </main>
+
+
+    <script>
+         document.getElementById('convert').onclick = tempConvert;
+document.getElementById('clear').onclick = clearForm;
+
+function tempConvert() {
+    
+    var fahrenheit = document.getElementById("fahrenheit").value;
+    var celsius = document.getElementById("celsius").value;
+    var kelvin = document.getElementById("kelvin").value;
+  
+  if (fahrenheit != '') 
+  {
+        celsius = (parseFloat(fahrenheit) - 32) * 5/9;
+        kelvin = (parseFloat(fahrenheit) - 32) * 5 / 9 + 273.15;
+    } 
+    else if(celsius !='' )
+    {
+            fahrenheit = (parseFloat(celsius) + 32) * 9/5;
+            Kelvin = (parseFloat(celsius)) + 273.15;
+    }
+
+    else 
+    {
+        fahrenheit = (parseFloat(Kelvin) - 273.15);
+        celsius = (parseFloat(Kelvin) -273.15) * 9/5 + 32;
+    }
+  
+
+
+    document.getElementById('fahrenheit').value = parseFloat(fahrenheit).toFixed(1);
+    document.getElementById('celsius').value = parseFloat(celsius).toFixed(1);
+    document.getElementById('kelvin').value = parseFloat(kelvin).toFixed(1);
+}
+
+
+function clearForm() {
+    document.getElementById('fahrenheit').value = '';
+    document.getElementById('celsius').value = '';
+    document.getElementById('kelvin').value = '';
+} 
+
+
+
+
+    </script>
+
+</body>
+</html>
