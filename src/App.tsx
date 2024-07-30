@@ -14,9 +14,14 @@ function App() {
       <MainDiv>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/Navbar' element = {<Navbar />} />
           <Route path='/Home' element={ <Home />} />
           <Route path='/Events' element={ <Events /> } />
           <Route path='/Sponsors' element={<Sponsor />} />
+
+          
+        
+         
         </Routes>
       </MainDiv>
      
