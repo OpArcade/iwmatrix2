@@ -5,22 +5,22 @@ import styled from 'styled-components'
 const Navbar = () => {
   return (
     // <NavbarContainer className="fixed 2xl:w-2/4 mx-auto xl:w-3/5 lg:w-3/4 md:max-lg:w-10/12">
-<NavbarContainer className="fixed z-20 2xl:w-full ">
+<NavbarContainer className="relative top-5 z-20 2xl:w-full ">
 
-      <nav className="flex justify-between items-center w-2/4 m-auto  p-1 gap-10  md:max-lg:mt-6 "  >
+      <nav className="flex justify-between items-center 2xl:w-2/4 lg:w-3/4 m-auto  p-1 gap-10  md:max-lg:mt-6 "  >
 
         {/* logo */}
         <div className="logo">
-          <Link to="/Home" className=" text-white 2xl:text-4xl font-serif xl:text-2xl lg:text-3xl md:max-xl:text-3xl">Matrix</Link>
+          <Link to="/Home" className=" text-white 2xl:text-4xl font-serif xl:text-2xl lg:text-3xl md:max-xl:text-3xl text-xl">Matrix</Link>
         </div>
 
         {/* nav list */}
         <div className="inline">
           <ul className="flex flex-row justify-center space-x-7">
-          <li><Link to="/Home" className="text-white " >Home</Link></li>
-            <li><Link to="/Events" className="text-white " >Events</Link></li> 
-            <li><Link to="/Sponsors" className="text-white">Sponsors</Link></li>
-            <li><Link to="/Contact" className="text-white">Contact</Link></li>
+          <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg" >Home</Link></li>
+            <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg" >Events</Link></li> 
+            <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg">Sponsors</Link></li>
+            <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg">Contact</Link></li>
           </ul>
         </div>
 

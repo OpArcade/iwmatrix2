@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Layout from '../layout/Layout'
 import About from '../components/About'
 import Glimpses from '../components/Glimpses'
+import Faq from '../components/Faq'
 
 const Home = () => {
   return (
@@ -20,14 +21,15 @@ const Home = () => {
 
 
     <div className=" relative z-20 top-[15rem] flex p-2 flex-col  justify-center text-center m-auto w-full ">
-      <h1 className="text-9xl font-semibold text-white xl:my-16">Matrix</h1>
-      <h2 className="text-3xl font-semibold text-white mt-[-60px]"> Tech Fest</h2>
+      <h1 className="text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16 ">Matrix</h1>
+      <h2 className="text-2xl 2xl:text-3xl xl:text-3xl font-semibold text-white 2xl:mt-[-60px] "> Tech Fest</h2>
   </div>
 
     </Layout>
 
     <About />
     <Glimpses />
+    <Faq />
 
 
     </HomeContainer>
