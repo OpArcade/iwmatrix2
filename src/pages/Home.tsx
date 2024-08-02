@@ -23,12 +23,12 @@ const Home = () => {
       
 
 
-    <div className=" relative z-40 top-[15rem] flex p-2 flex-col  justify-center text-center m-auto w-full ">
+    <div className=" relative z-30 top-[15rem] flex p-2 flex-col  justify-center text-center m-auto w-full ">
       <div></div>
       {/* <h1 className="text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16 ">Matrix</h1> */}
 
       <div className="glitch-wrapper mb-[20px]">
-	<div className="glitch text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16" data-glitch="Matrix">Matrix</div>
+	<div className="glitch glitch2 text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16" data-glitch="Matrix">Matrix</div>
 </div>
       <h2 className="text-2xl 2xl:text-3xl xl:text-3xl font-semibold text-white 2xl:mt-[-60px] "> Tech Fest</h2>
   </div>

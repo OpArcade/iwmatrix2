@@ -11,7 +11,7 @@ const Navbar = () => {
 
         {/* logo */}
         <div className="logo">
-          <Link to="/Home" className=" text-white 2xl:text-4xl font-serif xl:text-2xl lg:text-3xl md:max-xl:text-3xl text-xl">Matrix</Link>
+          <Link to="/Home" className=" text-white 2xl:text-4xl font-serif xl:text-3xl lg:text-3xl  text-2xl">Matrix</Link>
         </div>
 
         {/* nav list */}

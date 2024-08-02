@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 
 
 // import required modules
-import { Mousewheel, Pagination } from 'swiper/modules';
+import { Mousewheel, Pagination  } from 'swiper/modules';
 
 
 
@@ -27,7 +27,8 @@ const Glimpses = () => {
           <Swiper
       direction="horizontal"
       slidesPerView={3}
-      
+    
+
       loop={true}
       spaceBetween={50}
       mousewheel={true}
@@ -71,6 +72,8 @@ const GlimpsesContainer= styled.div`
   font-size: 5rem;
   background: #fff;
   color: #000000;
+  
+
   margin: 10px;
   /* Center slide text vertically */
   display: flex;
@@ -90,9 +93,16 @@ const GlimpsesContainer= styled.div`
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover/center;
 }
 
+
+@media (max-width:450px){
+  .swiper-slide{
+    width: 300px !important;
+  height: 300px;
+  }
+}
 
 `
 export default Glimpses

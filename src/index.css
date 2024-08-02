@@ -39,6 +39,33 @@
     animation: 5s linear infinite alternate-reverse noise-after;
 }
 
+
+@media (max-width:850px){
+    .glitch{
+        font-size: 45px;
+    }
+    .glitch2{
+        font-size: 90px;
+    }
+    .glitch3{
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width:450px){
+    .glitch{
+        font-size: 35px;
+    }
+    .glitch2{
+        font-size: 60px;
+    }
+    .glitch3{
+        font-size: 20px;
+    }
+}
+
+
 @keyframes  noise-before {
     0% {
         clip: rect(61px,9999px,52px,0);
@@ -211,7 +238,7 @@
     }
 }
 
-@keyframes  shift {
+/* @keyframes  shift {
     0%,100%,40%,44%,58%,61%,65%,69%,73% {
         transform: skewX(0);
     }
@@ -243,4 +270,4 @@
     71% {
         transform: skewX(10deg) skewY(-10deg);
     }
-}
+} */
