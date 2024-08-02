@@ -31,6 +31,6 @@ function App() {
 }
 
 const MainDiv = styled.div`
-
+background-color: black;
 `;
 export default App;
