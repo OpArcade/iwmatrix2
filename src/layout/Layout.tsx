@@ -1,15 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
-import UseWindowDimension from '../components/hooks/UseWindowDimension'
+import UseWindowDimension from '../hooks/UseWindowDimension'
 import Burger from '../components/Burger'
+import { useStateContext } from '../globalcontext/ContextProvider'
 
 const Layout = ({children} : {children:React.ReactNode}) => {
+
     const {width}  = UseWindowDimension();
+    const { setOpenMenu , openMenu}= useStateContext();
   return (
     <LayoutContainer>
-        { width > 900 && <Navbar /> }
-        { width < 868 && <Burger />}
+       <Navbar /> 
+        {/* { width < 868 && <Burger />} */}
+        {
+           openMenu && <Burger />
+
+        }
         {children}
        
     </LayoutContainer>

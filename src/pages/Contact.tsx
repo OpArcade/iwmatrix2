@@ -38,12 +38,12 @@ inputs.forEach((input) => {
 
 const Contact = () => {
   return (
-    <ContactContainer>
+    <ContactContainer className='bg-black'>
         <Layout>
          <div className=''>
-          <video autoPlay muted loop id="myVideo" className="blur-[10px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
+          {/* <video autoPlay muted loop id="myVideo" className="blur-[10px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
             <source src="./assets/3.mov" type="video/mp4" />
-          </video>
+          </video> */}
           <div className='bg-black fixed  z-20 blur-[400px] w-full h-full'> 
     <img src="./assets/7.png" alt="" />
           </div>
