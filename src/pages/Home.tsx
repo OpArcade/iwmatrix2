@@ -28,7 +28,7 @@ const Home = () => {
     
     <div className=" relative z-30 top-[15rem] flex p-2 flex-col  justify-center text-center m-auto w-full ">
       
-<img src="./assets/LOGO MATRIX 2.0.png" alt="" className='w-[40%] m-auto'/>
+<img src="./assets/LOGO MATRIX 2.0.png" alt="" className='md:w-[40%] w-[75%] m-auto'/>
 
       {/* <div className="glitch-wrapper mb-[20px]">
 
