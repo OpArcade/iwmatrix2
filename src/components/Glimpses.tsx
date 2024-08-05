@@ -19,7 +19,7 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 const Glimpses = () => {
   return (
     <GlimpsesContainer className=' w-full md:w-[80%] lg:w-2/4'>
-      <section className='  m-9 flex flex-col gap-3  justify-center text-center'> 
+      <section className='  md:m-9 flex flex-col gap-3  justify-center text-center items-center'> 
           
          
          

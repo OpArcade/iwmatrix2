@@ -388,6 +388,8 @@ textarea.input {
 }
 
 .social-icons a {
+  display: flex;
+  justify-content: center;
     align-items: center;
     text-align: center;
   width: 35px;
@@ -527,9 +529,11 @@ textarea.input {
   }
 
   .social-icons a {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     line-height: 30px;
+    display: flex;
+    justify-content: center;
   }
 
   .icon {
