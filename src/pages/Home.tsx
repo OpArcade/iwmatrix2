@@ -13,26 +13,30 @@ const Home = () => {
 
 
     <div className=''>
-          <video autoPlay muted loop id="myVideo" className="blur-[10px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
+          {/* <video autoPlay muted loop id="myVideo" className=" brightness-50 blur-[4px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
             <source src="./assets/3.mov" type="video/mp4" />
+          </video> */}
+          <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[1px] z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
+            <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
           </video>
-          <div className='bg-black fixed  z-20 blur-[400px] w-full h-full'> 
-    <img src="./assets/7.png" alt="" />
-          </div>
     </div>
+    <div className=' absolute z-20  w-full h-full object-cover  top-0 '> 
+    <img src="./assets/7.png" alt=""  className='blur-[350px] bg-no-repeat w-full h-full object-cover'/>
+          </div>
 
     <Layout>
     
     <div className=" relative z-30 top-[15rem] flex p-2 flex-col  justify-center text-center m-auto w-full ">
       
-      {/* <h1 className="text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16 ">Matrix</h1> */}
+<img src="./assets/LOGO MATRIX 2.0.png" alt="" className='w-[40%] m-auto'/>
 
-      <div className="glitch-wrapper mb-[20px]">
+      {/* <div className="glitch-wrapper mb-[20px]">
+
 	<div className="glitch glitch2 text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16" data-glitch="Matrix">Matrix</div>
-</div>
+</div> */}
 
-      <h2 className="text-2xl 2xl:text-3xl xl:text-3xl font-semibold text-white max-md:mt-[0px]  mt-[-40px] "> Tech Fest</h2>
-      <h2 className="text-2xl 2xl:text-3xl xl:text-3xl font-semibold text-white  "> September 20-21, 2024</h2>
+      <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white max-md:mt-[0px] mt-[20px]  "> Tech Fest</h2>
+      <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white  "> September 20-21, 2024</h2>
   </div>
 
   {/* button */}
@@ -49,16 +53,19 @@ const Home = () => {
     </button> */}
 
 {/* log in */}
-      <button className='glowing-btn md:mx-[20px] max-md:my-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>
+      <button className='glowing-btn md:mx-[50px] max-md:my-[20px] flex justify-center'>
+        <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>
 {/* sign in */}
-      <button className='glowing-btn flex justify-center'><Link to='#' target='_blank' className='text-white '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>In</span> </Link></button>
+      <button className='glowing-btn flex justify-center'>
+        <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>In</span> </Link></button>
  
 {/* register now */}
-  {/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white '><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span>Now</span> </Link></button> */}
+  {/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button> */}
  
  {/* Alrwady register */}
 
-{/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white '><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span>Registerd</span> </Link></button> */}
+{/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button> */}
+
 </div>
     </Layout>
 
@@ -136,7 +143,7 @@ const HomeContainer = styled.div`
   right: 0;
   opacity: 0.7;
   filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  transform: translateY(100%) rotateX(95deg) scale(1, 0.30);
   background: var(--glow-color);
   pointer-events: none;
 }

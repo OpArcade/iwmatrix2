@@ -8,15 +8,15 @@ const Navbar = () => {
   const { setOpenMenu , openMenu}= useStateContext();
 
   return (
-    // <NavbarContainer className="fixed 2xl:w-2/4 mx-auto xl:w-3/5 lg:w-3/4 md:max-lg:w-10/12">
-<NavbarContainer className="relative top-5 z-20 2xl:w-full ">
+  
+<NavbarContainer className="relative top-5 z-30 2xl:w-full ">
 
       <nav className="flex justify-between items-center 2xl:w-2/4 lg:w-3/4 m-auto  p-1 gap-10  md:max-lg:mt-6 "  >
 
         {/* logo */}
         <div className=" flex justify-between items-center w-full ">
-          {/* <Link to="/Home" className=" text-white 2xl:text-4xl font-serif xl:text-3xl lg:text-3xl  text-2xl"><img src="./assets/LOGO 1ST VERSION.png" alt="" /></Link> */}
-          <Link to="/Home" className=" "><img src="./assets/LOGO MATRIX 2.0.png" alt="" className=" w-2/4 max-md:w-[200px]"/></Link>
+         
+          <Link to="/Home" className=" "><img src="./assets/LOGO MATRIX 2.0.png" alt="" className=" w-2/4 max-md:w-[180px]"/></Link>
 
           <button id="burgerButton" onClick={() => setOpenMenu(!openMenu)} className=" p-2 text-2xl text-white  rounded-md focus:outline-none z-50 md:hidden max-md:block">
              ☰

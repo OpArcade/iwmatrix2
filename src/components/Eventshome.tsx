@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 
 const Eventshome = () => {
@@ -27,12 +27,15 @@ const Eventshome = () => {
   slidesPerView={5}
   spaceBetween={50}
   loop={true} // Add this prop to enable loop mode
-  pagination={{
-    clickable: true,
-  }}
-  modules={[Pagination]}
+  // pagination={{
+  //   clickable: true,
+  // }}
+  modules={[ Pagination, Autoplay]}
   className="mySwiper"
-  
+  autoplay={{
+    delay: 2000, // delay between slides in ms
+    disableOnInteraction: false, // autoplay will not be disabled after user interaction
+  }}
   breakpoints={{
     320: { // phone view
       slidesPerView: 1,
@@ -45,39 +48,21 @@ const Eventshome = () => {
     },
   }}
 >
-  <SwiperSlide>
-    <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-    Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
-</a>
-</div>
-</div>
-</SwiperSlide>
 
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -87,16 +72,15 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -106,16 +90,15 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -125,16 +108,15 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -144,16 +126,15 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -163,16 +144,15 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
@@ -182,40 +162,74 @@ const Eventshome = () => {
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
   </SwiperSlide>
 
   <SwiperSlide>
-     <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
-<div className="p-5">
-<a href="#">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hachathon</h5>
-</a>
-<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
-<a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
+   
 </a>
 </div>
 </div>
   </SwiperSlide>
-  
+
+  <SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+  <SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sit accusamus quia ut aut perspiciatis</p>
+
+<a href="#" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
 </Swiper>  
 
     

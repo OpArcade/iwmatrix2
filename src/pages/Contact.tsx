@@ -38,18 +38,18 @@ inputs.forEach((input) => {
 
 const Contact = () => {
   return (
-    <ContactContainer className='bg-black'>
+    <ContactContainer className='bg-white z-50'>
         <Layout>
          <div className=''>
-          {/* <video autoPlay muted loop id="myVideo" className="blur-[10px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
-            <source src="./assets/3.mov" type="video/mp4" />
-          </video> */}
-          <div className='bg-black fixed  z-20 blur-[400px] w-full h-full'> 
-    <img src="./assets/7.png" alt="" />
+          <video autoPlay muted loop id="myVideo" className="brightness-50 z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
+            <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
+          </video>
+          <div className=' absolute z-20  w-full h-full object-cover  top-0 '> 
+    <img src="./assets/7.png" alt=""  className='blur-[350px] bg-no-repeat w-full h-full object-cover'/>
           </div>
     </div>
 
-    <div className="container">
+    <div className="container m-auto">
     <span className="big-circle"></span>
     <img src="img/shape.png" className="square" alt="" />
     <div className="form">
@@ -75,7 +75,12 @@ const Contact = () => {
           <div className="information">
             <FaPhoneAlt className='text-2xl m-1 text-[#00ffda]' />
 
-            <p>+91 72900 99992</p>
+            <p>+91 95995 84815</p>
+          </div>
+          <div className="information">
+            <FaPhoneAlt className='text-2xl m-1 text-[#00ffda]' />
+
+            <p>+91 98918 65001</p>
           </div>
         </div>
 
@@ -85,17 +90,16 @@ const Contact = () => {
             <a href="#"   className='text-[#000000] text-4xl '>
             <CiFacebook />
             </a>
-            <a href="#"  className='text-[#000000] text-3xl '>
-            <FaXTwitter />
-            </a>
-            <a href="#"  className='text-[#000000] text-3xl '>
+            
+            <a href="#"  className='text-[#000000] text-4xl '>
             <CiInstagram />
             </a>
-            <a href="#"  className='text-[#000000] text-3xl '>
+            <a href="#"  className='text-[#000000] text-4xl '>
             <CiLinkedin />
             </a>
           </div>
         </div>
+
       </div>
 
       <div className="contact-form">
@@ -148,7 +152,7 @@ textarea {
   position: relative;
   width: 100%;
   top: 20px;
-  left: 12%;
+  /* left: 12%; */
   height: 100vh;
   padding: 2rem;
   background-color: black;

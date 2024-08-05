@@ -8,11 +8,11 @@ const Sponsor = () => {
     <SponsorContainer className='relative z-[1000]'>
       <Layout>
       <div className=''>
-          <video autoPlay muted loop id="myVideo" className="blur-[10px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
+          <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[4px] z-10 fixed right-0 bottom-0 w-full h-full object-cover min-w-full min-h-full top-0 max-w-0">
             <source src="./assets/3.mov" type="video/mp4" />
           </video>
-          <div className='bg-black fixed  z-10 blur-[400px] w-full h-full'> 
-    <img src="./assets/7.png" alt="" />
+          <div className='bg-black fixed  z-10 blur-[400px] w-full h-full object-cover'> 
+    <img src="./assets/7.png" alt="" className='w-full h-full object-cover'/>
           </div>
     </div>
 
@@ -26,7 +26,7 @@ const Sponsor = () => {
 
   {/* log in */}
   <button className='glowing-btn md:mx-[20px] max-md:my-[20px] mt-[20px] w-[12rem] flex justify-center text-center'>
-    <Link to='#' target='_blank' className='text-white '><span className='glowing-txt'>Do<span className='faulty-letter'>wn</span>load</span> </Link>
+    <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>Do<span className='faulty-letter'>wn</span>load</span> </Link>
     </button>
 </div>
       </div>
@@ -50,14 +50,14 @@ const Sponsor = () => {
       <div className='w-full flex flex-col md:flex-row gap-5 mt-[60px]'>
       <div className='flex flex-col md:flex-row justify-center text-center gap-5 w-[25%] m-auto'>
         
-        <div className='md:px-10 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
-        <h1 className='text-[#00ffd4] text-xl md:text-4xl font-bold'>Riya</h1>
-        <p className='text-white p-2 text-center'>9816785643</p>
+        <div className='md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
+        <h1 className='text-[#00ffd4] text-xl md:text-2xl font-bold'>Diya Kalra</h1>
+        <p className='text-white p-2 text-center'>+91 96500 78119</p>
         </div>
 
-        <div className=' md:px-10 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
-        <h1 className='text-[#00ffd4] text-xl md:text-4xl font-bold'>Ashish</h1>
-        <p className='text-white p-2 text-center'>6756453423</p>
+        <div className=' md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
+        <h1 className='text-[#00ffd4] text-xl md:text-2xl font-bold'>Suhani Gupta</h1>
+        <p className='text-white p-2 text-center'>+91 98704 24494</p>
         </div>
 
       </div>
@@ -67,27 +67,10 @@ const Sponsor = () => {
       <div className='w-full flex flex-col  gap-5 mt-[60px] justify-center text-center'>
 
       
-      <h1 className='text-[#00ffd4] text-xl md:text-6xl font-bold'>Our Sponsors</h1>
+      <h1 className='text-[#00ffd4] text-xl md:text-5xl font-bold'>Our Previous Sponsors</h1>
 
       <div className='container md:w-[75%] m-auto'>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
+       
         <div className="sponsor">
         <img src="./assets/1.png" alt="" />
         </div>
@@ -214,8 +197,8 @@ const SponsorContainer = styled.div`
   right: 0;
   opacity: 0.7;
   filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-  background: var(--glow-color);
+  transform: translateY(100%) rotateX(95deg) scale(1, 0.15);
+  background:  var(--glow-color);
   pointer-events: none;
 }
 
@@ -229,7 +212,7 @@ const SponsorContainer = styled.div`
   opacity: 0;
   z-index: -1;
   background-color: var(--glow-color);
-  box-shadow: 0 0 1em 0.1em var(--glow-color);
+  box-shadow: 0 0 0 0 var(--glow-color);
   transition: opacity 100ms linear;
 }
 

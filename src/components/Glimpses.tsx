@@ -10,10 +10,9 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-// import './styles.css';
 
 // import required modules
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 
 
@@ -22,15 +21,14 @@ const Glimpses = () => {
     <GlimpsesContainer className=' w-full md:w-[80%] lg:w-2/4'>
       <section className='  m-9 flex flex-col gap-3  justify-center text-center'> 
           
-          <div className="glitch-wrapper mb-[20px]">
-	<div className="glitch " data-glitch="Glimpses">Glimpses</div>
-</div>
+         
          
 <Swiper
+modules={[EffectCoverflow, Pagination, Autoplay]}
   effect={'coverflow'}
   grabCursor={true}
   centeredSlides={true}
-  
+  spaceBetween={20}
   slidesPerView={'auto'}
   coverflowEffect={{
     rotate: 50,
@@ -39,35 +37,47 @@ const Glimpses = () => {
     modifier: 1,
     slideShadows: true,
   }}
-  pagination={true}
+  
+  autoplay={{
+    delay: 2000,
+    disableOnInteraction: false
+}}
   loop={true}
-  modules={[EffectCoverflow, Pagination]}
+
   className="mySwiper"
 >
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/10.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/11.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/12.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/13.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/14.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/15.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/16.webp" />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+    <img src="./assets/17.webp" />
   </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/18.webp" />
+  </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/19.webp" />
+  </SwiperSlide>
+  
+
 
 </Swiper>
     
@@ -91,8 +101,8 @@ const GlimpsesContainer= styled.div`
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .swiper-slide img {
