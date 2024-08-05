@@ -48,7 +48,7 @@ const Sponsor = () => {
 
       {/* Contact person details  */}
       <div className='w-full flex flex-col md:flex-row gap-5 mt-[60px]'>
-      <div className='flex flex-col md:flex-row justify-center text-center gap-5 w-[25%] m-auto'>
+      <div className='flex flex-col md:flex-row justify-center text-center gap-5 md:w-[25%] m-auto'>
         
         <div className='md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
         <h1 className='text-[#00ffd4] text-xl md:text-2xl font-bold'>Diya Kalra</h1>
