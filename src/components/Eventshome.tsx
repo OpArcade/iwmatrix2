@@ -15,7 +15,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 const Eventshome = () => {
   return (
-    <EventshomeContainer className='relative top-[40rem] w-full z-30'> 
+    <EventshomeContainer className='relative top-[36rem] w-full z-30'> 
 
 <section className='  m-9 flex flex-col gap-3  justify-center text-center'> 
           

@@ -256,7 +256,7 @@ const Events = () => {
             }`}
           >
             {/* image */}
-            <div className="rounded-2xl w-full md:w-[350px] ">
+            <div className="rounded-2xl w-full md:w-[400px] ">
               <img
                 className="rounded-t-2xl sm:rounded-l-2xl object-cover  w-full  h-full"
                 src={event.img}
@@ -280,11 +280,11 @@ const Events = () => {
               className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0"
               onClick={() => index === 0 ? window.location.href='': handleSelect(event)}
             >
-              <h1 className="text-xl max-sm:text-[25px] sm:text-4xl font-mono font-extrabold">
+              <h1 className="text-xl max-sm:text-[25px] sm:text-4xl font-mono font-extrabold text-center">
                 {selectedEvents.includes(event) ? (
                   <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                 ) : (
-                  index === 0 ? 'Davfolio' : 'Select'
+                  index === 0 ? 'Register with Davfolio' : 'Select'
                 )}
               </h1>
             </div>

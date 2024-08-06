@@ -4,14 +4,14 @@ import Glimpses from './Glimpses'
 
 const About = () => {
   return (
-    <AboutHomeContainer className='relative z-20  lg:top-[35rem] top-[35rem]  p-2 mt-8 m-auto w-full flex flex-col justify-center text-center'>
+    <AboutHomeContainer className='relative z-20  lg:top-[35rem] top-[35rem]  p-2 mt-8 m-auto w-full  flex flex-col justify-center text-center'>
 
       <section className=''>
       <div className="glitch-wrapper ">
 	              <div className="glitch " data-glitch="About Internware">About Internware</div>
         </div>
         
-        <div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[95%] w-full m-auto'>
+        <div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[75%] md:mt-6 w-full m-auto'>
             
            <div className='p-2 flex justify-center text-center items-center'>
 
