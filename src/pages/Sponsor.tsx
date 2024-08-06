@@ -20,12 +20,12 @@ const Sponsor = () => {
     <div className='z-40 relative top-[4rem] m-auto'>
       {/* Heading */}
       <div>
-      <div className="glitch-wrapper w-2/4 m-auto text-center flex flex-col items-center ">
-	<div className="glitch text-center " data-glitch="Sponsor Us">Sponsor Us</div>
-  <h1 className='text-center text-white text-md md:text-xl font-semibold mt-[20px]'>DOWNLOAD THE PROPOSAL</h1>
+      <div className="glitch-wrapper w-2/4 max-md:w-full m-auto text-center flex flex-col items-center ">
+	<div className="glitch text-center max-sm:text-[45px] max-sm:font-bold" data-glitch="Sponsor Us">Sponsor Us</div>
+  <h1 className='text-center text-white text-md md:text-xl max-sm:text-[20px] font-semibold mt-[20px]'>DOWNLOAD THE PROPOSAL</h1>
 
   {/* log in */}
-  <button className='glowing-btn md:mx-[20px] max-md:my-[20px] mt-[20px] w-[12rem] flex justify-center text-center'>
+  <button className='glowing-btn md:mx-[20px] max-sm:my-[20px] mt-[20px] w-[12rem] flex justify-center text-center'>
     <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>Do<span className='faulty-letter'>wn</span>load</span> </Link>
     </button>
 </div>
@@ -34,28 +34,31 @@ const Sponsor = () => {
       {/* about us and about event */}
       <div className='flex flex-col md:flex-row gap-5 mt-[60px] w-[75%] m-auto'>
         {/* About us */}
-        <div className=' p-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
+        <div className=' p-4 text-center lg:w-2/4  border-4 border-[#00ffd4] rounded-[20px]'>
           <h1 className='text-[#00ffd4] text-xl md:text-4xl font-bold'>About Matrix</h1>
-          <p className='text-white p-2 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio at deserunt, dolorum eius totam rerum natus cumque ex adipisci earum tempora necessitatibus nostrum. Repellendus minus nemo consectetur ut deserunt quisquam!</p>
+          <p className='text-white p-2 text-center'>MATRIX 2.0 is InternWare's ultimate Tech Fest designed for tech enthusiasts. This event is a melting pot of innovation, where tech prodigies can showcase their skills, learn from industry experts, and network with like-minded peers. 
+SEPTEMBER 20-21, 2024
+With a diverse range of competitions spanning various tech domains, MATRIX 2.0 offers a platform to explore, experiment, and excel. Join us as we redefine the boundaries of technology together. 
+</p>
         </div>
 
         {/* Matrix about */}
-        <div className=' p-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
-        <h1 className='text-[#00ffd4] text-xl md:text-4xl font-bold'>About Matrix</h1>
-        <p className='text-white p-2 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio at deserunt, dolorum eius totam rerum natus cumque ex adipisci earum tempora necessitatibus nostrum. Repellendus minus nemo consectetur ut deserunt quisquam!</p>
+        <div className=' p-4 text-center lg:w-2/4 border-4 border-[#00ffd4] rounded-[20px]'>
+        <h1 className='text-[#00ffd4] text-xl md:text-4xl font-bold'>Why sponsor us?</h1>
+        <p className='text-white p-2 text-center'>Partner with InternWare and gain access to a vibrant and tech-savvy audience. By sponsoring Matrix 2.0, you can showcase your brand to a dynamic group of young, innovative minds. Build lasting relationships through networking and position your company as a unique and problem-solving brand. Let's collaborate to create an unforgettable experience that benefits us all.</p>
         </div>
       </div>
 
       {/* Contact person details  */}
       <div className='w-full flex flex-col md:flex-row gap-5 mt-[60px]'>
-      <div className='flex flex-col md:flex-row justify-center text-center gap-5 md:w-[25%] m-auto'>
+      <div className='flex flex-col md:flex-row justify-center text-center gap-5 max-sm:w-full md:w-[25%] m-auto'>
         
-        <div className='md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
+        <div className='md:px-7 max-sm:w-2/4 m-auto md:py-4 text-center border-4 border-[#00ffd4] rounded-[20px]'>
         <h1 className='text-[#00ffd4] text-xl md:text-2xl font-bold'>Diya Kalra</h1>
         <p className='text-white p-2 text-center'>+91 96500 78119</p>
         </div>
 
-        <div className=' md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
+        <div className='max-sm:w-2/4 m-auto md:px-7 md:py-4 text-center  border-4 border-[#00ffd4] rounded-[20px]'>
         <h1 className='text-[#00ffd4] text-xl md:text-2xl font-bold'>Suhani Gupta</h1>
         <p className='text-white p-2 text-center'>+91 98704 24494</p>
         </div>

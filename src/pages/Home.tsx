@@ -30,17 +30,14 @@ const Home = () => {
       
 <img src="./assets/LOGO MATRIX 2.0.png" alt="" className='md:w-[40%] w-[75%] m-auto'/>
 
-      {/* <div className="glitch-wrapper mb-[20px]">
+    
 
-	<div className="glitch glitch2 text-8xl 2xl:text-9xl xl:text-9xl mt-[30px] md:mt-[-20px] font-semibold text-white xl:my-16" data-glitch="Matrix">Matrix</div>
-</div> */}
-
-      <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white max-md:mt-[0px] mt-[20px]  "> Tech Fest</h2>
+      <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white max-md:mt-[20px] mt-[20px]  "> Tech Fest</h2>
       <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white  "> September 20-21, 2024</h2>
   </div>
 
   {/* button */}
-  <div className='relative max-md:top-[26rem] top-[20rem] z-30 flex flex-col md:flex-row justify-center text-center w-2/4 m-auto '>
+  <div className='relative max-md:top-[22rem] top-[20rem] z-30 flex flex-col md:flex-row justify-center text-center w-2/4 m-auto '>
 
   {/* <button className='p-4 rounded-lg border-4 radial-gradient'>
     <Link to='#' target='_blank' className=' text-white'> Sign In</Link>
@@ -53,7 +50,7 @@ const Home = () => {
     </button> */}
 
 {/* log in */}
-      <button className='glowing-btn md:mx-[50px] max-md:my-[20px] flex justify-center'>
+      <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center'>
         <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>
 {/* sign in */}
       <button className='glowing-btn flex justify-center'>

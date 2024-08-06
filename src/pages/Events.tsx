@@ -24,48 +24,54 @@ const events: Event[] = [
 
   {
     name: "HACKATHON",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
+    desc: "Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop innovative software or hardware solutions. Participants work on selected projects and present their completed work to judges for evaluation.",
     img: "./assets/hacakthom.png",
   },
   {
-    name: "LIVE PROJECTS",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
-    img: "./assets/LIVE PROJECT.png",
-  },
-  {
-    name: "Gaming Parlor",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
-    img: "./assets/GAME PAR.png",
-  },
-  {
-    name: "DSA COMPETITION",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
-    img: "./assets/GAME PAR.png",
-  },
-  {
-    name: "UI/UX COMPETITION",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
-    img: "./assets/UI-UX DESIGN.png",
-  },
-  {
-    name: "INSIDE EDGE",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
+    name: "Inside Edge",
+    desc: "Become the team manager of your cricket franchise and bid for top players to create your dream team. Climb from qualifying round 1 to final round 2, engaging in friendly competition and strategic planning to win the title of the best cricket team.",
+   
     img: "./assets/INSIDE EDGE.png",
   },
   {
-    name: "GAMING TOURNAMENT",
+    name: "UI/UX",
+    desc: "This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs. Connect with design enthusiasts, explore the latest trends, and enhance your skills while contributing to innovative solutions in the tech community.",
+   
+    img: "./assets/UI-UX DESIGN.png",
+  },
+  {
+    name: "Gaming Parlour",
     desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
+    
+    img: "./assets/GAME PAR.png",
+  },
+  {
+    name: "Gaming tournament",
+    desc: "Team up with friends and dive into thrilling gaming challenges! Level up your experience, make new gaming buddies, and enjoy the excitement of the walk-in gaming zone to uplift your spirits. ",
+    
     img: "./assets/GAME TOUR.png",
   },
   {
-    name: "NEWS SURGE",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
+    name: "NEWS Surge",
+    desc: "Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document the Tech Fest in real time, capturing activities and highlights with creativity and journalistic flair. Present the event professionally and entertainingly",
+    
     img: "./assets/NEWS SURGE.png",
   },
   {
-    name: "PITCHERS",
-    desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
+    name: "Pitchers",
+    desc: "Unleash your entrepreneurial spirit to solve real-world issues with innovative tech-driven business models. Showcase your groundbreaking ideas, and turn them into impactful prototypes to present your vision to a discerning audience.",
     img: "./assets/PITCHERS.png",
+  },
+  {
+    name: "Live Project",
+    desc: "The Live Project challenge invites you to create a tangible IoT-based solution for a real-world problem. Showcase your creativity, innovate, and gain hands-on experience with a project of your choice to enhance your portfolio. ",
+    
+    img: "./assets/LIVE PROJECT.png",
+  },
+  {
+    name: "Data Science",
+    desc: "Dive into data with tasks across three dynamic rounds, testing your skills in sorting, cleaning, and visualization. Showcase your expertise, compete with fellow enthusiasts, and uncover valuable insights into the world of data science.",
+    img : "./assets/Data analytics.png"
   },
 
 ];
@@ -195,7 +201,7 @@ const Events: React.FC = () => {
   return (
     <EventContainer className="bg-white z-50">
          <div className=''>
-          <video autoPlay muted loop id="myVideo" className="brightness-50 z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
+          <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[3px] z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
             <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
           </video>
           <div className=' absolute z-20  w-full h-full object-cover  top-0 '> 
@@ -204,45 +210,46 @@ const Events: React.FC = () => {
     </div>
     <Layout>
     <section className="h-full w-full flex flex-col justify-center text-center z-[10000] relative">
-    <div className="glitch-wrapper mt-[40px]">
-	              <div className="glitch " data-glitch="Events">Events</div>
+    <div className="glitch-wrapper mt-[40px] max-sm:mb-5">
+	              <div className="glitch max-sm:text-5xl " data-glitch="Events">Events</div>
         </div>
 
-      <div className="  m-auto flex flex-col justify-center text-center gap-10 sm:gap-20 p-4 sm:p-10 ">
+      <div className="  m-auto flex flex-col justify-center items-center text-center gap-10 sm:gap-20 p-4 sm:p-10 ">
 
       {/* <div className=" container  justify-center text-center gap-10 sm:gap-20 p-4 sm:p-10 "> */}
         {events.map((event, index) => (
           <div
             key={index}
-            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center  sm:items-center  gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_1px_#4fd1c5] ${
+            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center  sm:items-center md:items-stretch gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_1px_#4fd1c5] ${
               selectedEvents.includes(event) ? "bg-cyan-900" : ""
             }`}
           >
             {/* image */}
-            <div className="w-full sm:w-[300px]">
+            <div className="rounded-2xl w-full md:w-[350px] ">
               <img
-                className="rounded-t-2xl sm:rounded-l-2xl object-cover w-full h-full"
+                className="rounded-t-2xl sm:rounded-l-2xl object-cover  w-full  h-full"
                 src={event.img}
                 alt="image"
               />
             </div>
 
             {/* event name and desc */}
-            <div className="w-[90%] sm:w-[600px] flex flex-col justify-center items-center py-5">
-              <div className="text-sm sm:text-sm font-semibold text-center">
+            <div className="w-[90%]  md:w-[800px] max-sm:w-full flex flex-col justify-center items-center py-5">
+              <div className="max-sm:text-[30px] text-[#00ffd4] font-mono 
+              md:text-[50px] font-semibold text-center">
                 {event.name}
               </div>
-              <div className="text-sm sm:text-sm lg:text-sm text-center mt-3">
+              <div className="max-sm:text-[15px] max-sm:mt-9 max-sm:mx-[3px] md:text-[20px] text-center mt-3">
                 {event.desc}
               </div>
             </div>
 
             {/* submit button */}
             <div
-              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-[300px] py-3 sm:py-0 sm:w-[200px] sm:rounded-r-2xl mb-5 sm:mb-0"
+              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-[300px] max-sm:w-2/4 max-sm:m-auto max-sm:mb-4 py-3 sm:py-0 sm:w-[200px] max-sm:rounded-[10px] sm:rounded-r-2xl mb-5 sm:mb-0"
               onClick={() => handleSelect(event)}
             >
-              <h1 className="text-xl sm:text-4xl font-extrabold">
+              <h1 className="text-xl max-sm:text-[25px] sm:text-4xl font-mono font-extrabold">
                 {selectedEvents.includes(event) ? (
                   <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                 ) : (
@@ -528,29 +535,41 @@ const Events: React.FC = () => {
         </div>
       )}
       <div className="text-white text-center mt-10">
-        <h2 className="text-[#00ffd4] text-4xl sm:text-6xl font-extrabold text-center">
+        <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-6xl font-extrabold text-center">
           Selected Events:
         </h2>
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="flex flex-col gap-5 mt-4">
+          <div className="flex flex-col gap-2 mt-4  text-[#ffffff]">
             {selectedEvents.map((event, index) => (
-              <h2 key={index} className="text-2xl sm:text-4xl">
+              <h2 key={index} className="text-xl sm:text-3xl">
                 {event.name}
               </h2>
             ))}
           </div>
-          <h2 className="text-[#00ffd4] text-4xl sm:text-5xl font-extrabold text-center my-10">
+          <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-5xl font-extrabold text-center my-10">
             Total Price: ${calculateTotalPrice()}
           </h2>
         </div>
+        {/* <button
+          onClick={() => {
+            console.log(selectedEvents);
+            console.log(calculateTotalPrice());
+          }}
+
+          className="bg-[#00ffd4] text-3xl sm:text-6xl font-extrabold text-center text-black px-8 rounded-xl mb-10 "
+        >
+          Proceed
+        </button> */}
+
         <button
           onClick={() => {
             console.log(selectedEvents);
             console.log(calculateTotalPrice());
           }}
-          className="bg-[#00ffd4] text-3xl sm:text-6xl font-extrabold text-center text-black px-8 rounded-2xl mb-10"
+
+          className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
-          Proceed
+          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Proceed</div>
         </button>
       </div>
     </section>
