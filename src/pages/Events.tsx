@@ -76,13 +76,15 @@ const events: Event[] = [
 
 ];
 
-const Events: React.FC = () => {
+const Events = () => {
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const [total, setTotal] = useState<number>(0);
-  const [showHackathonForm, setShowHackathonForm] = useState<boolean>(false);
+  const [ShowNewsSurge, setShowNewsSurge] = useState<boolean>(false);
   const [showLiveProjectsForm, setShowLiveProjectsForm] = useState<boolean>(false);
   const [showGamingTournamentForm, setShowGamingTournamentForm] = useState<boolean>(false);
-  const [hackathonDetails, setHackathonDetails] = useState<EventDetails>({
+  const [team,setTeam] = useState<string>()
+  const [amount,setAmount] = useState<number>(0)
+  const [NewsSurge, setNewsSurge] = useState<EventDetails>({
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
   });
@@ -97,11 +99,11 @@ const Events: React.FC = () => {
   const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleSelect = (event: Event) => {
-    if (event.name === "HACKATHON" || event.name === "LIVE PROJECTS" || event.name === "GAMING TOURNAMENT") {
+    if (event.name === "NEWS SURGE" || event.name === "LIVE PROJECTS" || event.name === "GAMING TOURNAMENT") {
       if (selectedEvents.includes(event)) {
         setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
       } else {
-        if (event.name === "HACKATHON") setShowHackathonForm(true);
+        if (event.name === "NEWS SURGE") setShowNewsSurge(true);
         if (event.name === "LIVE PROJECTS") setShowLiveProjectsForm(true);
         if (event.name === "GAMING TOURNAMENT") setShowGamingTournamentForm(true);
       }
@@ -117,11 +119,11 @@ const Events: React.FC = () => {
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     index: number | undefined,
-    type: "hackathon" | "liveProjects" | "gamingTournament"
+    type: "newsSurge" | "liveProjects" | "gamingTournament"
   ) => {
     const { name, value } = e.target;
-    const setDetails = type === "hackathon" ? setHackathonDetails : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
-    const details = type === "hackathon" ? hackathonDetails : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
+    const setDetails = type === "newsSurge" ? setNewsSurge : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
+    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
 
     if (name === "participationType") {
       setDetails((prev) => ({
@@ -136,9 +138,9 @@ const Events: React.FC = () => {
     }
   };
 
-  const handleAddTeamMember = (type: "hackathon" | "liveProjects" | "gamingTournament") => {
-    const setDetails = type === "hackathon" ? setHackathonDetails : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
-    const details = type === "hackathon" ? hackathonDetails : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
+  const handleAddTeamMember = (type: "newsSurge" | "liveProjects" | "gamingTournament") => {
+    const setDetails = type === "newsSurge" ? setNewsSurge : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
+    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
 
     setDetails((prev) => ({
       ...prev,
@@ -146,9 +148,9 @@ const Events: React.FC = () => {
     }));
   };
 
-  const handleRemoveTeamMember = (index: number, type: "hackathon" | "liveProjects" | "gamingTournament") => {
-    const setDetails = type === "hackathon" ? setHackathonDetails : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
-    const details = type === "hackathon" ? hackathonDetails : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
+  const handleRemoveTeamMember = (index: number, type: "newsSurge" | "liveProjects" | "gamingTournament") => {
+    const setDetails = type === "newsSurge" ? setNewsSurge : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
+    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
 
     setDetails((prev) => ({
       ...prev,
@@ -156,9 +158,9 @@ const Events: React.FC = () => {
     }));
   };
 
-  const validateForm = (type: "hackathon" | "liveProjects" | "gamingTournament"): boolean => {
+  const validateForm = (type: "newsSurge" | "liveProjects" | "gamingTournament"): boolean => {
     const errors: string[] = [];
-    const details = type === "hackathon" ? hackathonDetails : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
+    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
     details.team.forEach((member, index) => {
       if (!member.name || !member.phone || !member.email) {
         errors.push(`Please fill out all fields for team member ${index + 1}`);
@@ -168,12 +170,12 @@ const Events: React.FC = () => {
     return errors.length === 0;
   };
 
-  const handleSubmitForm = (type: "hackathon" | "liveProjects" | "gamingTournament") => {
+  const handleSubmitForm = (type: "newsSurge" | "liveProjects" | "gamingTournament") => {
     if (validateForm(type)) {
-      const event = events.find((e) => e.name === (type === "hackathon" ? "HACKATHON" : type === "liveProjects" ? "LIVE PROJECTS" : "GAMING TOURNAMENT"));
+      const event = events.find((e) => e.name === (type === "newsSurge" ? "NEWS SURGE" : type === "liveProjects" ? "LIVE PROJECTS" : "GAMING TOURNAMENT"));
       if (event) {
         setSelectedEvents((prev) => [...prev, event]);
-        if (type === "hackathon") setShowHackathonForm(false);
+        if (type === "newsSurge") setShowNewsSurge(false);
         if (type === "liveProjects") setShowLiveProjectsForm(false);
         if (type === "gamingTournament") setShowGamingTournamentForm(false);
       }
@@ -181,12 +183,39 @@ const Events: React.FC = () => {
   };
 
   const calculateTotalPrice = (): number => {
-    let total = 0;
+    let total:number = 0;
+    // let group = 0;
     selectedEvents.forEach((event) => {
       if (event.name === "GAMING TOURNAMENT") {
-        total += gamingTournamentDetails.participationType === "solo" ? 100 : 400;
-      } else if (event.name !== "HACKATHON" && event.name !== "LIVE PROJECTS") {
-        total += 50;
+        total += 100 * gamingTournamentDetails.team.length ;
+      } 
+      else if(event.name === "NEWS SURGE" ) {
+        if(selectedEvents.length === 1 ){
+          total += 50 * NewsSurge.team.length ;
+        }
+        else if(selectedEvents.length === 2){
+          total += (50 *( NewsSurge.team.length - 1))+40;
+        }
+        else if(selectedEvents.length > 3){
+          total += (50 *( NewsSurge.team.length - 1))+30;
+        }
+      }
+      else if (event.name !== "LIVE PROJECTS") {
+        if(selectedEvents.length === 1 ){
+          total +=50
+        }
+        else if(selectedEvents.length === 2){
+          total = 80
+        }
+        else if(selectedEvents.length === 3){
+          total = 110
+        }
+        else if(selectedEvents.length === 4){
+          total = 150
+        }
+        else if(selectedEvents.length > 4){
+          total = 150
+        }
       }
     });
     return total;
@@ -198,8 +227,10 @@ const Events: React.FC = () => {
     // Additional logic for form submission can be added here
   };
 
+  console.log(selectedEvents.length)
+
   return (
-    <EventContainer className="bg-white z-50">
+    <EventContainer className="bg-white z-50 w-full overflow-x-hidden">
          <div className=''>
           <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[3px] z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
             <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
@@ -220,7 +251,7 @@ const Events: React.FC = () => {
         {events.map((event, index) => (
           <div
             key={index}
-            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center  sm:items-center md:items-stretch gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_1px_#4fd1c5] ${
+            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center items-center  sm:items-center md:items-stretch gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_1px_#4fd1c5] ${
               selectedEvents.includes(event) ? "bg-cyan-900" : ""
             }`}
           >
@@ -246,14 +277,14 @@ const Events: React.FC = () => {
 
             {/* submit button */}
             <div
-              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-[300px] max-sm:w-2/4 max-sm:m-auto max-sm:mb-4 py-3 sm:py-0 sm:w-[200px] max-sm:rounded-[10px] sm:rounded-r-2xl mb-5 sm:mb-0"
-              onClick={() => handleSelect(event)}
+              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0"
+              onClick={() => index === 0 ? window.location.href='https://hanime.tv': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-4xl font-mono font-extrabold">
                 {selectedEvents.includes(event) ? (
                   <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                 ) : (
-                  "Select"
+                  index === 0 ? 'Davfolio' : 'Select'
                 )}
               </h1>
             </div>
@@ -261,10 +292,10 @@ const Events: React.FC = () => {
           </div>
         ))}
       </div>
-      {showHackathonForm && (
+      {ShowNewsSurge && (
         <div className="text-white text-center mt-10">
           <h2 className="text-[#00ffd4] text-4xl sm:text-6xl font-extrabold text-center">
-            Hackathon Registration
+            News Surge Registration
           </h2>
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="flex flex-col gap-5 mt-4 w-[80%]">
@@ -274,14 +305,14 @@ const Events: React.FC = () => {
                   className="bg-black text-white"
                   name="participationType"
                   required
-                  value={hackathonDetails.participationType}
-                  onChange={(e) => handleFormChange(e, undefined, "hackathon")}
+                  value={NewsSurge.participationType}
+                  onChange={(e) => handleFormChange(e, undefined, "newsSurge")}
                 >
                   <option value="solo">Solo</option>
                   <option value="team">Team</option>
                 </select>
               </label>
-              {hackathonDetails.team.map((member, index) => (
+              {NewsSurge.team.map((member, index) => (
                 <div
                   key={index}
                   className="flex flex-col gap-5 p-7 sm:p-10 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-2xl"
@@ -293,7 +324,7 @@ const Events: React.FC = () => {
                     name="name"
                     placeholder="Name"
                     value={member.name}
-                    onChange={(e) => handleFormChange(e, index, "hackathon")}
+                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
                   />
                   <input
                     className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
@@ -302,7 +333,7 @@ const Events: React.FC = () => {
                     name="phone"
                     placeholder="Phone"
                     value={member.phone}
-                    onChange={(e) => handleFormChange(e, index, "hackathon")}
+                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
                   />
                   <input
                     className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
@@ -311,31 +342,42 @@ const Events: React.FC = () => {
                     name="email"
                     placeholder="Email"
                     value={member.email}
-                    onChange={(e) => handleFormChange(e, index, "hackathon")}
+                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
                   />
-                  {hackathonDetails.participationType === "team" &&
+                  {NewsSurge.participationType === "team" &&
                     index > 0 && (
                       <button
                         className="bg-red-700 text-white font-bold text-2xl"
-                        onClick={() => handleRemoveTeamMember(index, "hackathon")}
+                        onClick={() => handleRemoveTeamMember(index, "newsSurge")}
                       >
                         Remove
                       </button>
                     )}
                 </div>
               ))}
-              {hackathonDetails.participationType === "team" &&
-                hackathonDetails.team.length < 4 && (
+              {NewsSurge.participationType === "team" &&
+                NewsSurge.team.length < 3 && (
+                  <>
+                  <input
+                  className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                  required
+                  type="text"
+                  name="teamName"
+                  placeholder="Team Name"
+                  value={team}
+                  onChange={(e) =>{setTeam(e.target.value)}}
+                  />
                   <button
                     className="bg-[#00ffd4] text-black font-bold text-3xl"
-                    onClick={() => handleAddTeamMember("hackathon")}
-                  >
+                    onClick={() => handleAddTeamMember("newsSurge")}
+                    >
                     Add Team Member
                   </button>
+                </>
                 )}
               <button
                 className="bg-[#00ffd4] text-black font-bold text-3xl"
-                onClick={() => handleSubmitForm("hackathon")}
+                onClick={() => handleSubmitForm("newsSurge")}
               >
                 Submit
               </button>
@@ -416,14 +458,26 @@ const Events: React.FC = () => {
                 </div>
               ))}
               {liveProjectsDetails.participationType === "team" &&
-                liveProjectsDetails.team.length < 4 && (
+                liveProjectsDetails.team.length < 3 && (
+                  <>
+                  <input
+                  className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                  required
+                  type="text"
+                  name="teamName"
+                  placeholder="Team Name"
+                  value={team}
+                  onChange={(e) =>{setTeam(e.target.value)}}
+                  />
                   <button
                     className="bg-[#00ffd4] text-black font-bold text-3xl"
-                    onClick={() => handleAddTeamMember("liveProjects")}
-                  >
+                    onClick={() => handleAddTeamMember("gamingTournament")}
+                    >
                     Add Team Member
                   </button>
+                </>
                 )}
+              <input type="file" name="" id="" />
               <button
                 className="bg-[#00ffd4] text-black font-bold text-3xl"
                 onClick={() => handleSubmitForm("liveProjects")}
@@ -464,10 +518,12 @@ const Events: React.FC = () => {
                 </select>
               </label>
               {gamingTournamentDetails.team.map((member, index) => (
+
                 <div
                   key={index}
                   className="flex flex-col gap-5 p-7 sm:p-10 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-2xl"
                 >
+
                   <input
                     className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
                     required
@@ -508,12 +564,23 @@ const Events: React.FC = () => {
               ))}
               {gamingTournamentDetails.participationType === "team" &&
                 gamingTournamentDetails.team.length < 4 && (
-                  <button
-                    className="bg-[#00ffd4] text-black font-bold text-3xl"
-                    onClick={() => handleAddTeamMember("gamingTournament")}
-                  >
-                    Add Team Member
-                  </button>
+                  <>
+                    <input
+                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                    required
+                    type="text"
+                    name="teamName"
+                    placeholder="Team Name"
+                    value={team}
+                    onChange={(e) =>{setTeam(e.target.value)}}
+                    />
+                    <button
+                      className="bg-[#00ffd4] text-black font-bold text-3xl"
+                      onClick={() => handleAddTeamMember("gamingTournament")}
+                      >
+                      Add Team Member
+                    </button>
+                  </>
                 )}
               <button
                 className="bg-[#00ffd4] text-black font-bold text-3xl"
