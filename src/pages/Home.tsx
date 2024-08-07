@@ -4,10 +4,29 @@ import Layout from '../layout/Layout'
 import About from '../components/About'
 import Glimpses from '../components/Glimpses'
 import Faq from '../components/Faq'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Eventshome from '../components/Eventshome'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { auth } from '../firebase/firebase'
+import toast from 'react-hot-toast'
+import { useGlobalStateContext } from '../globalcontext/ContextProvider'
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  const {currentUser} = useGlobalStateContext()
+
+  const googleSignIn=async(e:any)=>{
+    e.preventDefault();
+    const googleAuthProvider = new GoogleAuthProvider();
+
+    await signInWithPopup(auth,googleAuthProvider).then((response)=>{
+      navigate(`/`);
+      toast.success(`Welcome To Scholar Sphere!`);
+    })
+  }
+
   return (
     <HomeContainer>
 
@@ -50,14 +69,14 @@ const Home = () => {
     </button> */}
 
 {/* log in */}
-      <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center'>
-        <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>
+      {currentUser === null && <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center' onClick={(e)=>googleSignIn(e)}>
+        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>}
 {/* sign in */}
-      <button className='glowing-btn flex justify-center'>
-        <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>In</span> </Link></button>
+      {currentUser === null && <button className='glowing-btn flex justify-center' onClick={(e)=>googleSignIn(e)}>
+        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>In</span> </Link></button>}
  
 {/* register now */}
-  {/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button> */}
+      {currentUser !== null && <button className='glowing-btn mt-[20px] flex justify-center'><Link to='/Events' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button>}
  
  {/* Alrwady register */}
 
