@@ -9,14 +9,14 @@ const Navbar = () => {
 
   return (
   
-<NavbarContainer className="relative top-5 z-30 2xl:w-full ">
+<NavbarContainer className="relative w-80% m-auto top-5 z-30 md:w-[80%] lg:w-full ">
 
       <nav className="flex justify-between items-center 2xl:w-2/4 lg:w-3/4 m-auto  p-1 gap-10  md:max-lg:mt-6 "  >
 
         {/* logo */}
         <div className=" flex justify-between items-center w-full ">
          
-          <Link to="/Home" className=" "><img src="./assets/LOGO MATRIX 2.0.png" alt="" className=" w-2/4 max-md:w-[180px]"/></Link>
+          <Link to="/Home" className=" "><img src="./assets/LOGO MATRIX 2.0.png" alt="" className=" w-2/4 max-md:w-[180px] max-lg:w-[200px]"/></Link>
 
           <button id="burgerButton" onClick={() => setOpenMenu(!openMenu)} className=" p-2 text-2xl text-white  rounded-md focus:outline-none z-50 md:hidden max-md:block">
              ☰

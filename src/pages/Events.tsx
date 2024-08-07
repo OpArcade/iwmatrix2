@@ -326,7 +326,7 @@ const Events = () => {
 
 
   return (
-    <EventContainer className="bg-white z-50 w-full overflow-x-hidden">
+    <EventContainer className="bg-white z-50 w-full ">
          <div className=''>
           <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[3px] z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
             <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
@@ -336,12 +336,12 @@ const Events = () => {
           </div>
     </div>
     <Layout>
-    <section className="h-full w-full flex flex-col justify-center text-center z-[10000] relative">
-    <div className="glitch-wrapper mt-[40px] max-sm:mb-5">
+    <section className="h-full w-full flex flex-col justify-center text-center z-[10000] relative overflow-x-hidden">
+    <div className="glitch-wrapper mt-[45px] max-sm:mb-5 mb-[40px] ">
 	              <div className="glitch max-sm:text-5xl " data-glitch="Events">Events</div>
         </div>
 
-      <div className="  m-auto flex flex-col justify-center items-center text-center gap-10 sm:gap-20 p-4 sm:p-10 ">
+      <div className="  m-auto  flex flex-col justify-center items-center text-center gap-10 sm:gap-20  ">
 
       {/* <div className=" container  justify-center text-center gap-10 sm:gap-20 p-4 sm:p-10 "> */}
         {events.map((event, index) => (
@@ -354,19 +354,19 @@ const Events = () => {
             {/* image */}
             <div className="rounded-2xl w-full md:w-[400px] ">
               <img
-                className="rounded-t-2xl sm:rounded-l-2xl object-cover  w-full  h-full"
+                className="rounded-t-2xl sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
                 src={event.img}
                 alt="image"
               />
             </div>
 
             {/* event name and desc */}
-            <div className="w-[90%]  md:w-[800px] max-sm:w-full flex flex-col justify-center items-center py-5">
+            <div className="w-[90%]  lg:w-[800px] max-sm:w-full flex flex-col justify-center items-center py-5">
               <div className="max-sm:text-[30px] text-[#00ffd4] font-mono 
-              md:text-[50px] font-semibold text-center">
+              md:text-[40px] lg:text-[50px] font-semibold text-center">
                 {event.name}
               </div>
-              <div className="max-sm:text-[15px] max-sm:mt-9 max-sm:mx-[3px] md:text-[20px] text-center mt-3">
+              <div className="max-sm:text-[15px] max-sm:mt-9 max-sm:mx-[3px] md:text-[15px] text-center mt-3">
                 {event.desc}
               </div>
             </div>
@@ -376,7 +376,7 @@ const Events = () => {
               className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0"
               onClick={() => index === 0 ? window.location.href='': handleSelect(event)}
             >
-              <h1 className="text-xl max-sm:text-[25px] sm:text-4xl font-mono font-extrabold text-center">
+              <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center">
                 {selectedEvents.includes(event) ? (
                   <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                 ) : (
@@ -438,7 +438,7 @@ const Events = () => {
         />
       )}
       <div className="text-white text-center mt-10">
-        <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-6xl font-extrabold text-center">
+        <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center">
           Selected Events:
         </h2>
         <div className="flex flex-col justify-center items-center mt-5">
@@ -449,7 +449,7 @@ const Events = () => {
               </h2>
             ))}
           </div>
-          <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-5xl font-extrabold text-center my-10">
+          <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
             Total Price: ₹ {calculateTotalPrice()}
           </h2>
         </div>
