@@ -1,0 +1,152 @@
+const NewsSurgeSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+    teamName: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('NewsSurge',NewsSurgeSchema);
+
+
+const liveProjectSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+    teamName: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('LiveProjects',liveProjectSchema);
+
+
+const gamingTournamentsSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+    teamName: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('GamingTournaments',gamingTournamentsSchema);
+
+
+
+//// WithOUt TeamName
+
+
+const dataScienceSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('DataScience',dataScienceSchema);
+
+const picturesSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('Pictures',picturesSchema);
+
+const uiUxSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('uiUX',uiUxSchema);
+
+
+
+const insideEdgeSchema = new Schema({
+    name : { 
+        type : string,
+        required : true,
+    },
+    phone : { 
+        type : string,
+        required : true,
+    },
+    email: { 
+        type : string,
+        required : true,
+    },
+});
+
+module.exports = model('InsideEdge',insideEdgeSchema);
+
+
+
+
+
+
+
+
+
+
+
+
+

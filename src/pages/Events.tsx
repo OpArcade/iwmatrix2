@@ -1,7 +1,14 @@
 import { CheckCheck } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
+import NewsSurgeBox from "../components/Events/NewsSurgeBox";
+import LiveProjectBox from "../components/Events/LiveProjectBox";
+import GamingTournamentBox from "../components/Events/GamingTournamentBox";
+import UiUxBox from "../components/Events/UiUxBox";
+import InsideProjectBox from "../components/Events/InsideEdgeBox";
+import PicturesBox from "../components/Events/PicturesBox";
+import DataScienceBox from "../components/Events/DataScienceBox";
 
 interface Event {
   name: string;
@@ -82,8 +89,13 @@ const Events = () => {
   const [ShowNewsSurge, setShowNewsSurge] = useState<boolean>(false);
   const [showLiveProjectsForm, setShowLiveProjectsForm] = useState<boolean>(false);
   const [showGamingTournamentForm, setShowGamingTournamentForm] = useState<boolean>(false);
+  const [dataScienceForm, setDataScienceForm] = useState<boolean>(false);
+  const [picturesForm, setPicturesForm] = useState<boolean>(false);
+  const [uiUxForm, setUiUxForm] = useState<boolean>(false);
+  const [insideEdgeForm, setInsideEdgeForm] = useState<boolean>(false);
   const [team,setTeam] = useState<string>()
   const [amount,setAmount] = useState<number>(0)
+
   const [NewsSurge, setNewsSurge] = useState<EventDetails>({
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
@@ -96,25 +108,123 @@ const Events = () => {
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
   });
+
+
+  const [detailWithoutTeamName,setDetailWithoutTeamName] = useState({
+    dataScience : {name:"",phone:"",email:""},
+    pictures : {name:"",phone:"",email:""},
+    uiUx : {name:"",phone:"",email:""},
+    insideEdge : {name:"",phone:"",email:""},
+  });
+
+
+  const addDetailsWithoutTeam = (event:string,name:string,email:string,phone:string) =>{
+    setDetailWithoutTeamName({
+      ...detailWithoutTeamName,
+      [event] : {
+        name,
+        email,
+        phone,
+      }
+    });
+  }
+
+
+  const [detialsWithTeamName,setDetailsWithTeamName] = useState<any>({
+    newSurge : {name:"",phone:"",email:"",teamName : ""},
+    liveProjects : {name:"",phone:"",email:"",teamName : ""},
+    gamingTournament : {name:"",phone:"",email:"",teamName : ""},
+  });
+
+
+  const addDetailsWithTeamName = (event: string,name:string,email:string,teamName:string,phone:string)=>{
+
+    setDetailsWithTeamName({
+      ...detialsWithTeamName,
+      [event] : {
+        name,
+        email,
+        teamName,
+        phone,
+      }
+    });
+  }
+
+
+
   const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleSelect = (event: Event) => {
-    console.log(event.name)
-    if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
-      if (selectedEvents.includes(event)) {
-        setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
-      } else {
-        if (event.name === "News Surge") setShowNewsSurge(true);
-        if (event.name === "Live Project") setShowLiveProjectsForm(true);
-        if (event.name === "Gaming tournament") setShowGamingTournamentForm(true);
-      }
-    } else {
-      setSelectedEvents((prev) =>
-        prev.includes(event)
-          ? prev.filter((e) => e !== event)
-          : [...prev, event]
-      );
+    console.log(event.name);
+    // if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
+    //   if (selectedEvents.includes(event)) {
+    //     setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
+    //   } else {
+    //     if (event.name === "News Surge") setShowNewsSurge(true);
+    //     if (event.name === "Live Project") setShowLiveProjectsForm(true);
+    //     if (event.name === "Gaming tournament") setShowGamingTournamentForm(true);
+    //   }
+    // } else {
+    //   setSelectedEvents((prev) =>
+    //     prev.includes(event)
+    //       ? prev.filter((e) => e !== event)
+    //       : [...prev, event]
+    //   );
+    // }
+    // New Logic
+
+    if (event.name === "News Surge"){
+        setShowNewsSurge(!ShowNewsSurge)
+        setSelectedEvents((prev) =>
+              prev.includes(event)
+                ? prev.filter((e) => e !== event)
+                : [...prev, event]
+            );
+    } 
+    if (event.name === "Live Project"){
+        setShowLiveProjectsForm(!showLiveProjectsForm)
     }
+    if (event.name === "Gaming tournament"){
+        setShowGamingTournamentForm(!showGamingTournamentForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
+    }
+    if (event.name === "Inside Edge"){
+        setInsideEdgeForm(!insideEdgeForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
+    }
+    if (event.name === "UI/UX"){
+        setUiUxForm(!uiUxForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
+    }
+    if (event.name === "Data Science"){
+        setDataScienceForm(!dataScienceForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
+    }
+    if (event.name === "Pitchers"){
+        setPicturesForm(!picturesForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
+    }
+
   };
 
   const handleFormChange = (
@@ -124,8 +234,15 @@ const Events = () => {
   ) => {
     const { name, value } = e.target;
     const setDetails = type === "newsSurge" ? setNewsSurge : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
-    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
+    //const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
 
+    let details = NewsSurge;
+    if(type === 'liveProjects'){
+      details = liveProjectsDetails;
+    }
+    if(type === 'gamingTournament'){
+      details = gamingTournamentDetails;
+    }
     if (name === "participationType") {
       setDetails((prev) => ({
         ...prev,
@@ -146,16 +263,6 @@ const Events = () => {
     setDetails((prev) => ({
       ...prev,
       team: [...prev.team, { name: "", phone: "", email: "" }],
-    }));
-  };
-
-  const handleRemoveTeamMember = (index: number, type: "newsSurge" | "liveProjects" | "gamingTournament") => {
-    const setDetails = type === "newsSurge" ? setNewsSurge : type === "liveProjects" ? setLiveProjectsDetails : setGamingTournamentDetails;
-    const details = type === "newsSurge" ? NewsSurge : type === "liveProjects" ? liveProjectsDetails : gamingTournamentDetails;
-
-    setDetails((prev) => ({
-      ...prev,
-      team: prev.team.filter((_, i) => i !== index),
     }));
   };
 
@@ -182,44 +289,33 @@ const Events = () => {
       }
     }
   };
-
+  
   const calculateTotalPrice = (): number => {
+    
     let total:number = 0;
-    // let group = 0;
+    let gameTotal:number = 0;
+    console.log(selectedEvents)
+    
     selectedEvents.forEach((event) => {
       if (event.name === "Gaming tournament") {
-        total += 100 * gamingTournamentDetails.team.length ;
-      } 
-      else if(event.name === "News Surge" ) {
-        if(selectedEvents.length === 1 ){
-          total += 50 * NewsSurge.team.length ;
-        }
-        else if(selectedEvents.length === 2){
-          total += (50 *( NewsSurge.team.length - 1))+40;
-        }
-        else if(selectedEvents.length > 3){
-          total += (50 *( NewsSurge.team.length - 1))+30;
-        }
+        gameTotal = 100;
       }
-      else if (event.name !== "Live Project") {
+      if (event.name !== "Live Project" || "Gaming Parlour") {
         if(selectedEvents.length === 1 ){
-          total +=50
+          total = 50
         }
-        else if(selectedEvents.length === 2){
+        if(selectedEvents.length === 2){
           total = 80
         }
-        else if(selectedEvents.length === 3){
+        if(selectedEvents.length === 3){
           total = 110
         }
-        else if(selectedEvents.length === 4){
-          total = 150
-        }
-        else if(selectedEvents.length > 4){
+        if(selectedEvents.length > 3){
           total = 150
         }
       }
     });
-    return total;
+    return total+gameTotal;
   };
 
   const handleSubmit = () => {
@@ -228,7 +324,6 @@ const Events = () => {
     // Additional logic for form submission can be added here
   };
 
-  console.log(selectedEvents.length)
 
   return (
     <EventContainer className="bg-white z-50 w-full overflow-x-hidden">
@@ -294,313 +389,53 @@ const Events = () => {
         ))}
       </div>
       {ShowNewsSurge && (
-        <div className="text-white text-center mt-10">
-          <h2 className="text-[#00ffd4] text-4xl sm:text-6xl font-extrabold text-center">
-            News Surge Registration
-          </h2>
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              {/* <label className="text-2xl sm:text-4xl">
-                Participation Type:
-                <select
-                  className="bg-black text-white"
-                  name="participationType"
-                  required
-                  value={NewsSurge.participationType}
-                  onChange={(e) => handleFormChange(e, undefined, "newsSurge")}
-                >
-                  <option value="solo">Solo</option>
-                  <option value="team">Team</option>
-                </select>
-              </label> */}
-              {NewsSurge.team.map((member, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-5 p-7 sm:p-10 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-2xl"
-                >
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={member.name}
-                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    value={member.phone}
-                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={member.email}
-                    onChange={(e) => handleFormChange(e, index, "newsSurge")}
-                  />
-                      <input
-                      className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                      required
-                      type="text"
-                      name="teamName"
-                      placeholder="Team Name"
-                      value={team}
-                      onChange={(e) =>{setTeam(e.target.value)}}
-                      />
-                  {NewsSurge.participationType === "team" &&
-                    index > 0 && (
-                      <button
-                        className="bg-red-700 text-white font-bold text-2xl"
-                        onClick={() => handleRemoveTeamMember(index, "newsSurge")}
-                      >
-                        Remove
-                      </button>
-                    )}
-                </div>
-              ))}
-              {NewsSurge.participationType === "team" &&
-                NewsSurge.team.length < 3 && (
-                  <>
-                  <button
-                    className="bg-[#00ffd4] text-black font-bold text-3xl"
-                    onClick={() => handleAddTeamMember("newsSurge")}
-                    >
-                    Add Team Member
-                  </button>
-                </>
-                )}
-              <button
-                className="bg-[#00ffd4] text-black font-bold text-3xl"
-                onClick={() => handleSubmitForm("newsSurge")}
-              >
-                Submit
-              </button>
-              {formErrors.length > 0 && (
-                <div className="text-red-500 mt-4">
-                  {formErrors.map((error, index) => (
-                    <p key={index} className="text-2xl">
-                      {error}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <NewsSurgeBox
+        data={detialsWithTeamName}
+        setData={setDetailsWithTeamName}
+        setOpen={setShowNewsSurge}
+        />
       )}
       {showLiveProjectsForm && (
-        <div className="text-white text-center mt-10">
-          <h2 className="text-[#00ffd4] text-4xl sm:text-6xl font-extrabold text-center">
-            Live Projects Registration
-          </h2>
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              {/* <label className="text-2xl sm:text-4xl">
-                Participation Type:
-                <select
-                  className="bg-black text-white"
-                  name="participationType"
-                  required
-                  value={liveProjectsDetails.participationType}
-                  onChange={(e) => handleFormChange(e, undefined, "liveProjects")}
-                >
-                  <option value="solo">Solo</option>
-                  <option value="team">Team</option>
-                </select>
-              </label> */}
-              {liveProjectsDetails.team.map((member, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-5 p-7 sm:p-10 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-2xl"
-                >
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={member.name}
-                    onChange={(e) => handleFormChange(e, index, "liveProjects")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    value={member.phone}
-                    onChange={(e) => handleFormChange(e, index, "liveProjects")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={member.email}
-                    onChange={(e) => handleFormChange(e, index, "liveProjects")}
-                  />
-                    <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="teamName"
-                    placeholder="Team Name"
-                    value={team}
-                    onChange={(e) =>{setTeam(e.target.value)}}
-                    />
-                  {liveProjectsDetails.participationType === "team" &&
-                    index > 0 && (
-                      <button
-                        className="bg-red-700 text-white font-bold text-2xl"
-                        onClick={() => handleRemoveTeamMember(index, "liveProjects")}
-                      >
-                        Remove
-                      </button>
-                    )}
-                </div>
-              ))}
-              {liveProjectsDetails.participationType === "team" &&
-                liveProjectsDetails.team.length < 3 && (
-                  <>
-                  <button
-                    className="bg-[#00ffd4] text-black font-bold text-3xl"
-                    onClick={() => handleAddTeamMember("gamingTournament")}
-                    >
-                    Add Team Member
-                  </button>
-                </>
-                )}
-              <input type="file" name="" id="" />
-              <button
-                className="bg-[#00ffd4] text-black font-bold text-3xl"
-                onClick={() => handleSubmitForm("liveProjects")}
-              >
-                Submit
-              </button>
-              {formErrors.length > 0 && (
-                <div className="text-red-500 mt-4">
-                  {formErrors.map((error, index) => (
-                    <p key={index} className="text-2xl">
-                      {error}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+       <LiveProjectBox
+        data={detialsWithTeamName}
+        setData={setDetailsWithTeamName}
+        setOpen={setShowLiveProjectsForm}
+       />
       )}
       {showGamingTournamentForm && (
-        <div className="text-white text-center mt-10">
-          <h2 className="text-[#00ffd4] text-4xl sm:text-6xl font-extrabold text-center">
-            Gaming Tournament Registration
-          </h2>
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              {/* <label className="text-2xl sm:text-4xl">
-                Participation Type:
-                <select
-                  className="bg-black text-white"
-                  name="participationType"
-                  required
-                  value={gamingTournamentDetails.participationType}
-                  onChange={(e) => handleFormChange(e, undefined, "gamingTournament")}
-                >
-                  <option value="solo">Solo</option>
-                  <option value="team">Team</option>
-                </select>
-              </label> */}
-              {gamingTournamentDetails.team.map((member, index) => (
-
-                <div
-                  key={index}
-                  className="flex flex-col gap-5 p-7 sm:p-10 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-2xl"
-                >
-
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={member.name}
-                    onChange={(e) => handleFormChange(e, index, "gamingTournament")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    value={member.phone}
-                    onChange={(e) => handleFormChange(e, index, "gamingTournament")}
-                  />
-                  <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={member.email}
-                    onChange={(e) => handleFormChange(e, index, "gamingTournament")}
-                  />
-                      <input
-                      className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                      required
-                      type="text"
-                      name="teamName"
-                      placeholder="Team Name"
-                      value={team}
-                      onChange={(e) =>{setTeam(e.target.value)}}
-                      />
-                  {gamingTournamentDetails.participationType === "team" &&
-                    index > 0 && (
-                      <button
-                        className="bg-red-700 text-white font-bold text-2xl"
-                        onClick={() => handleRemoveTeamMember(index, "gamingTournament")}
-                      >
-                        Remove
-                      </button>
-                    )}
-                </div>
-              ))}
-              {gamingTournamentDetails.participationType === "team" &&
-                gamingTournamentDetails.team.length < 4 && (
-                  <>
-                    <button
-                      className="bg-[#00ffd4] text-black font-bold text-3xl"
-                      onClick={() => handleAddTeamMember("gamingTournament")}
-                      >
-                      Add Team Member
-                    </button>
-                  </>
-                )}
-              <button
-                className="bg-[#00ffd4] text-black font-bold text-3xl"
-                onClick={() => handleSubmitForm("gamingTournament")}
-              >
-                Submit
-              </button>
-              {formErrors.length > 0 && (
-                <div className="text-red-500 mt-4">
-                  {formErrors.map((error, index) => (
-                    <p key={index} className="text-2xl">
-                      {error}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <GamingTournamentBox
+          data={detialsWithTeamName}
+          setData={setDetailsWithTeamName}
+          setOpen={setShowGamingTournamentForm}
+        />
+      )}
+      {insideEdgeForm && (
+        <InsideProjectBox
+          data={detailWithoutTeamName}
+          setData={setDetailWithoutTeamName}
+          setOpen={setInsideEdgeForm}
+        />
+      )}
+      {picturesForm && (
+        <PicturesBox
+          data={detailWithoutTeamName}
+          setData={setDetailWithoutTeamName}
+          setOpen={setPicturesForm}
+        />
+      )}
+      {uiUxForm && (
+        <UiUxBox
+          data={detailWithoutTeamName}
+          setData={setDetailWithoutTeamName}
+          setOpen={setUiUxForm}
+        />
+      )}
+      {dataScienceForm && (
+        <DataScienceBox
+          data={detailWithoutTeamName}
+          setData={setDetailWithoutTeamName}
+          setOpen={setDataScienceForm}
+        />
       )}
       <div className="text-white text-center mt-10">
         <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-6xl font-extrabold text-center">
