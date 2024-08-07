@@ -292,30 +292,57 @@ const Events = () => {
   
   const calculateTotalPrice = (): number => {
     
-    let total:number = 0;
-    let gameTotal:number = 0;
-    console.log(selectedEvents)
+    // let total:number = 0;
+    // let gameTotal:number = 0;
+    // console.log(selectedEvents)
     
-    selectedEvents.forEach((event) => {
-      if (event.name === "Gaming tournament") {
-        gameTotal = 100;
-      }
-      if (event.name !== "Live Project" || "Gaming Parlour") {
-        if(selectedEvents.length === 1 ){
-          total = 50
-        }
-        if(selectedEvents.length === 2){
-          total = 80
-        }
-        if(selectedEvents.length === 3){
-          total = 110
-        }
-        if(selectedEvents.length > 3){
-          total = 150
-        }
-      }
-    });
-    return total+gameTotal;
+    // selectedEvents.forEach((event) => {
+    //   if (event.name === "Gaming tournament") {
+    //     gameTotal = 100;
+    //   }
+    //   if (event.name !== "Live Project" || "Gaming Parlour" ) {
+    //     if(selectedEvents.length === 1 ){
+    //       total = 50
+    //     }
+    //     if(selectedEvents.length === 2){
+    //       total = 80
+    //     }
+    //     if(selectedEvents.length === 3){
+    //       total = 110
+    //     }
+    //     if(selectedEvents.length > 3){
+    //       total = 150
+    //     }
+    //   }
+    // });
+    // return total+gameTotal;
+
+
+
+// ashish code start
+let gameTotal: number = 0;
+let eventTotal: number = 0;
+
+selectedEvents.forEach((event: { name: string }) => {
+  if (event.name === "Gaming tournament") {
+    gameTotal = 100;
+  } else if (event.name !== "Live Project" && event.name !== "Gaming Parlour") {
+    eventTotal += 1;
+  }
+});
+
+if (eventTotal === 1) {
+  eventTotal = 50;
+} else if (eventTotal === 2) {
+  eventTotal = 80;
+} else if (eventTotal === 3) {
+  eventTotal = 110;
+} else if (eventTotal >= 4) {
+  eventTotal = 150;
+}
+
+return gameTotal + eventTotal;
+// ashish code ends
   };
 
   const handleSubmit = () => {
