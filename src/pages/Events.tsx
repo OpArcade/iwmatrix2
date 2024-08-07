@@ -100,13 +100,13 @@ const Events = () => {
 
   const handleSelect = (event: Event) => {
     console.log(event.name)
-    if (event.name === "News Surge" || event.name === "Live Projects" || event.name === "Gaming Tournament") {
+    if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
       if (selectedEvents.includes(event)) {
         setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
       } else {
         if (event.name === "News Surge") setShowNewsSurge(true);
-        if (event.name === "Live Projects") setShowLiveProjectsForm(true);
-        if (event.name === "Gaming Tournament") setShowGamingTournamentForm(true);
+        if (event.name === "Live Project") setShowLiveProjectsForm(true);
+        if (event.name === "Gaming tournament") setShowGamingTournamentForm(true);
       }
     } else {
       setSelectedEvents((prev) =>
@@ -187,10 +187,10 @@ const Events = () => {
     let total:number = 0;
     // let group = 0;
     selectedEvents.forEach((event) => {
-      if (event.name === "GAMING TOURNAMENT") {
+      if (event.name === "Gaming tournament") {
         total += 100 * gamingTournamentDetails.team.length ;
       } 
-      else if(event.name === "NEWS SURGE" ) {
+      else if(event.name === "News Surge" ) {
         if(selectedEvents.length === 1 ){
           total += 50 * NewsSurge.team.length ;
         }
@@ -201,7 +201,7 @@ const Events = () => {
           total += (50 *( NewsSurge.team.length - 1))+30;
         }
       }
-      else if (event.name !== "LIVE PROJECTS") {
+      else if (event.name !== "Live Project") {
         if(selectedEvents.length === 1 ){
           total +=50
         }
