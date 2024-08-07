@@ -401,7 +401,7 @@ return gameTotal + eventTotal;
             {/* submit button */}
             <div
               className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0"
-              onClick={() => index === 0 ? window.location.href='': handleSelect(event)}
+              onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center">
                 {selectedEvents.includes(event) ? (
