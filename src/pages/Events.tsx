@@ -52,7 +52,7 @@ const events: Event[] = [
     img: "./assets/GAME TOUR.png",
   },
   {
-    name: "NEWS Surge",
+    name: "News Surge",
     desc: "Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document the Tech Fest in real time, capturing activities and highlights with creativity and journalistic flair. Present the event professionally and entertainingly",
     
     img: "./assets/NEWS SURGE.png",
@@ -99,13 +99,14 @@ const Events = () => {
   const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleSelect = (event: Event) => {
-    if (event.name === "NEWS SURGE" || event.name === "LIVE PROJECTS" || event.name === "GAMING TOURNAMENT") {
+    console.log(event.name)
+    if (event.name === "News Surge" || event.name === "Live Projects" || event.name === "Gaming Tournament") {
       if (selectedEvents.includes(event)) {
         setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
       } else {
-        if (event.name === "NEWS SURGE") setShowNewsSurge(true);
-        if (event.name === "LIVE PROJECTS") setShowLiveProjectsForm(true);
-        if (event.name === "GAMING TOURNAMENT") setShowGamingTournamentForm(true);
+        if (event.name === "News Surge") setShowNewsSurge(true);
+        if (event.name === "Live Projects") setShowLiveProjectsForm(true);
+        if (event.name === "Gaming Tournament") setShowGamingTournamentForm(true);
       }
     } else {
       setSelectedEvents((prev) =>
@@ -299,7 +300,7 @@ const Events = () => {
           </h2>
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              <label className="text-2xl sm:text-4xl">
+              {/* <label className="text-2xl sm:text-4xl">
                 Participation Type:
                 <select
                   className="bg-black text-white"
@@ -311,7 +312,7 @@ const Events = () => {
                   <option value="solo">Solo</option>
                   <option value="team">Team</option>
                 </select>
-              </label>
+              </label> */}
               {NewsSurge.team.map((member, index) => (
                 <div
                   key={index}
@@ -344,6 +345,15 @@ const Events = () => {
                     value={member.email}
                     onChange={(e) => handleFormChange(e, index, "newsSurge")}
                   />
+                      <input
+                      className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                      required
+                      type="text"
+                      name="teamName"
+                      placeholder="Team Name"
+                      value={team}
+                      onChange={(e) =>{setTeam(e.target.value)}}
+                      />
                   {NewsSurge.participationType === "team" &&
                     index > 0 && (
                       <button
@@ -358,15 +368,6 @@ const Events = () => {
               {NewsSurge.participationType === "team" &&
                 NewsSurge.team.length < 3 && (
                   <>
-                  <input
-                  className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                  required
-                  type="text"
-                  name="teamName"
-                  placeholder="Team Name"
-                  value={team}
-                  onChange={(e) =>{setTeam(e.target.value)}}
-                  />
                   <button
                     className="bg-[#00ffd4] text-black font-bold text-3xl"
                     onClick={() => handleAddTeamMember("newsSurge")}
@@ -401,7 +402,7 @@ const Events = () => {
           </h2>
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              <label className="text-2xl sm:text-4xl">
+              {/* <label className="text-2xl sm:text-4xl">
                 Participation Type:
                 <select
                   className="bg-black text-white"
@@ -413,7 +414,7 @@ const Events = () => {
                   <option value="solo">Solo</option>
                   <option value="team">Team</option>
                 </select>
-              </label>
+              </label> */}
               {liveProjectsDetails.team.map((member, index) => (
                 <div
                   key={index}
@@ -446,6 +447,15 @@ const Events = () => {
                     value={member.email}
                     onChange={(e) => handleFormChange(e, index, "liveProjects")}
                   />
+                    <input
+                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                    required
+                    type="text"
+                    name="teamName"
+                    placeholder="Team Name"
+                    value={team}
+                    onChange={(e) =>{setTeam(e.target.value)}}
+                    />
                   {liveProjectsDetails.participationType === "team" &&
                     index > 0 && (
                       <button
@@ -460,15 +470,6 @@ const Events = () => {
               {liveProjectsDetails.participationType === "team" &&
                 liveProjectsDetails.team.length < 3 && (
                   <>
-                  <input
-                  className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                  required
-                  type="text"
-                  name="teamName"
-                  placeholder="Team Name"
-                  value={team}
-                  onChange={(e) =>{setTeam(e.target.value)}}
-                  />
                   <button
                     className="bg-[#00ffd4] text-black font-bold text-3xl"
                     onClick={() => handleAddTeamMember("gamingTournament")}
@@ -504,7 +505,7 @@ const Events = () => {
           </h2>
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="flex flex-col gap-5 mt-4 w-[80%]">
-              <label className="text-2xl sm:text-4xl">
+              {/* <label className="text-2xl sm:text-4xl">
                 Participation Type:
                 <select
                   className="bg-black text-white"
@@ -516,7 +517,7 @@ const Events = () => {
                   <option value="solo">Solo</option>
                   <option value="team">Team</option>
                 </select>
-              </label>
+              </label> */}
               {gamingTournamentDetails.team.map((member, index) => (
 
                 <div
@@ -551,6 +552,15 @@ const Events = () => {
                     value={member.email}
                     onChange={(e) => handleFormChange(e, index, "gamingTournament")}
                   />
+                      <input
+                      className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
+                      required
+                      type="text"
+                      name="teamName"
+                      placeholder="Team Name"
+                      value={team}
+                      onChange={(e) =>{setTeam(e.target.value)}}
+                      />
                   {gamingTournamentDetails.participationType === "team" &&
                     index > 0 && (
                       <button
@@ -565,15 +575,6 @@ const Events = () => {
               {gamingTournamentDetails.participationType === "team" &&
                 gamingTournamentDetails.team.length < 4 && (
                   <>
-                    <input
-                    className="bg-black text-white text-2xl p-2 shadow-[0px_0px_0px_1px_#4fd1c5] rounded-xl"
-                    required
-                    type="text"
-                    name="teamName"
-                    placeholder="Team Name"
-                    value={team}
-                    onChange={(e) =>{setTeam(e.target.value)}}
-                    />
                     <button
                       className="bg-[#00ffd4] text-black font-bold text-3xl"
                       onClick={() => handleAddTeamMember("gamingTournament")}
@@ -614,7 +615,7 @@ const Events = () => {
             ))}
           </div>
           <h2 className="text-[#00ffd4] text-3xl font-mono sm:text-5xl font-extrabold text-center my-10">
-            Total Price: ${calculateTotalPrice()}
+            Total Price: ₹ {calculateTotalPrice()}
           </h2>
         </div>
         {/* <button
