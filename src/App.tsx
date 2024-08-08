@@ -9,13 +9,12 @@ import Burger from './components/Burger';
 import Contact from './pages/Contact';
 import { useGlobalStateContext } from './globalcontext/ContextProvider';
 import { Toaster } from 'react-hot-toast';
+import Form from './pages/Form';
 
 
 function App() {
 
   const {currentUser} = useGlobalStateContext()
-
-  console.log(currentUser)
 
   return (
     <BrowserRouter>
@@ -29,6 +28,7 @@ function App() {
           <Route path='/Events' element={ currentUser !== null ? <Events /> : <Home/> } />
           <Route path='/Sponsors' element={<Sponsor />} />
           <Route path='/Contact' element = { <Contact /> } />
+          <Route path='/Form' element = { <Form /> } />
         </Routes>
       </MainDiv>
     </BrowserRouter>

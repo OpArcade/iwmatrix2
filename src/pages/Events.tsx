@@ -400,7 +400,7 @@ return gameTotal + eventTotal;
 
             {/* submit button */}
             <div
-              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0"
+              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0 cursor-pointer"
               onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center">
@@ -415,59 +415,7 @@ return gameTotal + eventTotal;
           </div>
         ))}
       </div>
-      {ShowNewsSurge && (
-        <NewsSurgeBox
-        data={detialsWithTeamName}
-        setData={setDetailsWithTeamName}
-        setOpen={setShowNewsSurge}
-        />
-      )}
-      {showLiveProjectsForm && (
-       <LiveProjectBox
-        data={detialsWithTeamName}
-        setData={setDetailsWithTeamName}
-        setOpen={setShowLiveProjectsForm}
-       />
-      )}
-      {showGamingTournamentForm && (
-        <GamingTournamentBox
-          data={detialsWithTeamName}
-          setData={setDetailsWithTeamName}
-          setOpen={setShowGamingTournamentForm}
-        />
-      )}
-      {insideEdgeForm && (
-        <InsideProjectBox
-          data={detailWithoutTeamName}
-          setData={setDetailWithoutTeamName}
-          setOpen={setInsideEdgeForm}
-        />
-      )}
-      {picturesForm && (
-        <PicturesBox
-          data={detailWithoutTeamName}
-          setData={setDetailWithoutTeamName}
-          setOpen={setPicturesForm}
-        />
-      )}
-      {uiUxForm && (
-        <UiUxBox
-          data={detailWithoutTeamName}
-          setData={setDetailWithoutTeamName}
-          setOpen={setUiUxForm}
-        />
-      )}
-      {dataScienceForm && (
-        <DataScienceBox
-          data={detailWithoutTeamName}
-          setData={setDetailWithoutTeamName}
-          setOpen={setDataScienceForm}
-        />
-      )}
       <div className="text-white text-center mt-10">
-        <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center">
-          Selected Events:
-        </h2>
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="flex flex-col gap-2 mt-4  text-[#ffffff]">
             {selectedEvents.map((event, index) => (

@@ -22,7 +22,7 @@ const Home = () => {
     const googleAuthProvider = new GoogleAuthProvider();
 
     await signInWithPopup(auth,googleAuthProvider).then((response)=>{
-      navigate(`/`);
+      navigate(`/Form`);
       toast.success(`Welcome To Scholar Sphere!`);
     })
   }
