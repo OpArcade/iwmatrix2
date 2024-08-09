@@ -26,10 +26,10 @@ const Navbar = () => {
         {/* nav list */}
         <div className="inline max-md:hidden">
           <ul className="flex flex-row justify-center space-x-7">
-          <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  target='blank'>Home</Link></li>
-            <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  target='blank'>Events</Link></li> 
-            <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" target='blank'>Sponsors</Link></li>
-            <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg" target='blank'> Contact</Link></li>
+          <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  >Home</Link></li>
+            <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  >Events</Link></li> 
+            <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" >Sponsors</Link></li>
+            <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg" > Contact</Link></li>
           </ul>
         </div>
 

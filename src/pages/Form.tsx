@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { getDatabase, ref, update, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Form() {
     const [phone, setPhone] = useState<string>('');
+    const [course, setCourse] = useState<string>('');
+    const [teamname, setteamname] = useState<string>('');
     const college = useRef<HTMLSelectElement>(null);
     const [year, setYear] = useState<number | undefined>();
     const [otherCollege, setOtherCollege] = useState<string>('');
@@ -53,38 +56,62 @@ export default function Form() {
             await update(userRef, {
                 phoneNumber: phone,
                 year: year,
+                course: course,
+                teamname: teamname,
                 college: selectedCollege,
             });
 
             console.log('Data saved to Firebase');
-            navigate('/events');
+            navigate('/Home');
         } else {
             console.log('No user is logged in');
         }
     };
 
     return (
-        <div className="flex items-center justify-center h-[100vh] w-[100vw] text-white">
-            <div className="border-2 border-white px-20 py-10 flex flex-col gap-5 rounded-xl">
-                <h1 className="text-center text-3xl font-semibold">Details</h1>
-                <div>
+        <FormContainer>
+
+
+        <div className=''>
+          <video autoPlay muted loop id="myVideo" className="brightness-50 z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
+            <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
+          </video>
+          <div className=' absolute z-20  w-full h-full object-cover  top-0 '> 
+    <img src="./assets/7.png" alt=""  className='blur-[350px] bg-no-repeat w-full h-full object-cover'/>
+          </div>
+    </div>
+
+
+        <div className="z-[10000] fixed flex items-center justify-center h-[100vh] w-[100vw] text-white backdrop-blur-md">
+            <div className="border-2 border-white px-20 py-10 flex flex-col justify-center text-left gap-5 rounded-xl">
+                <h1 className="text-center max:sm-text-xl text-3xl font-semibold">Details</h1>
+                <div className="flex flex-col md:flex-row justify-center items-center ">
                     <h1>Phone No.</h1>
                     <input
-                        type="tel"
-                        className="bg-transparent outline-none border rounded-full px-3 py-1"
+                        type="text"
+                        className="bg-transparent outline-none border rounded-full px-4 py-2"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="flex flex-col md:flex-row justify-center items-center">
+                    <h1>Course</h1>
+                    <input
+                        type="text"
+                        className="bg-transparent outline-none border rounded-full px-3 py-1"
+                        value={course}
+                        onChange={(e) => setCourse(e.target.value)}
+                    />
+                </div>
+                <div className="flex flex-col md:flex-row justify-center items-center">
                     <h1>Year</h1>
                     <input
                         type="number"
                         className="bg-transparent outline-none border rounded-full px-3 py-1"
                         value={year || ''}
                         onChange={(e) => setYear(Number(e.target.value))}
-                        min="1"
-                        max="4"
+                        min="1900"
+                        max={new Date().getFullYear()}
                     />
                 </div>
                 <div className="flex flex-col items-center justify-start gap-5">
@@ -110,8 +137,22 @@ export default function Form() {
                         disabled={!otherCollegeEnabled}
                     />
                 </div>
+                <div className="flex flex-col md:flex-row justify-center items-center">
+                    <h1>Team Name</h1>
+                    <input
+                        type="text"
+                        className="bg-transparent outline-none border rounded-full px-3 py-1"
+                        value={teamname}
+                        onChange={(e) => setteamname(e.target.value)}
+                    />
+                </div>
+                
                 <button onClick={submit} className="bg-white text-black px-5 py-3 rounded-full font-semibold">Submit</button>
             </div>
         </div>
+        </FormContainer>
     );
 }
+const FormContainer = styled.div`
+    
+`

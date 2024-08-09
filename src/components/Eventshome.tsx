@@ -53,12 +53,12 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/hacakthom.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
 
-<p className="mb-3 font-normal text-white dark:text-white">Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop innovative software or hardware solutions..........</p>
+<p className="mb-3 font-normal text-white dark:text-white">Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop ..........</p>
 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
@@ -71,7 +71,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/INSIDE EDGE.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Inside Edge</h5>
@@ -89,7 +89,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/UI-UX DESIGN.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">UI/UX</h5>
@@ -107,7 +107,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/GAME PAR.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming Parlour</h5>
@@ -125,7 +125,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/GAME TOUR.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming tournament</h5>
@@ -143,7 +143,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/NEWS SURGE.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">News Surge</h5>
@@ -161,7 +161,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/PITCHERS.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Pitchers</h5>
@@ -179,7 +179,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/LIVE PROJECT.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Live Project</h5>
@@ -197,7 +197,7 @@ const Eventshome = () => {
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/5.jpg" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/Data analytics.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Data Science</h5>

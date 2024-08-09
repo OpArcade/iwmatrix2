@@ -2,15 +2,14 @@ import { CheckCheck } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
-import NewsSurgeBox from "../components/Events/NewsSurgeBox";
-import LiveProjectBox from "../components/Events/LiveProjectBox";
-import GamingTournamentBox from "../components/Events/GamingTournamentBox";
-import UiUxBox from "../components/Events/UiUxBox";
-import InsideProjectBox from "../components/Events/InsideEdgeBox";
-import PicturesBox from "../components/Events/PicturesBox";
-import DataScienceBox from "../components/Events/DataScienceBox";
-import { getAuth } from "firebase/auth";
-import { getDatabase, ref, update, get } from "firebase/database";
+
+import { getDatabase, ref, update, get, onValue } from "firebase/database";
+import {db} from "../firebase/firebase"
+import { useStateContext } from "../globalcontext/ContextProvider";
+import axios from "axios";
+import { load } from '@cashfreepayments/cashfree-js';
+import { format } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 
 interface Event {
   name: string;
@@ -278,10 +277,6 @@ const Events = () => {
     setFormErrors(errors);
     return errors.length === 0;
   };
-  
-  const auth = getAuth();
-  const user = auth.currentUser;
-  const db = getDatabase();
   const handleSubmitForm = (type: "newsSurge" | "liveProjects" | "gamingTournament") => {
     if (validateForm(type)) {
       const event = events.find((e) => e.name === (type === "newsSurge" ? "NEWS SURGE" : type === "liveProjects" ? "LIVE PROJECTS" : "GAMING TOURNAMENT"));
@@ -322,8 +317,8 @@ const Events = () => {
     // return total+gameTotal;
 
 
-
 // ashish code start
+
 let gameTotal: number = 0;
 let eventTotal: number = 0;
 
@@ -347,33 +342,63 @@ if (eventTotal === 1) {
 return gameTotal + eventTotal;
 // ashish code ends
 };
-const url = "http://localhost:4000"
-
+const url = "https://iitminternware.com/matrix_backend/create-order"
+const [cashfree, setCashfree] = useState<any>(null);
+  const [paymentSessionId, setPaymentSessionId] = useState<any>(null);
+  const [orderData, setOrderData] = useState<any>(null);
 useEffect(()=>{
+  const initializeSDK = async () => {
+    try {
+      const sdk = await load({ mode: 'sandbox' });
+      setCashfree(sdk);
+    } catch (error) {
+      console.error('Error initializing Cashfree SDK:', error);
+    }
+  };
+  initializeSDK();
   const totalPrice = calculateTotalPrice();
   setTotal(totalPrice);
 },[selectedEvents])
   const handleSubmit = async() => {
-    const userRef = ref(db, `users/${user?.uid}/phoneNumber`);
+    const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
     const phoneSnapshot = await get(userRef);
-      const res = await fetch(`${url}/create-order`,{
-        method:"post",
-        body: JSON.stringify({amount:total,
+      const res = await axios.post(`${url}/create-order`,{
+        amount:total,
           customer_details: {
-            customer_id: user?.uid,
-            customer_name: user?.displayName || '',
-            customer_email: user?.email || '',
+            customer_id: currentUser?.uid,
+            customer_name: currentUser?.displayName || '',
+            customer_email: currentUser?.email || '',
             customer_phone: phoneSnapshot.toJSON(), // Ensure this is a valid phone number with max 20 chars
           }
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        }  
       })
-      const data = await res.json();
+        
+    console.log(res)
+
       
     // Additional logic for form submission can be added here
   };
+
+  //fire base data access
+
+  const [paticipantData,setParticipantData] = useState<any>({})
+  const {currentUser} = useStateContext()
+  const dbref = ref(db,`users/${currentUser.uid}`)
+
+  const getParticipantsData=()=>{
+    onValue(dbref,(snapshot)=>{
+      if(snapshot.exists()){
+        let info = snapshot.val();
+        setParticipantData(info)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    getParticipantsData()
+  },[currentUser])
+
+
+  console.log(paticipantData)
 
   return (
     
@@ -479,11 +504,6 @@ useEffect(()=>{
 
 
 const EventContainer = styled.div`
-/* .container{
-  max-width:100%;
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(200px , 1fr));
-  gap:1rem;
-} */
+
 `
 export default Events;

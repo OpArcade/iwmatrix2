@@ -9,13 +9,13 @@ import Eventshome from '../components/Eventshome'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from '../firebase/firebase'
 import toast from 'react-hot-toast'
-import { useGlobalStateContext } from '../globalcontext/ContextProvider'
+import { useStateContext } from '../globalcontext/ContextProvider'
 
 const Home = () => {
 
   const navigate = useNavigate();
 
-  const {currentUser} = useGlobalStateContext()
+  const { currentUser , openMenu}= useStateContext();
 
   const googleSignIn=async(e:any)=>{
     e.preventDefault();
@@ -23,7 +23,7 @@ const Home = () => {
 
     await signInWithPopup(auth,googleAuthProvider).then((response)=>{
       navigate(`/Form`);
-      toast.success(`Welcome To Scholar Sphere!`);
+      toast.success(`Welcome!`);
     })
   }
 

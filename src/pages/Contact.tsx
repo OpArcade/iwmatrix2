@@ -56,8 +56,7 @@ const Contact = () => {
       <div className="contact-info">
         <h3 className="title">Let's get in touch</h3>
         <p className="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-          dolorum adipisci recusandae praesentium dicta!
+          Reach out to us any inquiries,support or feedback!
         </p>
 
         <div className="info">

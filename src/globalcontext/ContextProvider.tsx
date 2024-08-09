@@ -1,15 +1,14 @@
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from 'react'
 import { auth } from '../firebase/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 
 interface type{
     openMenu : boolean,
     setOpenMenu : Dispatch<SetStateAction<boolean>>,
+    currentUser : User,
 }
 
 export const StateContext = createContext<type>({} as any);
-export const StateContexts = createContext<any>({});
-export const useGlobalStateContext =()=>useContext(StateContexts);
 
 export const ContextProvider = ({children}:{children:ReactNode}) => {
 
@@ -25,13 +24,12 @@ export const ContextProvider = ({children}:{children:ReactNode}) => {
 
   return (
    <StateContext.Provider value={{
-    openMenu, setOpenMenu,
+    openMenu, setOpenMenu, currentUser,
+    
    }}>
-    <StateContexts.Provider value={{
-      currentUser
-    }}>
-      {children}
-    </StateContexts.Provider>
+    {
+      children
+    }
     </StateContext.Provider>
   )
 }
