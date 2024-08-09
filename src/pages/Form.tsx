@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Form() {
+    const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [course, setCourse] = useState<string>('');
     const [teamname, setteamname] = useState<string>('');
@@ -54,6 +55,7 @@ export default function Form() {
             const selectedCollege = otherCollegeEnabled ? otherCollege : college.current?.value;
 
             await update(userRef, {
+                name:name,
                 phoneNumber: phone,
                 year: year,
                 course: course,
@@ -85,6 +87,15 @@ export default function Form() {
         <div className="z-[10000] fixed flex items-center justify-center h-[100vh] w-[100vw] text-white backdrop-blur-md">
             <div className="border-2 border-white px-20 py-10 flex flex-col justify-center text-left gap-5 rounded-xl">
                 <h1 className="text-center max:sm-text-xl text-3xl font-semibold">Details</h1>
+                <div className="flex flex-col md:flex-row justify-center items-center ">
+                    <h1>Name</h1>
+                    <input
+                        type="text"
+                        className="bg-transparent outline-none border rounded-full px-4 py-2"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
                 <div className="flex flex-col md:flex-row justify-center items-center ">
                     <h1>Phone No.</h1>
                     <input

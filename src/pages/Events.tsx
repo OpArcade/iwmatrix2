@@ -12,6 +12,8 @@ import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 // import { Mailer } from "../Mail/Mailer";
 
+
+
 interface Event {
   name: string;
   img: string;
@@ -156,7 +158,11 @@ const Events = () => {
 
   const [formErrors, setFormErrors] = useState<string[]>([]);
 
+
+  
   const handleSelect = (event: Event) => {
+  console.log(selectedEvents)
+  console.log("events selected done")
     // if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
     //   if (selectedEvents.includes(event)) {
     //     setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
@@ -172,6 +178,7 @@ const Events = () => {
     //       : [...prev, event]
     //   );
     // }
+
     // New Logic
 
     if (event.name === "News Surge"){
@@ -366,14 +373,100 @@ useEffect(()=>{
   const totalPrice = calculateTotalPrice();
   setTotal(totalPrice);
 },[selectedEvents])
+
+// const handleSubmit = async () => {
+//   try {
+//     const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
+//     const phoneSnapshot = await get(userRef);
+//     const phone = phoneSnapshot.val(); // Get the actual phone number value
+
+//     const orderId = `order_${new Date().getTime()}`;
+    
+//     const orderDetails = {
+//       order_amount: total,
+//       order_id: orderId,
+//       order_currency: 'INR',
+//       customer_details: {
+//         customer_id: currentUser?.uid,
+//         customer_name: currentUser?.displayName || '',
+//         customer_email: currentUser?.email || '',
+//         customer_phone: phone, // Ensure this is a valid phone number with max 20 chars
+//       }
+//     };
+
+//     const response = await axios.post(`${url}/create-order`, orderDetails);
+//     console.log(response.data); // Log the response data
+
+//     if (response.data && response.data.payment_session_id) {
+//       setPaymentSessionId(response.data.payment_session_id); // Store the payment session ID
+//       setOrderData({ ...orderDetails, payment_session_id: response.data.payment_session_id });
+//       alert('Order confirmed! You can now proceed to payment.');
+//     } else {
+//       alert('Failed to retrieve payment session ID.');
+//     }
+//     // Mailer(); //Mailer
+//   } catch (error) {
+//     console.error('Error creating order:', error);
+//   }
+
+
+
+      
+//     // Additional logic for form submission can be added here
+    
+//   };
+
+
 const handleSubmit = async () => {
   try {
     const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
     const phoneSnapshot = await get(userRef);
     const phone = phoneSnapshot.val(); // Get the actual phone number value
 
+    
+// let gamingTournament, newsSurge,pitchers,insideEdge,uiUx,liveProject;
+
+//     selectedEvents.forEach(event => {
+//       switch (event.name) {
+//         case 'Gaming tournament':
+//           gamingTournament = event;
+//           break;
+//         case 'News Surge':
+//           newsSurge = event;
+//           break;
+//         case 'Pitchers':
+//           pitchers = event;
+//           break;
+//         case 'Inside Edge':
+//           insideEdge = event;
+//           break;
+//         case 'UI/UX':
+//           uiUx = event;
+//           break;
+//         case 'Live Project':
+//           liveProject = event;
+//           break;
+//         default:
+//           break;
+//       }
+//     });
+
+//     // Log initialized variables
+    // console.log({
+    //   gamingTournament,
+    //   newsSurge,
+    //   pitchers,
+    //   insideEdge,
+    //   uiUx,
+    //   liveProject,
+    // });
+    // console.log('Event values initialized.');
+
+    const orderId = `order_${new Date().getTime()}`;
+
     const orderDetails = {
       order_amount: total,
+      order_id: orderId,
       order_currency: 'INR',
       customer_details: {
         customer_id: currentUser?.uid,
@@ -393,20 +486,89 @@ const handleSubmit = async () => {
     } else {
       alert('Failed to retrieve payment session ID.');
     }
+
     // Mailer(); //Mailer
+
+    // Additional logic for form submission can be added here
+
   } catch (error) {
     console.error('Error creating order:', error);
   }
-
-
-
-      
-    // Additional logic for form submission can be added here
-    
-  };
+};
 
   // handle pay now start--------------
 
+  // const handlePayNow = (): void => {
+  //   if (!paymentSessionId) {
+  //     alert('Please confirm your order first.');
+  //     return;
+  //   }
+  
+  //   if (cashfree) {
+  //     const checkoutOptions = {
+  //       paymentSessionId: paymentSessionId, // Use paymentSessionId from response
+  //       redirectTarget: '_modal', // Opens the payment modal
+  //     };
+  
+  //     cashfree.checkout(checkoutOptions).then(async (result: any) => {
+  //       if (result.error) {
+  //         // Handle errors or user actions
+  //         console.error('Payment error:', result.error);
+  //         alert('Payment failed. Please try again.');
+  //       } else if (result.redirect) {
+  //         // Handle redirection case
+  //         console.log('Redirecting for payment');
+  //       } else if (result.paymentDetails) {
+  //         // Handle successful payment
+  //         console.log('Payment completed:', result.paymentDetails.paymentMessage);
+          
+  //         // Store payment details in Firebase
+  //         const user = auth.currentUser;
+  //         if (user) {
+  //           const paymentData = {
+  //             ...orderData,
+  //             payment_status: 'success',
+  //             payment_id: result.paymentDetails.paymentId || '',
+  //             payment_message: result.paymentDetails.paymentMessage || '',
+  //             payment_time: result.paymentDetails.paymentTime || '',
+  //             user_id: user.uid
+  //           };
+  
+  //           // Filter out any undefined fields
+  //           const filteredPaymentData = Object.fromEntries(
+  //             Object.entries(paymentData).filter(([key, value]) => value !== undefined)
+  //           );
+  
+  //           try {
+  //             const timeZone = 'Asia/Kolkata';
+  //             const currentDateTime = format(toZonedTime(new Date(), timeZone), 'yyyy-MM-dd HH:mm:ssXXX'); // add timeZone
+  //             await set(ref(db, 'payments/' + paymentData.order_id), {
+  //               ...filteredPaymentData,
+  //               processed_at: currentDateTime
+  //             });
+  //             console.log('Payment data stored in Firebase successfully');
+
+  //             // Mailer(); //Mailer 
+  //           } catch (error) {
+  //             console.error('Error storing payment data in Firebase:', error);
+  //             alert('Payment successful, but failed to store data in Firebase.');
+  //           }
+  //         } else {
+  //           alert('User not logged in');
+  //         }
+  //       }
+  //     }).catch((error: any) => {
+  //       console.error('Error during payment:', error);
+  //       alert('Error during payment. Please try again.');
+  //     });
+  //   } else {
+  //     alert('Cashfree SDK not initialized.');
+  //   }
+  // };
+  
+  
+  
+  
   const handlePayNow = (): void => {
     if (!paymentSessionId) {
       alert('Please confirm your order first.');
@@ -457,6 +619,48 @@ const handleSubmit = async () => {
               });
               console.log('Payment data stored in Firebase successfully');
 
+              let gamingTournament, newsSurge,pitchers,insideEdge,uiUx,liveProject;
+
+              selectedEvents.forEach(event => {
+                switch (event.name) {
+                  case 'Gaming tournament':
+                    gamingTournament = event;
+                    break;
+                  case 'News Surge':
+                    newsSurge = event;
+                    break;
+                  case 'Pitchers':
+                    pitchers = event;
+                    break;
+                  case 'Inside Edge':
+                    insideEdge = event;
+                    break;
+                  case 'UI/UX':
+                    uiUx = event;
+                    break;
+                  case 'Live Project':
+                    liveProject = event;
+                    break;
+                  default:
+                    break;
+                }
+              });
+          
+              // Log initialized variables
+
+              // Store selected events in Firebase under their respective collections
+              const selectedevents = [gamingTournament, newsSurge, pitchers, insideEdge, uiUx, liveProject];
+              for (const event of selectedEvents) {
+                if (event) {
+                  await set(ref(db, `events/${event.name}/${user.uid}`), {
+                    user_id: user.uid,
+                    event_name: event.name,
+                    registered_at: currentDateTime
+                  });
+                }
+              }
+              console.log('Selected event data stored in Firebase successfully');
+  
               // Mailer(); //Mailer 
             } catch (error) {
               console.error('Error storing payment data in Firebase:', error);
@@ -474,7 +678,6 @@ const handleSubmit = async () => {
       alert('Cashfree SDK not initialized.');
     }
   };
-  
   // handle pay now end -------------
 
   
@@ -503,7 +706,7 @@ const handleSubmit = async () => {
   },[currentUser])
 
 
-  console.log(paticipantData)
+  // console.log(paticipantData) //
 
   return (
     
