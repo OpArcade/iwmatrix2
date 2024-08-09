@@ -1,5 +1,6 @@
 {
   "name": "iwmatrix2",
+  "homepage": "https://iitminternware.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

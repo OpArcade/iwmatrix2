@@ -45,7 +45,7 @@ const events: Event[] = [
     img: "./assets/INSIDE EDGE.png",
   },
   {
-    name: "UI/UX",
+    name: "UI/UX Design",
     desc: "This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs. Connect with design enthusiasts, explore the latest trends, and enhance your skills while contributing to innovative solutions in the tech community.",
    
     img: "./assets/UI-UX DESIGN.png",
