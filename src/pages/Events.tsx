@@ -343,6 +343,7 @@ return gameTotal + eventTotal;
 // ashish code ends
 };
 const url = "https://iitminternware.com/matrix_backend/create-order"
+
 const [cashfree, setCashfree] = useState<any>(null);
   const [paymentSessionId, setPaymentSessionId] = useState<any>(null);
   const [orderData, setOrderData] = useState<any>(null);
@@ -419,18 +420,17 @@ useEffect(()=>{
 
       <div className="  m-auto  flex flex-col justify-center items-center text-center gap-10 sm:gap-20  ">
 
-      {/* <div className=" container  justify-center text-center gap-10 sm:gap-20 p-4 sm:p-10 "> */}
         {events.map((event, index) => (
           <div
             key={index}
-            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center items-center  sm:items-center md:items-stretch gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_1px_#4fd1c5] ${
+            className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center items-center  sm:items-center  gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_5px_#4fd1c5] ${
               selectedEvents.includes(event) ? "bg-cyan-900" : ""
             }`}
           >
             {/* image */}
-            <div className="rounded-2xl w-full md:w-[400px] ">
+            <div className="rounded-2xl w-full md:w-[350px] ">
               <img
-                className="rounded-t-2xl sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
+                className="border-r-[3px] sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
                 src={event.img}
                 alt="image"
               />
