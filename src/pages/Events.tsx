@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
 
-import { getDatabase, ref, update, get, onValue } from "firebase/database";
-import {db} from "../firebase/firebase"
+import { getDatabase, set,ref, update, get, onValue } from "firebase/database";
+import {db,auth} from "../firebase/firebase"
 import { useStateContext } from "../globalcontext/ContextProvider";
 import axios from "axios";
 import { load } from '@cashfreepayments/cashfree-js';
@@ -342,7 +342,7 @@ if (eventTotal === 1) {
 return gameTotal + eventTotal;
 // ashish code ends
 };
-const url = "https://iitminternware.com/matrix_backend/create-order"
+const url = "https://iitminternware.com/matrix_backend"
 
 const [cashfree, setCashfree] = useState<any>(null);
   const [paymentSessionId, setPaymentSessionId] = useState<any>(null);
@@ -360,26 +360,122 @@ useEffect(()=>{
   const totalPrice = calculateTotalPrice();
   setTotal(totalPrice);
 },[selectedEvents])
-  const handleSubmit = async() => {
+const handleSubmit = async () => {
+  try {
     const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
     const phoneSnapshot = await get(userRef);
-      const res = await axios.post(`${url}/create-order`,{
-        amount:total,
-          customer_details: {
-            customer_id: currentUser?.uid,
-            customer_name: currentUser?.displayName || '',
-            customer_email: currentUser?.email || '',
-            customer_phone: phoneSnapshot.toJSON(), // Ensure this is a valid phone number with max 20 chars
-          }
-      })
-        
-    console.log(res)
+    const phone = phoneSnapshot.val(); // Get the actual phone number value
+
+    const orderDetails = {
+      order_amount: total,
+      order_currency: 'INR',
+      customer_details: {
+        customer_id: currentUser?.uid,
+        customer_name: currentUser?.displayName || '',
+        customer_email: currentUser?.email || '',
+        customer_phone: phone, // Ensure this is a valid phone number with max 20 chars
+      }
+    };
+
+    const response = await axios.post(`${url}/create-order`, orderDetails);
+    console.log(response.data); // Log the response data
+
+    if (response.data && response.data.payment_session_id) {
+      setPaymentSessionId(response.data.payment_session_id); // Store the payment session ID
+      setOrderData({ ...orderDetails, payment_session_id: response.data.payment_session_id });
+      alert('Order confirmed! You can now proceed to payment.');
+    } else {
+      alert('Failed to retrieve payment session ID.');
+    }
+
+  } catch (error) {
+    console.error('Error creating order:', error);
+  }
+
+
 
       
     // Additional logic for form submission can be added here
+    
   };
 
+  // handle pay now start--------------
+
+  const handlePayNow = (): void => {
+    if (!paymentSessionId) {
+      alert('Please confirm your order first.');
+      return;
+    }
+  
+    if (cashfree) {
+      const checkoutOptions = {
+        paymentSessionId: paymentSessionId, // Use paymentSessionId from response
+        redirectTarget: '_modal', // Opens the payment modal
+      };
+  
+      cashfree.checkout(checkoutOptions).then(async (result: any) => {
+        if (result.error) {
+          // Handle errors or user actions
+          console.error('Payment error:', result.error);
+          alert('Payment failed. Please try again.');
+        } else if (result.redirect) {
+          // Handle redirection case
+          console.log('Redirecting for payment');
+        } else if (result.paymentDetails) {
+          // Handle successful payment
+          console.log('Payment completed:', result.paymentDetails.paymentMessage);
+          
+          // Store payment details in Firebase
+          const user = auth.currentUser;
+          if (user) {
+            const paymentData = {
+              ...orderData,
+              payment_status: 'success',
+              payment_id: result.paymentDetails.paymentId || '',
+              payment_message: result.paymentDetails.paymentMessage || '',
+              payment_time: result.paymentDetails.paymentTime || '',
+              user_id: user.uid
+            };
+  
+            // Filter out any undefined fields
+            const filteredPaymentData = Object.fromEntries(
+              Object.entries(paymentData).filter(([key, value]) => value !== undefined)
+            );
+  
+            try {
+              const timeZone = 'Asia/Kolkata';
+              const currentDateTime = format(toZonedTime(new Date(), timeZone), 'yyyy-MM-dd HH:mm:ssXXX'); // add timeZone
+              await set(ref(db, 'payments/' + paymentData.order_id), {
+                ...filteredPaymentData,
+                processed_at: currentDateTime
+              });
+              console.log('Payment data stored in Firebase successfully');
+            } catch (error) {
+              console.error('Error storing payment data in Firebase:', error);
+              alert('Payment successful, but failed to store data in Firebase.');
+            }
+          } else {
+            alert('User not logged in');
+          }
+        }
+      }).catch((error: any) => {
+        console.error('Error during payment:', error);
+        alert('Error during payment. Please try again.');
+      });
+    } else {
+      alert('Cashfree SDK not initialized.');
+    }
+  };
+  
+  // handl pay now end -------------
+
+  
   //fire base data access
+
+
+  // handl pay now end -------------
+
+  
 
   const [paticipantData,setParticipantData] = useState<any>({})
   const {currentUser} = useStateContext()
@@ -493,8 +589,17 @@ useEffect(()=>{
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
-          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Proceed</div>
+          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Confirm Order</div>
         </button>
+
+        <button
+          onClick={handlePayNow}
+
+          className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
+        >
+          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Pay now</div>
+        </button>
+
       </div>
     </section>
     </Layout>
