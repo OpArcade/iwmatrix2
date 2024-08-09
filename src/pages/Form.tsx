@@ -40,7 +40,7 @@ export default function Form() {
             checkPhoneNumber();
         }
     }, [user]);
-
+    
     const submit = async () => {
         const auth = getAuth();
         const user = auth.currentUser;
@@ -57,7 +57,7 @@ export default function Form() {
             });
 
             console.log('Data saved to Firebase');
-            navigate('/register');
+            navigate('/events');
         } else {
             console.log('No user is logged in');
         }
@@ -83,8 +83,8 @@ export default function Form() {
                         className="bg-transparent outline-none border rounded-full px-3 py-1"
                         value={year || ''}
                         onChange={(e) => setYear(Number(e.target.value))}
-                        min="1900"
-                        max={new Date().getFullYear()}
+                        min="1"
+                        max="4"
                     />
                 </div>
                 <div className="flex flex-col items-center justify-start gap-5">

@@ -9,6 +9,8 @@ import UiUxBox from "../components/Events/UiUxBox";
 import InsideProjectBox from "../components/Events/InsideEdgeBox";
 import PicturesBox from "../components/Events/PicturesBox";
 import DataScienceBox from "../components/Events/DataScienceBox";
+import { getAuth } from "firebase/auth";
+import { getDatabase, ref, update, get } from "firebase/database";
 
 interface Event {
   name: string;
@@ -155,7 +157,6 @@ const Events = () => {
   const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleSelect = (event: Event) => {
-    console.log(event.name);
     // if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
     //   if (selectedEvents.includes(event)) {
     //     setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
@@ -277,7 +278,10 @@ const Events = () => {
     setFormErrors(errors);
     return errors.length === 0;
   };
-
+  
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const db = getDatabase();
   const handleSubmitForm = (type: "newsSurge" | "liveProjects" | "gamingTournament") => {
     if (validateForm(type)) {
       const event = events.find((e) => e.name === (type === "newsSurge" ? "NEWS SURGE" : type === "liveProjects" ? "LIVE PROJECTS" : "GAMING TOURNAMENT"));
@@ -340,19 +344,39 @@ if (eventTotal === 1) {
 } else if (eventTotal >= 4) {
   eventTotal = 150;
 }
-
 return gameTotal + eventTotal;
 // ashish code ends
-  };
+};
+const url = "http://localhost:4000"
 
-  const handleSubmit = () => {
-    const totalPrice = calculateTotalPrice();
-    setTotal(totalPrice);
+useEffect(()=>{
+  const totalPrice = calculateTotalPrice();
+  setTotal(totalPrice);
+},[selectedEvents])
+  const handleSubmit = async() => {
+    const userRef = ref(db, `users/${user?.uid}/phoneNumber`);
+    const phoneSnapshot = await get(userRef);
+      const res = await fetch(`${url}/create-order`,{
+        method:"post",
+        body: JSON.stringify({amount:total,
+          customer_details: {
+            customer_id: user?.uid,
+            customer_name: user?.displayName || '',
+            customer_email: user?.email || '',
+            customer_phone: phoneSnapshot.toJSON(), // Ensure this is a valid phone number with max 20 chars
+          }
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        }  
+      })
+      const data = await res.json();
+      
     // Additional logic for form submission can be added here
   };
 
-
   return (
+    
     <EventContainer className="bg-white z-50 w-full ">
          <div className=''>
           <video autoPlay muted loop id="myVideo" className="brightness-50 blur-[3px] z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
@@ -440,10 +464,7 @@ return gameTotal + eventTotal;
         </button> */}
 
         <button
-          onClick={() => {
-            console.log(selectedEvents);
-            console.log(calculateTotalPrice());
-          }}
+          onClick={handleSubmit}
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
