@@ -10,6 +10,7 @@ import axios from "axios";
 import { load } from '@cashfreepayments/cashfree-js';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
+// import { Mailer } from "../Mail/Mailer";
 
 interface Event {
   name: string;
@@ -392,7 +393,7 @@ const handleSubmit = async () => {
     } else {
       alert('Failed to retrieve payment session ID.');
     }
-
+    // Mailer(); //Mailer
   } catch (error) {
     console.error('Error creating order:', error);
   }
@@ -455,6 +456,8 @@ const handleSubmit = async () => {
                 processed_at: currentDateTime
               });
               console.log('Payment data stored in Firebase successfully');
+
+              // Mailer(); //Mailer 
             } catch (error) {
               console.error('Error storing payment data in Firebase:', error);
               alert('Payment successful, but failed to store data in Firebase.');
