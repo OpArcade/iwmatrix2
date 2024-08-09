@@ -183,6 +183,11 @@ const Events = () => {
     } 
     if (event.name === "Live Project"){
         setShowLiveProjectsForm(!showLiveProjectsForm)
+        setSelectedEvents((prev) =>
+          prev.includes(event)
+            ? prev.filter((e) => e !== event)
+            : [...prev, event]
+        );
     }
     if (event.name === "Gaming tournament"){
         setShowGamingTournamentForm(!showGamingTournamentForm)
@@ -467,13 +472,13 @@ const handleSubmit = async () => {
     }
   };
   
-  // handl pay now end -------------
+  // handle pay now end -------------
 
   
   //fire base data access
 
 
-  // handl pay now end -------------
+  // handle pay now end -------------
 
   
 
@@ -520,11 +525,11 @@ const handleSubmit = async () => {
           <div
             key={index}
             className={`text-white w-[80%] text-left flex flex-col sm:flex-row justify-center items-center  sm:items-center  gap-1 sm:gap-5 sm:justify-between rounded-2xl h-full sm:h-[300px] shadow-[0px_0px_0px_5px_#4fd1c5] ${
-              selectedEvents.includes(event) ? "bg-cyan-900" : ""
+              selectedEvents.includes(event) ? "bg-black" : ""
             }`}
           >
             {/* image */}
-            <div className="rounded-2xl w-full md:w-[370px] ">
+            <div className="rounded-2xl w-full md:w-[380px] ">
               <img
                 className="border-r-[3px] border-[#00ffd4] sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
                 src={event.img}
@@ -562,9 +567,9 @@ const handleSubmit = async () => {
       </div>
       <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="flex flex-col gap-2 mt-4  text-[#ffffff]">
+          <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:mx- text-[#ffffff]">
             {selectedEvents.map((event, index) => (
-              <h2 key={index} className="text-xl sm:text-3xl">
+              <h2 key={index} className="text-xl sm:text-3xl sm:mx-4">
                 {event.name}
               </h2>
             ))}
@@ -589,7 +594,7 @@ const handleSubmit = async () => {
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
-          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Confirm Order</div>
+          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Confirm Order">Confirm Order</div>
         </button>
 
         <button
@@ -597,7 +602,7 @@ const handleSubmit = async () => {
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
-          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Proceed">Pay now</div>
+          <div className="glitch m-[20px] sm:text-4xl" data-glitch="Pay Now">Pay Now</div>
         </button>
 
       </div>
