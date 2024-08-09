@@ -24,9 +24,9 @@ const Sponsor = () => {
 	<div className="glitch text-center max-sm:text-[45px] max-sm:font-bold" data-glitch="Sponsor Us">Sponsor Us</div>
   <h1 className='text-center text-white text-md md:text-xl max-sm:text-[20px] font-semibold mt-[20px]'>DOWNLOAD THE PROPOSAL</h1>
 
-  {/* log in */}
+ 
   <button className='glowing-btn md:mx-[20px] max-sm:my-[20px] mt-[20px] w-[12rem] flex justify-center text-center'>
-    <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>Do<span className='faulty-letter'>wn</span>load</span> </Link>
+    <Link to='https://drive.google.com/file/d/1Uos5CAX5JHrWfIsVOk6p5dd6Jvbbm0_D/view?usp=sharing' target='_blank' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>Do<span className='faulty-letter'>wn</span>load</span> </Link>
     </button>
 </div>
       </div>
@@ -74,39 +74,31 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
 
       <div className='container md:w-[75%] m-auto'>
        
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/fresca.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/giani.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/jamboree.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/news.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/maac.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/career.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/gillette.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
+        <div className="sponsor w-full rounded-full">
+        <img src="./assets/amul.png" alt="" />
         </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
-        <div className="sponsor">
-        <img src="./assets/1.png" alt="" />
-        </div>
+        
       </div>
       </div>
     </div>

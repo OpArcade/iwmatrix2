@@ -428,9 +428,9 @@ useEffect(()=>{
             }`}
           >
             {/* image */}
-            <div className="rounded-2xl w-full md:w-[350px] ">
+            <div className="rounded-2xl w-full md:w-[370px] ">
               <img
-                className="border-r-[3px] sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
+                className="border-r-[3px] border-[#00ffd4] sm:rounded-l-2xl max-lg:object-fill object-cover  w-full  h-full"
                 src={event.img}
                 alt="image"
               />
@@ -449,7 +449,7 @@ useEffect(()=>{
 
             {/* submit button */}
             <div
-              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-r-2xl mb-5 sm:mb-0 cursor-pointer"
+              className="flex flex-col justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-0 md:w-1/4 sm:rounded-2xl mb-5 sm:mb-0 cursor-pointer m-2"
               onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center">
