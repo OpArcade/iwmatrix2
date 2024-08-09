@@ -4,6 +4,10 @@ import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+
+
+
+
 export default function Form() {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
@@ -87,7 +91,7 @@ export default function Form() {
         <div className="z-[10000] fixed flex items-center justify-center h-[100vh] w-[100vw] text-white backdrop-blur-md">
             <div className="border-2 border-white px-20 py-10 flex flex-col justify-center text-left gap-5 rounded-xl">
                 <h1 className="text-center max:sm-text-xl text-3xl font-semibold">Details</h1>
-                <div className="flex flex-col md:flex-row justify-center items-center ">
+                <div className="flex flex-col md:flex-row justify-around items-center ">
                     <h1>Name</h1>
                     <input
                         type="text"
@@ -96,7 +100,7 @@ export default function Form() {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center ">
+                <div className="flex flex-col md:flex-row justify-around items-center ">
                     <h1>Phone No.</h1>
                     <input
                         type="text"
@@ -105,7 +109,7 @@ export default function Form() {
                         onChange={(e) => setPhone(e.target.value)}
                     />
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center">
+                <div className="flex flex-col md:flex-row gap-4 justify-start items-center">
                     <h1>Course</h1>
                     <input
                         type="text"
@@ -114,7 +118,7 @@ export default function Form() {
                         onChange={(e) => setCourse(e.target.value)}
                     />
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center">
+                <div className="flex flex-col gap-[45px] md:flex-row justify-start items-center">
                     <h1>Year</h1>
                     <input
                         type="number"
@@ -125,8 +129,8 @@ export default function Form() {
                         max={new Date().getFullYear()}
                     />
                 </div>
-                <div className="flex flex-col items-center justify-start gap-5">
-                    <div>
+                <div className="flex  gap-5">
+                    <div className="flex flex-row justify-around text-center gap-[50px]">
                         <h1>College</h1>
                         <select
                             className="bg-transparent outline-none border"
@@ -148,15 +152,7 @@ export default function Form() {
                         disabled={!otherCollegeEnabled}
                     />
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center">
-                    <h1>Team Name</h1>
-                    <input
-                        type="text"
-                        className="bg-transparent outline-none border rounded-full px-3 py-1"
-                        value={teamname}
-                        onChange={(e) => setteamname(e.target.value)}
-                    />
-                </div>
+                
                 
                 <button onClick={submit} className="bg-white text-black px-5 py-3 rounded-full font-semibold">Submit</button>
             </div>

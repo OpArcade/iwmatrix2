@@ -108,6 +108,10 @@ const Events = () => {
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
   });
+
+  // participationType : solo
+  // participationType: team
+  // const [liveProjectDetailsCustom, setLiveProjectDetailsCustom] = useState({participationType: "" , team: [{name: "", phone:"", email:""}]})
   const [gamingTournamentDetails, setGamingTournamentDetails] = useState<EventDetails>({
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
