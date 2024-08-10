@@ -810,7 +810,7 @@ const handleSubmit = async () => {
       </div>
       <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
-        <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Selected Tickets</h1>
+        <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Selected Events</h1>
           <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:mx- text-[#ffffff]">
             {selectedEvents.map((event, index) => (
               <h2 key={index} className="text-xl sm:text-3xl sm:mx-4">
