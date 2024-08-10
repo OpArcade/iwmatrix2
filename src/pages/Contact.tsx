@@ -1,9 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
-import { CiFacebook, CiInstagram, CiLinkedin, CiLocationOn } from "react-icons/ci";
+import { CiFacebook, CiInstagram, CiLinkedin} from "react-icons/ci";
 import { IoIosMail } from "react-icons/io";
-import { FaFacebook, FaInstagramSquare, FaPhoneAlt } from "react-icons/fa";
-import { FaLinkedin, FaLocationDot, FaSquareXTwitter, FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import Layout from '../layout/Layout';
 
 

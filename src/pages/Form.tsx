@@ -12,7 +12,7 @@ export default function Form() {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [course, setCourse] = useState<string>('');
-    const [teamname, setteamname] = useState<string>('');
+    const [teamname] = useState<string>('');
     const college = useRef<HTMLSelectElement>(null);
     const [year, setYear] = useState<number | undefined>();
     const [otherCollege, setOtherCollege] = useState<string>('');

@@ -1,8 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 import Layout from '../layout/Layout'
 import About from '../components/About'
-import Glimpses from '../components/Glimpses'
 import Faq from '../components/Faq'
 import { Link, useNavigate } from 'react-router-dom'
 import Eventshome from '../components/Eventshome'

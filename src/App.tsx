@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
-import About from './components/About';
 import Events from './pages/Events';
 import Sponsor from './pages/Sponsor';
 import Burger from './components/Burger';

@@ -1,7 +1,6 @@
 
 import styled from 'styled-components'
 
-import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -47,34 +46,34 @@ modules={[EffectCoverflow, Pagination, Autoplay]}
   className="mySwiper"
 >
   <SwiperSlide>
-    <img src="./assets/10.webp" />
+    <img src="./assets/10.webp" alt='photo' />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/11.webp" />
+    <img src="./assets/11.webp"alt='photo' />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/12.webp" />
+    <img src="./assets/12.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/13.webp" />
+    <img src="./assets/13.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/14.webp" />
+    <img src="./assets/14.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/15.webp" />
+    <img src="./assets/15.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/16.webp" />
+    <img src="./assets/16.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/17.webp" />
+    <img src="./assets/17.webp"alt='photo' />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/18.webp" />
+    <img src="./assets/18.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/19.webp" />
+    <img src="./assets/19.webp"alt='photo' />
   </SwiperSlide>
   
 

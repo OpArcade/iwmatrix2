@@ -1,6 +1,4 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { useStateContext } from '../globalcontext/ContextProvider';
 
 
@@ -48,71 +46,5 @@ const Burger = () => {
 }
 
 
-const BurgerContainer = styled.div`
 
-  @media (max-width:900px){
-    #burgerButton{
-      left: 48rem;
-    }
-  }
-  @media (max-width:850px){
-    #burgerButton{
-      left: 45rem;
-    }
-  }
-  @media (max-width:800px){
-    #burgerButton{
-      left: 42rem;
-    }
-  }
-
-  @media (max-width:750px){
-    #burgerButton{
-      left: 37rem;
-    }
-  }
-  @media (max-width:700px){
-    #burgerButton{
-      left: 35rem;
-    }
-  }
-
-  @media (max-width:650px){
-    #burgerButton{
-      left: 33rem;
-    }
-  }
-
-  @media (max-width:600px){
-    #burgerButton{
-      left: 31rem;
-    }
-  }
-
-  @media (max-width:550px){
-    #burgerButton{
-      left: 29rem;
-    }
-  }
-
-  @media (max-width:500px){
-    #burgerButton{
-      left: 27rem;
-    }
-  }
-
-  
-  
-  @media (max-width:460px){
-    #burgerButton{
-      left: 23rem;
-    }
-  }
-  
-  @media (max-width:385px){
-    #burgerButton{
-      left: 20rem;
-    }
-  }
-`
 export default Burger

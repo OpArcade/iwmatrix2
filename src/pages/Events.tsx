@@ -1,9 +1,8 @@
-import { CheckCheck } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
 
-import { getDatabase, set,ref, update, get, onValue } from "firebase/database";
+import {  set,ref,  get, onValue } from "firebase/database";
 import {db,auth} from "../firebase/firebase"
 import { useStateContext } from "../globalcontext/ContextProvider";
 import axios from "axios";
@@ -11,9 +10,8 @@ import { load } from '@cashfreepayments/cashfree-js';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 // import { Mailer } from "../Mail/Mailer";
-import { useNavigation, Link } from 'react-router-dom';
-import { TeamName } from "../components/Events/TeamName";
 import {toast} from 'react-hot-toast'
+import { TeamName } from "../components/Events/TeamName";
 
 
 // interface Event {
