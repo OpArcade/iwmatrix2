@@ -12,6 +12,8 @@ import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 // import { Mailer } from "../Mail/Mailer";
 import { useNavigation, Link } from 'react-router-dom';
+import { TeamName } from "../components/Events/TeamName";
+import {toast} from 'react-hot-toast'
 
 
 // interface Event {
@@ -112,13 +114,7 @@ const events: Event[] = [
 const Events = () => {
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const [total, setTotal] = useState<number>(0);
-  const [ShowNewsSurge, setShowNewsSurge] = useState<boolean>(false);
-  const [showLiveProjectsForm, setShowLiveProjectsForm] = useState<boolean>(false);
-  const [showGamingTournamentForm, setShowGamingTournamentForm] = useState<boolean>(false);
-  const [dataScienceForm, setDataScienceForm] = useState<boolean>(false);
-  const [picturesForm, setPicturesForm] = useState<boolean>(false);
-  const [uiUxForm, setUiUxForm] = useState<boolean>(false);
-  const [insideEdgeForm, setInsideEdgeForm] = useState<boolean>(false);
+  const [isOpen,setIsOpen] = useState<boolean>(false);
   const [team,setTeam] = useState<string>()
   const [amount,setAmount] = useState<number>(0)
 
@@ -137,7 +133,7 @@ const Events = () => {
 
 
   // ashish start
-  const [teamName, setTeamName] = useState('');
+  const [teamName, setTeamName] = useState<string>('');
 
   
 
@@ -197,26 +193,11 @@ const Events = () => {
   const handleSelect = (event: Event) => {
   console.log(selectedEvents)
   console.log("events selected done")
-    // if (event.name === "News Surge" || event.name === "Live Project" || event.name === "Gaming tournament") {
-    //   if (selectedEvents.includes(event)) {
-    //     setSelectedEvents((prev) => prev.filter((e) => e.name !== event.name));
-    //   } else {
-    //     if (event.name === "News Surge") setShowNewsSurge(true);
-    //     if (event.name === "Live Project") setShowLiveProjectsForm(true);
-    //     if (event.name === "Gaming tournament") setShowGamingTournamentForm(true);
-    //   }
-    // } else {
-    //   setSelectedEvents((prev) =>
-    //     prev.includes(event)
-    //       ? prev.filter((e) => e !== event)
-    //       : [...prev, event]
-    //   );
-    // }
 
     // New Logic
 
     if (event.name === "News Surge"){
-        setShowNewsSurge(!ShowNewsSurge)
+        setIsOpen(true)
         setSelectedEvents((prev) =>
               prev.includes(event)
                 ? prev.filter((e) => e !== event)
@@ -224,7 +205,7 @@ const Events = () => {
             );
     } 
     if (event.name === "Live Project"){
-        setShowLiveProjectsForm(!showLiveProjectsForm)
+        setIsOpen(true)
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -232,7 +213,7 @@ const Events = () => {
         );
     }
     if (event.name === "Gaming tournament"){
-        setShowGamingTournamentForm(!showGamingTournamentForm)
+        setIsOpen(true)
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -240,15 +221,13 @@ const Events = () => {
         );
     }
     if (event.name === "Inside Edge"){
-        setInsideEdgeForm(!insideEdgeForm)
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
             : [...prev, event]
         );
     }
-    if (event.name === "UI/UX"){
-        setUiUxForm(!uiUxForm)
+    if (event.name === "UI/UX Design"){
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -256,7 +235,6 @@ const Events = () => {
         );
     }
     if (event.name === "Data Science"){
-        setDataScienceForm(!dataScienceForm)
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -264,7 +242,6 @@ const Events = () => {
         );
     }
     if (event.name === "Pitchers"){
-        setPicturesForm(!picturesForm)
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -329,9 +306,7 @@ const Events = () => {
       const event = events.find((e) => e.name === (type === "newsSurge" ? "NEWS SURGE" : type === "liveProjects" ? "LIVE PROJECTS" : "GAMING TOURNAMENT"));
       if (event) {
         setSelectedEvents((prev) => [...prev, event]);
-        if (type === "newsSurge") setShowNewsSurge(false);
-        if (type === "liveProjects") setShowLiveProjectsForm(false);
-        if (type === "gamingTournament") setShowGamingTournamentForm(false);
+        
       }
     }
   };
@@ -516,9 +491,11 @@ const handleSubmit = async () => {
     if (response.data && response.data.payment_session_id) {
       setPaymentSessionId(response.data.payment_session_id); // Store the payment session ID
       setOrderData({ ...orderDetails, payment_session_id: response.data.payment_session_id });
-      alert('Order confirmed! You can now proceed to payment.');
+      toast('Order confirmed! You can now proceed to payment.', {
+        icon: '🤩',
+      });
     } else {
-      alert('Failed to retrieve payment session ID.');
+      toast.error('Failed to retrieve payment session ID.');
     }
 
     // Mailer(); //Mailer
@@ -605,7 +582,9 @@ const handleSubmit = async () => {
   
   const handlePayNow = (): void => {
     if (!paymentSessionId) {
-      alert('Please confirm your order first.');
+      toast('Please confirm the order!', {
+        icon: '👀',
+      });
       return;
     }
   
@@ -619,7 +598,9 @@ const handleSubmit = async () => {
         if (result.error) {
           // Handle errors or user actions
           console.error('Payment error:', result.error);
-          alert('Payment failed. Please try again.');
+          toast('Payment failed. Please try again.', {
+            icon: '🥲',
+          });
         } else if (result.redirect) {
           // Handle redirection case
           console.log('Redirecting for payment');
@@ -659,22 +640,22 @@ const handleSubmit = async () => {
                 switch (event.name) {
                   case 'Gaming tournament':
                     gamingTournament = event;
-                    break;
+                  break;
                   case 'News Surge':
                     newsSurge = event;
-                    break;
+                  break;
                   case 'Pitchers':
                     pitchers = event;
-                    break;
+                  break;
                   case 'Inside Edge':
                     insideEdge = event;
                     break;
                   case 'UI/UX':
                     uiUx = event;
-                    break;
+                  break;
                   case 'Live Project':
                     liveProject = event;
-                    break;
+                  break;
                   default:
                     break;
                 }
@@ -689,27 +670,32 @@ const handleSubmit = async () => {
                   await set(ref(db, `events/${event.name}/${user.uid}`), {
                     user_id: user.uid,
                     event_name: event.name,
+                    teamName:teamName || null,
                     registered_at: currentDateTime
                   });
                 }
               }
-              console.log('Selected event data stored in Firebase successfully');
+              console.log('Selected event data and team name stored in Firebase successfully');
   
               // Mailer(); //Mailer 
             } catch (error) {
               console.error('Error storing payment data in Firebase:', error);
-              alert('Payment successful, but failed to store data in Firebase.');
+              toast('Payment successful, but failed to store data in Firebase.', {
+                icon: '🥳',
+              });
             }
           } else {
-            alert('User not logged in');
+            toast('User not logged in', {
+              icon: '🤨',
+            });
           }
         }
       }).catch((error: any) => {
         console.error('Error during payment:', error);
-        alert('Error during payment. Please try again.');
+        toast.error('Error during payment. Please try again.');
       });
     } else {
-      alert('Cashfree SDK not initialized.');
+      toast.error('Cashfree SDK not initialized.');
     }
   };
   // handle pay now end -------------
@@ -771,7 +757,7 @@ const handleSubmit = async () => {
             {/* image */}
             <div className="rounded-2xl w-full md:w-[400px] lg:w-[350px] md:h-[350px] ">
               <img
-                className="max-sm:border-b-[4px]   lg:border-r-[3px] max-sm:rounded-2xl border-[#00ffd4] rounded-b-2xl sm:rounded-l-2xl max-lg:object-fill object-fit  w-full  h-full"
+                className="max-sm:border-b-[4px]   lg:border-r-[3px] max-sm:rounded-2xl border-[#00ffd4] max-md:rounded-b-2xl sm:rounded-l-2xl max-lg:object-fill object-fit  w-full  h-full"
                 src={event.img}
                 alt="image"
               />
@@ -786,7 +772,6 @@ const handleSubmit = async () => {
 
               <div className="max-sm:text-[15px] max-sm:mt-9 max-sm:mx-[3px] md:text-[15px] text-center mt-3">
                 {event.desc} <div className="text-[#00ffd4] text-lg">{event.link }</div>
-                
               </div>
             </div>
 
@@ -808,6 +793,11 @@ const handleSubmit = async () => {
           </div>
         ))}
       </div>
+      {isOpen && <TeamName
+        teamName={teamName}
+        setTeamName={setTeamName}
+        setOpen={setIsOpen}
+      />}
       <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
         <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Selected Events</h1>
@@ -821,6 +811,9 @@ const handleSubmit = async () => {
           <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
             Total Price: ₹ {calculateTotalPrice()}
           </h2>
+          {teamName !== '' && <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
+            Your Team Name Is : {teamName}
+          </h2>}
         </div>
         {/* <button
           onClick={() => {
