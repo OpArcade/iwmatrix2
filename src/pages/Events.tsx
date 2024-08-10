@@ -777,7 +777,7 @@ const handleSubmit = async () => {
 
             {/* submit button */}
             <div
-              className=" justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-[2px] sm:px-2 md:w-1/4 sm:rounded-md lg:rounded-2xl mb-5 sm:mb-0 cursor-pointer m-2"
+              className={index===0 ?"" : " justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-[2px] sm:px-2 md:w-1/4 sm:rounded-md lg:rounded-2xl mb-5 sm:mb-0 cursor-pointer m-2"}
               onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center flex justify-center">
@@ -785,7 +785,7 @@ const handleSubmit = async () => {
                   // <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                   <><h1>Selected</h1></>
                 ) : (
-                  index === 0 ? 'Register with Davfolio' : 'Select'
+                  index === 0 ?  <div className="flex flex-row justify-center items-center border-4 cursor-pointer border-[#3289fb] rounded-xl max-sm:my-4 max-sm:p-4 sm:rounded-xl lg:rounded-2xl px-4 mx-4"><img src="./assets/devfolio.png" alt="devfolio" className="w-[20px] h-[20px] m-[2px]"/> <p className="text-lg text-white"> Register with Davfolio</p> </div>  : 'Select'
                 )}
               </h1>
             </div>
