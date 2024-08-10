@@ -18,6 +18,8 @@ interface Event {
   name: string;
   img: string;
   desc: string;
+  link: string;
+
 }
 
 interface TeamMember {
@@ -31,58 +33,71 @@ interface EventDetails {
   team: TeamMember[];
 }
 
+// ashish code start
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+  onTeamNameSubmit: (teamName: string) => void;
+}
+
+
+// ashish code end
 const events: Event[] = [
 
   {
     name: "HACKATHON",
     desc: "Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop innovative software or hardware solutions. Participants work on selected projects and present their completed work to judges for evaluation.",
+    link:"https://example.com/hackathon",
+   
     img: "./assets/hacakthom.png",
   },
   {
     name: "Inside Edge",
     desc: "Become the team manager of your cricket franchise and bid for top players to create your dream team. Climb from qualifying round 1 to final round 2, engaging in friendly competition and strategic planning to win the title of the best cricket team.",
-   
+    link:"https://example.com/hackathon",
     img: "./assets/INSIDE EDGE.png",
   },
   {
     name: "UI/UX Design",
     desc: "This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs. Connect with design enthusiasts, explore the latest trends, and enhance your skills while contributing to innovative solutions in the tech community.",
-   
+    link:"https://example.com/hackathon",
     img: "./assets/UI-UX DESIGN.png",
   },
   {
     name: "Gaming Parlour",
     desc: "Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete tasks within specified time limits. Originality and integrity must be maintained.Follow event behavior guidelines.",
-    
+    link:"https://example.com/hackathon",
     img: "./assets/GAME PAR.png",
   },
   {
     name: "Gaming tournament",
     desc: "Team up with friends and dive into thrilling gaming challenges! Level up your experience, make new gaming buddies, and enjoy the excitement of the walk-in gaming zone to uplift your spirits. ",
-    
+    link:"https://example.com/hackathon",
     img: "./assets/GAME TOUR.png",
   },
   {
     name: "News Surge",
     desc: "Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document the Tech Fest in real time, capturing activities and highlights with creativity and journalistic flair. Present the event professionally and entertainingly",
-    
+    link:"https://example.com/hackathon",
     img: "./assets/NEWS SURGE.png",
   },
   {
     name: "Pitchers",
     desc: "Unleash your entrepreneurial spirit to solve real-world issues with innovative tech-driven business models. Showcase your groundbreaking ideas, and turn them into impactful prototypes to present your vision to a discerning audience.",
     img: "./assets/PITCHERS.png",
+    link:"https://example.com/hackathon",
   },
   {
     name: "Live Project",
     desc: "The Live Project challenge invites you to create a tangible IoT-based solution for a real-world problem. Showcase your creativity, innovate, and gain hands-on experience with a project of your choice to enhance your portfolio. ",
-    
+    link:"https://example.com/hackathon",
     img: "./assets/LIVE PROJECT.png",
   },
   {
     name: "Data Science",
     desc: "Dive into data with tasks across three dynamic rounds, testing your skills in sorting, cleaning, and visualization. Showcase your expertise, compete with fellow enthusiasts, and uncover valuable insights into the world of data science.",
-    img : "./assets/Data analytics.png"
+    img : "./assets/Data analytics.png",
+    link:"https://example.com/hackathon",
   },
 
 ];
@@ -112,6 +127,14 @@ const Events = () => {
   // participationType : solo
   // participationType: team
   // const [liveProjectDetailsCustom, setLiveProjectDetailsCustom] = useState({participationType: "" , team: [{name: "", phone:"", email:""}]})
+
+
+  // ashish start
+  const [teamName, setTeamName] = useState('');
+
+  
+
+  // ashish end
   const [gamingTournamentDetails, setGamingTournamentDetails] = useState<EventDetails>({
     participationType: "solo",
     team: [{ name: "", phone: "", email: "" }],
@@ -754,7 +777,7 @@ const handleSubmit = async () => {
                 {event.name}
               </div>
               <div className="max-sm:text-[15px] max-sm:mt-9 max-sm:mx-[3px] md:text-[15px] text-center mt-3">
-                {event.desc}
+                {event.desc} {event.link}
               </div>
             </div>
 
@@ -777,6 +800,7 @@ const handleSubmit = async () => {
       </div>
       <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
+        <h1 className="text-white text-xl ">Selected Tickets</h1>
           <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:mx- text-[#ffffff]">
             {selectedEvents.map((event, index) => (
               <h2 key={index} className="text-xl sm:text-3xl sm:mx-4">
