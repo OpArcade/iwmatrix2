@@ -31,7 +31,7 @@ const Burger = () => {
   // </div>
   // </div>
   //   </BurgerContainer>
-    <aside className='fixed z-[10000] w-[60%] p-4 bg-black h-full top-0'>
+    <aside className='fixed z-[100000] w-[60%] p-4 bg-black h-full top-0'>
       <div>
         <img src="./assets/LOGO MATRIX 2.0.png" alt="" className=' w-2/4 max-md:w-[200px]'/>
       </div>
