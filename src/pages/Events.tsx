@@ -61,16 +61,10 @@ const events: Event[] = [
     img: "./assets/hacakthom.png",
   },
   {
-    name: "Inside Edge",
-    desc: "Become the team manager of your cricket franchise and bid for top players to create your dream team. Climb from qualifying round 1 to final round 2, engaging in friendly competition and strategic planning to win the title of the best cricket team.",
-   link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
-    img: "./assets/INSIDE EDGE.png",
-  },
-  {
-    name: "UI/UX Design",
-    desc: "This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs. Connect with design enthusiasts, explore the latest trends, and enhance your skills while contributing to innovative solutions in the tech community.",
-   link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
-    img: "./assets/UI-UX DESIGN.png",
+    name: "Live Project",
+    desc: "The Live Project challenge invites you to create a tangible IoT-based solution for a real-world problem. Showcase your creativity, innovate, and gain hands-on experience with a project of your choice to enhance your portfolio. ",
+  link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
+    img: "./assets/LIVE PROJECT.png",
   },
   {
     name: "Gaming Parlour",
@@ -85,10 +79,31 @@ const events: Event[] = [
     img: "./assets/GAME TOUR.png",
   },
   {
+    name: "Inside Edge",
+    desc: "Become the team manager of your cricket franchise and bid for top players to create your dream team. Climb from qualifying round 1 to final round 2, engaging in friendly competition and strategic planning to win the title of the best cricket team.",
+   link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
+    img: "./assets/INSIDE EDGE.png",
+  },
+  {
+    name: "UI/UX Design",
+    desc: "This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs. Connect with design enthusiasts, explore the latest trends, and enhance your skills while contributing to innovative solutions in the tech community.",
+   link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
+    img: "./assets/UI-UX DESIGN.png",
+  },
+
+  
+  {
     name: "News Surge",
     desc: "Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document the Tech Fest in real time, capturing activities and highlights with creativity and journalistic flair. Present the event professionally and entertainingly",
    link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
     img: "./assets/NEWS SURGE.png",
+  },
+  
+  {
+    name: "Data Science",
+    desc: "Dive into data with tasks across three dynamic rounds, testing your skills in sorting, cleaning, and visualization. Showcase your expertise, compete with fellow enthusiasts, and uncover valuable insights into the world of data science.",
+    img : "./assets/Data analytics1.png",
+  link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
   },
   {
     name: "Pitchers",
@@ -96,18 +111,7 @@ const events: Event[] = [
     img: "./assets/PITCHERS.png",
    link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
   },
-  {
-    name: "Live Project",
-    desc: "The Live Project challenge invites you to create a tangible IoT-based solution for a real-world problem. Showcase your creativity, innovate, and gain hands-on experience with a project of your choice to enhance your portfolio. ",
-  link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
-    img: "./assets/LIVE PROJECT.png",
-  },
-  {
-    name: "Data Science",
-    desc: "Dive into data with tasks across three dynamic rounds, testing your skills in sorting, cleaning, and visualization. Showcase your expertise, compete with fellow enthusiasts, and uncover valuable insights into the world of data science.",
-    img : "./assets/Data analytics.png",
-  link: <a href="https://example.com/hackathon" target="_blank">Read more</a>,
-  },
+ 
 
 ];
 

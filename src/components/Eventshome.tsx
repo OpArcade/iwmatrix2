@@ -48,7 +48,7 @@ const Eventshome = () => {
   }}
 >
 
-
+{/* Hachathon */}
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
@@ -67,114 +67,7 @@ const Eventshome = () => {
 </div>
   </SwiperSlide>
 
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/INSIDE EDGE.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Inside Edge</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">Become the team manager of your cricket franchise and bid for top players to create your dream team.......</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/UI-UX DESIGN.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">UI/UX</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs.....</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/GAME PAR.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming Parlour</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete......</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/GAME TOUR.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming tournament</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">Team up with friends and dive into thrilling gaming challenges! Level up your experience, make......</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/NEWS SURGE.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">News Surge</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document......</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
-  <SwiperSlide>
-     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-<img className="rounded-t-lg object-cover" src="./assets/PITCHERS.png" alt=""/>
-<div className="p-5 bg-black">
-
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Pitchers</h5>
-
-<p className="mb-3 font-normal text-white dark:text-white">Unleash your entrepreneurial spirit to solve real-world issues with innovative tech-driven business models.......</p>
-
-<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
-</div>
-</div>
-  </SwiperSlide>
-
+  {/* Live Project */}
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
@@ -193,10 +86,109 @@ const Eventshome = () => {
 </div>
   </SwiperSlide>
 
+{/* Gaming Parlour */}
+<SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/GAME PAR.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming Parlour</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete......</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+
+
+{/* Gaming tournament */}
+<SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/GAME TOUR.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming tournament</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Team up with friends and dive into thrilling gaming challenges! Level up your experience, make......</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+{/* Inside Edge */}
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-<img className="rounded-t-lg object-cover" src="./assets/Data analytics.png" alt=""/>
+<img className="rounded-t-lg object-cover" src="./assets/INSIDE EDGE.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Inside Edge</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Become the team manager of your cricket franchise and bid for top players to create your dream team.......</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+{/* UI/UX Design */}
+  <SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/UI-UX DESIGN.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">UI/UX Design</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs.....</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+
+{/* News Surge */}
+  <SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/NEWS SURGE.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">News Surge</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document......</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
+{/* Data Science */}
+<SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/Data analytics1.png" alt=""/>
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Data Science</h5>
@@ -210,6 +202,26 @@ const Eventshome = () => {
 </div>
 </div>
   </SwiperSlide>
+
+{/* Pitchers */}
+  <SwiperSlide>
+     <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+<img className="rounded-t-lg object-cover" src="./assets/PITCHERS.png" alt=""/>
+<div className="p-5 bg-black">
+
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Pitchers</h5>
+
+<p className="mb-3 font-normal text-white dark:text-white">Unleash your entrepreneurial spirit to solve real-world issues with innovative tech-driven business models.......</p>
+
+<a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
+    Register Now
+   
+</a>
+</div>
+</div>
+  </SwiperSlide>
+
 
   
 
