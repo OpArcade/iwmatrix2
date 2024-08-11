@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
+import { CheckCheck } from "lucide-react";
+import { getDatabase, set,ref, update, get, onValue } from "firebase/database";
 
-import {  set,ref,  get, onValue } from "firebase/database";
 import {db,auth} from "../firebase/firebase"
 import { useStateContext } from "../globalcontext/ContextProvider";
 import axios from "axios";
@@ -11,8 +12,9 @@ import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 // import { Mailer } from "../Mail/Mailer";
 import {toast} from 'react-hot-toast'
+import { useNavigation, Link, useNavigate } from 'react-router-dom';
 import { TeamName } from "../components/Events/TeamName";
-
+import Home from "./Home";
 
 // interface Event {
 //   name: string;
@@ -370,7 +372,8 @@ const [cashfree, setCashfree] = useState<any>(null);
 useEffect(()=>{
   const initializeSDK = async () => {
     try {
-      const sdk = await load({ mode: 'sandbox' });
+      // const sdk = await load({ mode: 'sandbox' });
+      const sdk = await load({ mode: 'production' });
       setCashfree(sdk);
     } catch (error) {
       console.error('Error initializing Cashfree SDK:', error);
@@ -577,7 +580,7 @@ const handleSubmit = async () => {
   
   
   
-  
+  const navigate = useNavigate()
   const handlePayNow = (): void => {
     if (!paymentSessionId) {
       toast('Please confirm the order!', {
@@ -695,6 +698,8 @@ const handleSubmit = async () => {
     } else {
       toast.error('Cashfree SDK not initialized.');
     }
+
+  navigate("/Home")
   };
   // handle pay now end -------------
 
@@ -798,7 +803,7 @@ const handleSubmit = async () => {
       />}
       <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
-        <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Selected Events</h1>
+        <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Your Selected Events</h1>
           <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:mx- text-[#ffffff]">
             {selectedEvents.map((event, index) => (
               <h2 key={index} className="text-xl sm:text-3xl sm:mx-4">

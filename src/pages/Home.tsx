@@ -5,15 +5,42 @@ import Faq from '../components/Faq'
 import { Link, useNavigate } from 'react-router-dom'
 import Eventshome from '../components/Eventshome'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import { auth } from '../firebase/firebase'
+import { auth , db } from '../firebase/firebase'
 import toast from 'react-hot-toast'
 import { useStateContext } from '../globalcontext/ContextProvider'
+import { useEffect } from 'react'
+import { get , ref } from 'firebase/database'
 
 const Home = () => {
 
+
+
+  
   const navigate = useNavigate();
 
   const { currentUser , openMenu}= useStateContext();
+
+
+
+
+useEffect(() => {
+if(currentUser!== undefined){
+  const checkPhoneNumber = async () => {
+  
+
+      if (currentUser) {
+          const userRef = ref(db, `users/${currentUser.uid}/phoneNumber`);
+          const phoneSnapshot = await get(userRef);
+
+          if (phoneSnapshot.exists()) {
+              navigate('/');
+          }
+      }
+  };
+
+  checkPhoneNumber();
+}
+}, [currentUser]);
 
   const googleSignIn=async(e:any)=>{
     e.preventDefault();
@@ -71,14 +98,14 @@ const Home = () => {
         <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>}
 {/* sign in */}
       {currentUser === null && <button className='glowing-btn flex justify-center' onClick={(e)=>googleSignIn(e)}>
-        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>In</span> </Link></button>}
+        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>Up</span> </Link></button>}
  
 {/* register now */}
       {currentUser !== null && <button className='glowing-btn mt-[20px] flex justify-center'><Link to='/Events' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button>}
  
  {/* Alrwady register */}
 
-{/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button> */}
+<button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button>
 
 </div>
     </Layout>

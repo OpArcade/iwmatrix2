@@ -108,22 +108,22 @@ const Contact = () => {
           <h3 className="title">Contact us</h3>
           <div className="input-container">
             <input type="text" name="name" className="input" />
-            <label htmlFor="">Username</label>
+            <label htmlFor=""></label>
             <span>Username</span>
           </div>
           <div className="input-container">
             <input type="email" name="email" className="input" />
-            <label htmlFor="">Email</label>
+            <label htmlFor=""></label>
             <span>Email</span>
           </div>
           <div className="input-container">
             <input type="tel" name="phone" className="input" />
-            <label htmlFor="">Phone</label>
+            <label htmlFor=""></label>
             <span>Phone</span>
           </div>
           <div className="input-container textarea">
             <textarea name="message" className="input"></textarea>
-            <label htmlFor="">Message</label>
+            <label htmlFor=""></label>
             <span>Message</span>
           </div>
           <input type="submit" value="Send" className="btn" />
