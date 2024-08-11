@@ -353,7 +353,7 @@ selectedEvents.forEach((event: { name: string }) => {
 });
 
 if (eventTotal === 1) {
-  eventTotal = 1;
+  eventTotal = 50;
 } else if (eventTotal === 2) {
   eventTotal = 80;
 } else if (eventTotal === 3) {
