@@ -8,17 +8,37 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth , db } from '../firebase/firebase'
 import toast from 'react-hot-toast'
 import { useStateContext } from '../globalcontext/ContextProvider'
-import { useEffect } from 'react'
-import { get , ref } from 'firebase/database'
+import { useEffect, useState } from 'react'
+import { get , onValue, ref } from 'firebase/database'
+
 
 const Home = () => {
+
+  const { currentUser , openMenu}= useStateContext();
+
+  const [paymentdetails , setPaymentdetails] = useState<any>({});
+
+  const dbref = ref(db,`payments/${currentUser.uid}`)
+
+  const getPaymentdetails=()=>{
+    onValue(dbref,(snapshot)=>{
+      if(snapshot.exists()){
+        let info = snapshot.val();
+        setPaymentdetails(info)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    getPaymentdetails()
+  },[currentUser])
 
 
 
   
   const navigate = useNavigate();
 
-  const { currentUser , openMenu}= useStateContext();
+  
 
 
 
@@ -101,12 +121,23 @@ if(currentUser!== undefined){
         <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>Up</span> </Link></button>}
  
 {/* register now */}
-      {currentUser !== null && <button className='glowing-btn mt-[20px] flex justify-center'><Link to='/Events' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button>}
- 
+{ paymentdetails?.payment_status !== 'success' && 
+      currentUser !== null && <button className='glowing-btn mt-[20px] flex justify-center'><Link to='/Events' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button>
+}
  {/* Alrwady register */}
 
-{/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button> */}
-
+{ paymentdetails?.payment_status === 'success' && currentUser !== null &&
+ <button className='glowing-btn mt-[20px] flex justify-center'>
+  
+  <Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'>
+  
+  <span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd
+  </span> 
+  
+  </Link>
+  
+  </button>
+}
 </div>
     </Layout>
 

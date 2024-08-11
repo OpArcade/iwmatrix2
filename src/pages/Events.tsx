@@ -15,7 +15,7 @@ import {toast} from 'react-hot-toast'
 import { useNavigation, Link, useNavigate } from 'react-router-dom';
 import { TeamName } from "../components/Events/TeamName";
 import Home from "./Home";
-
+import * as admin from 'firebase-admin';
 // interface Event {
 //   name: string;
 //   img: string;
@@ -353,7 +353,7 @@ selectedEvents.forEach((event: { name: string }) => {
 });
 
 if (eventTotal === 1) {
-  eventTotal = 50;
+  eventTotal = 1;
 } else if (eventTotal === 2) {
   eventTotal = 80;
 } else if (eventTotal === 3) {
@@ -581,6 +581,7 @@ const handleSubmit = async () => {
   
   
   const navigate = useNavigate()
+
   const handlePayNow = (): void => {
     if (!paymentSessionId) {
       toast('Please confirm the order!', {
@@ -629,7 +630,7 @@ const handleSubmit = async () => {
             try {
               const timeZone = 'Asia/Kolkata';
               const currentDateTime = format(toZonedTime(new Date(), timeZone), 'yyyy-MM-dd HH:mm:ssXXX'); // add timeZone
-              await set(ref(db, 'payments/' + paymentData.order_id), {
+              await set(ref(db, 'payments/' + user.uid), {
                 ...filteredPaymentData,
                 processed_at: currentDateTime
               });
@@ -699,7 +700,50 @@ const handleSubmit = async () => {
       toast.error('Cashfree SDK not initialized.');
     }
 
+    // ashish
   navigate("/Home")
+
+ 
+
+// // Initialize Firebase Admin SDK
+// const serviceAccount = require("../config/matrix2-0-firebase-adminsdk-susz5-9c5e73fcdd.json"); // Replace with your service account file path
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
+
+// const db2 = admin.firestore();
+
+// async function checkUserIdExists(userId: string): Promise<boolean> {
+//   try {
+//     const paymentRef = db2.collection('userPayments'); // Replace 'userPayments' with your collection name
+//     const snapshot = await paymentRef.where('user_id', '==', userId).get();
+
+//     if (!snapshot.empty) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   } catch (error) {
+//     console.error('Error checking user_id: ', error);
+//     return false;
+//   }
+// }
+
+// // Example usage:
+// const userIdToCheck = 'siEsGtlpTFZUcWHshyPSh7Etivs1'; // Replace with the user_id you want to check
+// checkUserIdExists(userIdToCheck).then((exists) => {
+//   if (exists) {
+//     console.log('User ID exists:', exists);
+//   } else {
+//     console.log('User ID does not exist:', exists);
+//   }
+// });
+
+ 
+
+  // ashish 
+
   };
   // handle pay now end -------------
 

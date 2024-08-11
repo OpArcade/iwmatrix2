@@ -8,7 +8,7 @@ const About = () => {
 
       <section className=''>
       <div className="glitch-wrapper ">
-	              <div className="glitch " data-glitch="About Internware">About Internware</div>
+	              <div className="glitch " data-glitch="About Internware">About InternWare</div>
         </div>
         
         <div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[75%] md:mt-6 w-full m-auto'>

@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useStateContext } from '../globalcontext/ContextProvider'
+import { onValue, ref } from 'firebase/database'
+import { db } from '../firebase/firebase'
 
 const Navbar = () => {
 
-  const { setOpenMenu , openMenu}= useStateContext();
+  const { setOpenMenu ,currentUser, openMenu}= useStateContext();
 
+
+
+  const [paymentdetails , setPaymentdetails] = useState<any>({});
+
+  const dbref = ref(db,`payments/${currentUser.uid}`)
+
+  const getPaymentdetails=()=>{
+    onValue(dbref,(snapshot)=>{
+      if(snapshot.exists()){
+        let info = snapshot.val();
+        setPaymentdetails(info)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    getPaymentdetails()
+  },[currentUser])
   return (
   
 <NavbarContainer className="relative w-80% m-auto top-5 z-30 md:w-[80%] lg:w-full ">
@@ -27,7 +47,9 @@ const Navbar = () => {
         <div className="inline max-md:hidden">
           <ul className="flex flex-row justify-center space-x-7">
           <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  >Home</Link></li>
+          { paymentdetails?.payment_status !== 'success' &&
             <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  >Events</Link></li> 
+          }
             <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" >Sponsors</Link></li>
             <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg" > Contact</Link></li>
           </ul>

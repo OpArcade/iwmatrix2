@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../globalcontext/ContextProvider';
+import { useEffect, useState } from 'react';
+import { onValue, ref } from 'firebase/database';
+import { db } from '../firebase/firebase';
 
 
 
 const Burger = () => {
-  const { setOpenMenu , openMenu}= useStateContext();
   
+  const { setOpenMenu , currentUser,openMenu}= useStateContext();
+
+  const [paymentdetails , setPaymentdetails] = useState<any>({});
+
+  const dbref = ref(db,`payments/${currentUser.uid}`)
+
+  const getPaymentdetails=()=>{
+    onValue(dbref,(snapshot)=>{
+      if(snapshot.exists()){
+        let info = snapshot.val();
+        setPaymentdetails(info)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    getPaymentdetails()
+  },[currentUser])
   return (
   //   <BurgerContainer>
   //     <div className="logo absolute z-50 top-6 p-2 pl-6">
@@ -36,7 +56,10 @@ const Burger = () => {
       
       <div className='flex flex-col gap-y-5 mt-[40px]'>
       <Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg" onClick={() => setOpenMenu(!openMenu)}>Home</Link>
+
+      { paymentdetails?.payment_status !== 'success' &&
       <Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  onClick={() => setOpenMenu(!openMenu)}>Events</Link>
+}
       <Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" onClick={() => setOpenMenu(!openMenu)}>Sponsors</Link>
       <Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg"onClick={() => setOpenMenu(!openMenu)}> Contact</Link>
 
