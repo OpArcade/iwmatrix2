@@ -105,7 +105,7 @@ if(currentUser!== undefined){
  
  {/* Alrwady register */}
 
-<button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button>
+{/* <button className='glowing-btn mt-[20px] flex justify-center'><Link to='#' target='_blank' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Alr<span className='faulty-letter'>eady</span> Registerd</span> </Link></button> */}
 
 </div>
     </Layout>
