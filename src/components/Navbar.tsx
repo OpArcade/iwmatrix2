@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="inline max-md:hidden">
           <ul className="flex flex-row justify-center space-x-7">
           <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  >Home</Link></li>
-          { paymentdetails?.payment_status !== 'success' &&
+          { paymentdetails?.payment_status !== 'success' && 
             <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  >Events</Link></li> 
           }
             <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" >Sponsors</Link></li>
