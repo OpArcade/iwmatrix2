@@ -911,6 +911,7 @@ const handleSubmit = async () => {
           Proceed
         </button> */}
 
+{ isOpen === false &&
         <button
           onClick={handleSubmit}
 
@@ -918,6 +919,7 @@ const handleSubmit = async () => {
         >
           <div className="glitch m-[20px] sm:text-4xl" data-glitch="Confirm Order">Confirm Order</div>
         </button>
+}
 
         <button
           onClick={handlePayNow}
