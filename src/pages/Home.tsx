@@ -12,26 +12,29 @@ import { useEffect, useState } from 'react'
 import { get , onValue, ref } from 'firebase/database'
 
 
+
 const Home = () => {
 
   const { currentUser , openMenu}= useStateContext();
-
   const [paymentdetails , setPaymentdetails] = useState<any>({});
 
-  const dbref = ref(db,`payments/${currentUser.uid}`)
+  
 
   const getPaymentdetails=()=>{
+    if (currentUser.uid){
+      const dbref = ref(db,`payments/${currentUser.uid}`)
+    
     onValue(dbref,(snapshot)=>{
       if(snapshot.exists()){
         let info = snapshot.val();
         setPaymentdetails(info)
       }
     })
-  }
+  }}
 
   useEffect(()=>{
     getPaymentdetails()
-  },[currentUser])
+  },[])
 
 
 
@@ -142,7 +145,7 @@ if(currentUser!== undefined){
     </Layout>
 
     <About />
-    {/* <Glimpses /> */}
+  
     <Eventshome />
     <Faq />
 

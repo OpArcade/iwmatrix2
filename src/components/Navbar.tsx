@@ -13,20 +13,23 @@ const Navbar = () => {
 
   const [paymentdetails , setPaymentdetails] = useState<any>({});
 
-  const dbref = ref(db,`payments/${currentUser.uid}`)
-
   const getPaymentdetails=()=>{
+    if (currentUser.uid){
+      const dbref = ref(db,`payments/${currentUser.uid}`)
+    
     onValue(dbref,(snapshot)=>{
       if(snapshot.exists()){
         let info = snapshot.val();
         setPaymentdetails(info)
       }
     })
-  }
+  }}
 
   useEffect(()=>{
     getPaymentdetails()
-  },[currentUser])
+  },[])
+
+
   return (
   
 <NavbarContainer className="relative w-80% m-auto top-5 z-30 md:w-[80%] lg:w-full ">

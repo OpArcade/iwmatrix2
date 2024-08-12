@@ -85,14 +85,14 @@ const Contact = () => {
         <div className="social-media">
           <p>Connect with us :</p>
           <div className="social-icons">
-            <a href="#"   className='text-[#000000] text-4xl '>
+            <a href="https://www.facebook.com/internware/"   target='_black' className='text-[#000000] text-4xl '>
             <CiFacebook />
             </a>
             
-            <a href="#"  className='text-[#000000] text-4xl '>
+            <a href="https://www.instagram.com/internware/?hl=en"  target='_black' className='text-[#000000] text-4xl '>
             <CiInstagram />
             </a>
-            <a href="#"  className='text-[#000000] text-4xl '>
+            <a href="https://in.linkedin.com/in/internware"  target='_black' className='text-[#000000] text-4xl '>
             <CiLinkedin />
             </a>
           </div>
@@ -107,22 +107,22 @@ const Contact = () => {
         <form action="index.html" autoComplete="off">
           <h3 className="title">Contact us</h3>
           <div className="input-container">
-            <input type="text" name="name" className="input" />
+            <input type="text" name="name" className="input" placeholder='Username' />
             <label htmlFor=""></label>
             <span>Username</span>
           </div>
           <div className="input-container">
-            <input type="email" name="email" className="input" />
+            <input type="email" name="email" className="input" placeholder='Email'/>
             <label htmlFor=""></label>
             <span>Email</span>
           </div>
           <div className="input-container">
-            <input type="tel" name="phone" className="input" />
+            <input type="tel" name="phone" className="input" placeholder='Phone'/>
             <label htmlFor=""></label>
             <span>Phone</span>
           </div>
           <div className="input-container textarea">
-            <textarea name="message" className="input"></textarea>
+            <textarea name="message" className="input" placeholder='Message'></textarea>
             <label htmlFor=""></label>
             <span>Message</span>
           </div>

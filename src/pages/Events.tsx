@@ -139,7 +139,16 @@ const Events = () => {
   // ashish start
   const [teamName, setTeamName] = useState<string>('');
 
-  
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+}, []);
 
   // ashish end
   const [gamingTournamentDetails, setGamingTournamentDetails] = useState<EventDetails>({
@@ -836,7 +845,12 @@ const handleSubmit = async () => {
                   // <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                   <><h1>Selected</h1></>
                 ) : (
-                  index === 0 ?  <div className="flex flex-row justify-center items-center border-4 cursor-pointer border-[#3289fb] rounded-xl max-sm:my-4 max-sm:p-4 sm:rounded-xl lg:rounded-2xl px-4 mx-4"><img src="./assets/devfolio.png" alt="devfolio" className="w-[20px] h-[20px] m-[2px]"/> <p className="text-lg text-white"> Register with Davfolio</p> </div>  : 'Select'
+                  index === 0 ?  <div 
+                  className="apply-button" 
+                  data-hackathon-slug="YOUR-HACKATHON-SLUG" 
+                  data-button-theme="light"
+                  style={{ height: '44px', width: '312px' }}
+                ></div>  : 'Select'
                 )}
               </h1>
             </div>

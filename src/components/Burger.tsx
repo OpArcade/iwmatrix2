@@ -12,20 +12,23 @@ const Burger = () => {
 
   const [paymentdetails , setPaymentdetails] = useState<any>({});
 
-  const dbref = ref(db,`payments/${currentUser.uid}`)
-
   const getPaymentdetails=()=>{
+    if (currentUser.uid){
+      const dbref = ref(db,`payments/${currentUser.uid}`)
+    
     onValue(dbref,(snapshot)=>{
       if(snapshot.exists()){
         let info = snapshot.val();
         setPaymentdetails(info)
       }
     })
-  }
+  }}
 
   useEffect(()=>{
     getPaymentdetails()
-  },[currentUser])
+  },[])
+
+
   return (
   //   <BurgerContainer>
   //     <div className="logo absolute z-50 top-6 p-2 pl-6">
