@@ -356,25 +356,43 @@ const Events = () => {
 
 let gameTotal: number = 0;
 let eventTotal: number = 0;
+let liveProjectSelected: boolean = false;
 
 selectedEvents.forEach((event: { name: string }) => {
   if (event.name === "Gaming tournament") {
     gameTotal = 100;
-  } else if (event.name !== "Live Project" && event.name !== "Gaming Parlour") {
+  } else if (event.name === "Live Project") {
+    liveProjectSelected = true;
+    eventTotal += 1;
+  } else if (event.name !== "Gaming Parlour") {
     eventTotal += 1;
   }
 });
 
-if (eventTotal === 1) {
-  eventTotal = 50;
-} else if (eventTotal === 2) {
-  eventTotal = 80;
-} else if (eventTotal === 3) {
-  eventTotal = 110;
-} else if (eventTotal >= 4) {
-  eventTotal = 150;
+if (liveProjectSelected) {
+  if (eventTotal === 1) {
+    eventTotal = 1;
+  } else if (eventTotal === 2) {
+    eventTotal = 51;
+  } else if (eventTotal === 3) {
+    eventTotal = 101;
+  } else if (eventTotal >= 4) {
+    eventTotal = 151;
+  }
+} else {
+  if (eventTotal === 1) {
+    eventTotal = 50;
+  } else if (eventTotal === 2) {
+    eventTotal = 80;
+  } else if (eventTotal === 3) {
+    eventTotal = 110;
+  } else if (eventTotal >= 4) {
+    eventTotal = 150;
+  }
 }
 return gameTotal + eventTotal;
+
+
 // ashish code ends
 };
 const url = "https://iitminternware.com/matrix_backend"
@@ -840,17 +858,19 @@ const handleSubmit = async () => {
               className={index===0 ?"" : " justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-[2px] sm:px-2 md:w-1/4 sm:rounded-md lg:rounded-2xl mb-5 sm:mb-0 cursor-pointer m-2"}
               onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
-              <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center flex justify-center">
+              <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center flex justify-center m-[4px]">
                 {selectedEvents.includes(event) ? (
                   // <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
                   <><h1>Selected</h1></>
                 ) : (
                   index === 0 ?  <div 
-                  className="apply-button" 
+                  className="apply-button bg-[#223cff] rounded-sm text-white" 
                   data-hackathon-slug="YOUR-HACKATHON-SLUG" 
                   data-button-theme="light"
                   style={{ height: '44px', width: '312px' }}
-                ></div>  : 'Select'
+                >
+
+                </div>  : 'Select'
                 )}
               </h1>
             </div>

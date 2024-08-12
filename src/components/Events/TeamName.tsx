@@ -15,6 +15,7 @@ export const TeamName = ({teamName,setTeamName,setOpen}:teamNamePorp) => {
         <div className="flex gap-2  flex-col md:flex-wrap lg:w-2/4 justify-center mb-4">
         <input
           type="text"
+          required
           className=" px-4 py-2 text-lg text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00ffd4] focus:border-transparent"
           placeholder="Team Name"
           defaultValue={teamName}

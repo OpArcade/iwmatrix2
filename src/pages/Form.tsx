@@ -14,7 +14,7 @@ export default function Form() {
     const [course, setCourse] = useState<string>('');
     const [teamname] = useState<string>('');
     const college = useRef<HTMLSelectElement>(null);
-    const [year, setYear] = useState<number | undefined>();
+    const [year, setYear] = useState<string>('');
     const [otherCollege, setOtherCollege] = useState<string>('');
     const [otherCollegeEnabled, setOtherCollegeEnabled] = useState(false);
     const navigate = useNavigate();
@@ -27,6 +27,8 @@ export default function Form() {
             setOtherCollege('');
         }
     };
+
+  
     const auth = getAuth();
             const user = auth.currentUser;
             const db = getDatabase();
@@ -118,17 +120,28 @@ export default function Form() {
                         onChange={(e) => setCourse(e.target.value)}
                     />
                 </div>
-                <div className="flex flex-col gap-[45px] md:flex-row justify-start items-center">
+                <div className="flex flex-col md:flex-row gap-4 justify-start items-center">
+                    <h1>Year</h1>
+                    <input
+                        type="text"
+                        className="bg-transparent outline-none border rounded-full px-3 py-1"
+                        value={year}
+                        onChange={(e) => setYear(e.target.value)}
+                    />
+                </div>
+                {/* <div className="flex flex-col gap-[45px] md:flex-row justify-start items-center">
                     <h1>Year</h1>
                     <input
                         type="number"
-                        className="bg-transparent outline-none border rounded-full px-3 py-1"
+                        className="bg-transparent outline-none border rounded-full px-4 py-2"
                         value={year || ''}
                         onChange={(e) => setYear(Number(e.target.value))}
-                        min="1900"
-                        max={new Date().getFullYear()}
+                        min="1"
+                        max="4"
                     />
-                </div>
+                </div> */}
+                 
+                
                 <div className="flex  gap-5">
                     <div className="flex flex-row justify-around text-center gap-[50px]">
                         <h1>College</h1>

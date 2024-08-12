@@ -10,9 +10,34 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
+import { useEffect, useState } from 'react';
+import { onValue, ref } from 'firebase/database';
+import { db } from '../firebase/firebase';
+import { useStateContext } from '../globalcontext/ContextProvider';
 
 
 const Eventshome = () => {
+
+  const { setOpenMenu ,currentUser, openMenu}= useStateContext();
+  const [paymentdetails , setPaymentdetails] = useState<any>({});
+
+  const getPaymentdetails=()=>{
+    if (currentUser.uid){
+      const dbref = ref(db,`payments/${currentUser.uid}`)
+    
+    onValue(dbref,(snapshot)=>{
+      if(snapshot.exists()){
+        let info = snapshot.val();
+        setPaymentdetails(info)
+      }
+    })
+  }}
+
+  useEffect(()=>{
+    getPaymentdetails()
+  },[])
+
+
   return (
     <EventshomeContainer className='relative top-[36rem] w-full z-30'> 
 
@@ -58,11 +83,12 @@ const Eventshome = () => {
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
 
 <p className="mb-3 font-normal text-white dark:text-white">Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop ..........</p>
-
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
-   
-</a>
+    </a>
+}
+
 </div>
 </div>
   </SwiperSlide>
@@ -75,13 +101,13 @@ const Eventshome = () => {
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Live Project</h5>
-
+   
 <p className="mb-3 font-normal text-white dark:text-white">The Live Project challenge invites you to create a tangible IoT-based solution for a real-world problem.......</p>
-
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -94,13 +120,13 @@ const Eventshome = () => {
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming Parlour</h5>
-
+   
 <p className="mb-3 font-normal text-white dark:text-white">Maintain originality and integrity. Understand software/hardware, its algorithms, and design.Complete......</p>
-
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -115,13 +141,14 @@ const Eventshome = () => {
 <div className="p-5 bg-black">
 
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Gaming tournament</h5>
-
+ 
 <p className="mb-3 font-normal text-white dark:text-white">Team up with friends and dive into thrilling gaming challenges! Level up your experience, make......</p>
 
+ { paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
-    Register Now
-   
-</a>
+    Register Now </a>
+ }
+
 </div>
 </div>
   </SwiperSlide>
@@ -136,11 +163,11 @@ const Eventshome = () => {
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Inside Edge</h5>
 
 <p className="mb-3 font-normal text-white dark:text-white">Become the team manager of your cricket franchise and bid for top players to create your dream team.......</p>
-
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -156,10 +183,11 @@ const Eventshome = () => {
 
 <p className="mb-3 font-normal text-white dark:text-white">This UI/UX design competition is your chance to turn creative ideas into visually appealing, user-centric designs.....</p>
 
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -176,10 +204,11 @@ const Eventshome = () => {
 
 <p className="mb-3 font-normal text-white dark:text-white">Join News Flash and dive into the world of journalism and media at MATRIX 2.0! Teams will record and document......</p>
 
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -195,10 +224,11 @@ const Eventshome = () => {
 
 <p className="mb-3 font-normal text-white dark:text-white">Dive into data with tasks across three dynamic rounds, testing your skills in sorting, cleaning, and visualization.......</p>
 
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
@@ -214,10 +244,11 @@ const Eventshome = () => {
 
 <p className="mb-3 font-normal text-white dark:text-white">Unleash your entrepreneurial spirit to solve real-world issues with innovative tech-driven business models.......</p>
 
+{ paymentdetails?.payment_status !== 'success' && 
 <a href="/Events" className="inline-flex items-center px-3 py-2 text-sm  text-center text-black font-bold bg-[#00ffd4] rounded-lg hover:bg-[00ffd4] focus:ring-4 focus:outline-none  dark:bg-[#00ffd4] dark:hover:bg-[#00ffd4] ">
     Register Now
    
-</a>
+</a>}
 </div>
 </div>
   </SwiperSlide>
