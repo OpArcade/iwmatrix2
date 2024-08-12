@@ -36,6 +36,7 @@ const handleSubmit= (box: boolean) =>{
           defaultValue={teamName}
           onChange={(e)=>{setTeamName(e.target.value)}}
         />
+        <p className='text-white max-sm:text-[15px]'>NOTE*: Please enter the team name before confirming the order</p>
         <button
           className="  max-sm:text-2xl sm:text-xl lg:w-1/4 m-auto bg-[#00ffd4] hover:[#00ffc1] text-black  font-bold py-2 px-4 rounded-md"
           onClick={(e)=>{handleSubmit(false)}}

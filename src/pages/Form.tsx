@@ -156,7 +156,7 @@ export default function Form() {
                         >
                             <option value="IITM" className="bg-black">IITM</option>
                             <option value="IINTM" className="bg-black">IINTM</option>
-                            <option value="IIPTM" className="bg-black">IIPTM</option>
+                            <option value="IPITM" className="bg-black">IPITM</option>
                             <option value="Others" className="bg-black">Others</option>
                         </select>
                     </div>
