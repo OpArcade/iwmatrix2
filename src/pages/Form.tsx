@@ -97,6 +97,7 @@ export default function Form() {
                     <h1>Name</h1>
                     <input
                         type="text"
+                        required
                         className="bg-transparent outline-none border rounded-full px-4 py-2"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -106,6 +107,7 @@ export default function Form() {
                     <h1>Phone No.</h1>
                     <input
                         type="text"
+                        required
                         className="bg-transparent outline-none border rounded-full px-4 py-2"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
@@ -115,6 +117,7 @@ export default function Form() {
                     <h1>Course</h1>
                     <input
                         type="text"
+                        required
                         className="bg-transparent outline-none border rounded-full px-3 py-1"
                         value={course}
                         onChange={(e) => setCourse(e.target.value)}
@@ -124,6 +127,7 @@ export default function Form() {
                     <h1>Year</h1>
                     <input
                         type="text"
+                        required
                         className="bg-transparent outline-none border rounded-full px-3 py-1"
                         value={year}
                         onChange={(e) => setYear(e.target.value)}
@@ -158,6 +162,7 @@ export default function Form() {
                     </div>
                     <input
                         type="text"
+                        required
                         className={`bg-transparent outline-none border rounded-full px-3 py-1 ml-4 ${otherCollegeEnabled ? '' : 'hidden'}`}
                         placeholder="Enter your college"
                         value={otherCollege}
