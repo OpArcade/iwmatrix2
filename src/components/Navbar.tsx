@@ -14,12 +14,12 @@ const Navbar = () => {
   const [paymentdetails , setPaymentdetails] = useState<any>({});
 
   const getPaymentdetails=()=>{
-    if (currentUser.uid){
+    if (currentUser?.uid){
       const dbref = ref(db,`payments/${currentUser.uid}`)
     
     onValue(dbref,(snapshot)=>{
-      if(snapshot.exists()){
-        let info = snapshot.val();
+      if(snapshot?.exists()){
+        let info = snapshot?.val();
         setPaymentdetails(info)
       }
     })
