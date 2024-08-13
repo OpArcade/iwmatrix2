@@ -11,7 +11,7 @@ import styled from "styled-components";
 export default function Form() {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
+    // const [email, setEmail] = useState<string>('');
     const [course, setCourse] = useState<string>('');
     const [teamname] = useState<string>('');
     const college = useRef<HTMLSelectElement>(null);
@@ -65,12 +65,12 @@ export default function Form() {
                 name:name,
                 phoneNumber: phone,
                 year: year,
-                email:email,
+                email: user?.email,
                 course: course,
                 teamname: teamname,
                 college: selectedCollege,
 
-            });
+            }).then((res) => console.log(res))
 
             console.log('Data saved to Firebase');
             navigate('/Home');
@@ -117,7 +117,7 @@ export default function Form() {
                     />
                 </div>
                 
-                <div className="flex flex-col md:flex-row justify-around items-center ">
+                {/* <div className="flex flex-col md:flex-row justify-around items-center ">
                     <h1>Email</h1>
                     <input
                         type="text"
@@ -126,7 +126,7 @@ export default function Form() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                </div>
+                </div> */}
 
                 <div className="flex flex-col md:flex-row gap-4 justify-start items-center">
                     <h1>Course</h1>
