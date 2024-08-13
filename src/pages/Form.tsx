@@ -65,9 +65,11 @@ export default function Form() {
                 name:name,
                 phoneNumber: phone,
                 year: year,
+                email:email,
                 course: course,
                 teamname: teamname,
                 college: selectedCollege,
+
             });
 
             console.log('Data saved to Firebase');
