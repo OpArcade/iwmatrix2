@@ -11,6 +11,7 @@ import styled from "styled-components";
 export default function Form() {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
     const [course, setCourse] = useState<string>('');
     const [teamname] = useState<string>('');
     const college = useRef<HTMLSelectElement>(null);
@@ -114,6 +115,17 @@ export default function Form() {
                     />
                 </div>
                 
+                <div className="flex flex-col md:flex-row justify-around items-center ">
+                    <h1>Email</h1>
+                    <input
+                        type="text"
+                        required
+                        className="bg-transparent outline-none border rounded-full px-4 py-2"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+
                 <div className="flex flex-col md:flex-row gap-4 justify-start items-center">
                     <h1>Course</h1>
                     <input
