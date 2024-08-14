@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { getDatabase, ref, update, get } from "firebase/database";
-import { getAuth } from "firebase/auth";
+import { ref, update, get } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-
-
-
+import { useStateContext } from "../globalcontext/ContextProvider";
+import { db } from "../firebase/firebase";
 
 export default function Form() {
     const [name, setName] = useState<string>('');
@@ -19,6 +16,7 @@ export default function Form() {
     const [otherCollege, setOtherCollege] = useState<string>('');
     const [otherCollegeEnabled, setOtherCollegeEnabled] = useState(false);
     const navigate = useNavigate();
+    const {currentUser} = useStateContext()
 
     const handleCollegeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         if (e.target.value === "Others") {
@@ -29,17 +27,13 @@ export default function Form() {
         }
     };
 
-  
-    const auth = getAuth();
-            const user = auth.currentUser;
-            const db = getDatabase();
     useEffect(() => {
-        if(user!== undefined){
+        if(currentUser!== undefined){
             const checkPhoneNumber = async () => {
             
 
-                if (user) {
-                    const userRef = ref(db, `users/${user.uid}/phoneNumber`);
+                if (currentUser) {
+                    const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
                     const phoneSnapshot = await get(userRef);
     
                     if (phoneSnapshot.exists()) {
@@ -50,20 +44,18 @@ export default function Form() {
     
             checkPhoneNumber();
         }
-    }, [user]);
+    }, [currentUser]);
     
     const submit = async () => {
-        const auth = getAuth();
-        const user = auth.currentUser;
-        const db = getDatabase();
 
-        if (user) {
-            const userRef = ref(db, `users/${user.uid}`);
+        if (currentUser) {
+            const userRef = ref(db, `users/${currentUser?.uid}`);
             const selectedCollege = otherCollegeEnabled ? otherCollege : college.current?.value;
 
             await update(userRef, {
                 name:name,
                 phoneNumber: phone,
+                email:currentUser?.email,
                 year: year,
                 course: course,
                 teamname: teamname,
@@ -76,6 +68,8 @@ export default function Form() {
             console.log('No user is logged in');
         }
     };
+
+    console.log(currentUser)
 
     return (
         <FormContainer>
