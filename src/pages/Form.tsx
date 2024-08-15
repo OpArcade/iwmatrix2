@@ -57,8 +57,8 @@ export default function Form() {
                 phoneNumber: phone,
                 email:currentUser?.email,
                 year: year,
-                email: user?.email,
                 course: course,
+                
                 teamname: teamname,
                 college: selectedCollege,
 

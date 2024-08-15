@@ -139,16 +139,31 @@ const Events = () => {
   // ashish start
   const [teamName, setTeamName] = useState<string>('');
 
-  React.useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://apply.devfolio.co/v2/sdk.js';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    }
+  // devfolio script
+//   React.useEffect(() => {
+//     const script = document.createElement('script');
+//     script.src = 'https://apply.devfolio.co/v2/sdk.js';
+//     script.async = true;
+//     script.defer = true;
+//     document.body.appendChild(script);
+//     return () => {
+//       document.body.removeChild(script);
+//     }
+// }, []);
+
+useEffect(() => {
+  const script: HTMLScriptElement = document.createElement('script');
+  script.src = 'https://apply.devfolio.co/v2/sdk.js';
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script);
+  };
 }, []);
+
+// devfolio script end
 
   // ashish end
   const [gamingTournamentDetails, setGamingTournamentDetails] = useState<EventDetails>({
@@ -651,11 +666,13 @@ const handleSubmit = async () => {
               payment_message: result.paymentDetails.paymentMessage || '',
               payment_time: result.paymentDetails.paymentTime || '',
               user_id: user.uid
+              
             };
   
             // Filter out any undefined fields
             const filteredPaymentData = Object.fromEntries(
               Object.entries(paymentData).filter(([key, value]) => value !== undefined)
+
             );
   
             try {
@@ -704,6 +721,7 @@ const handleSubmit = async () => {
                     user_id: user.uid,
                     event_name: event.name,
                     teamName:teamName || null,
+                    email : user.email,
                     registered_at: currentDateTime
                   });
                 }
@@ -864,9 +882,9 @@ const handleSubmit = async () => {
                   <><h1>Selected</h1></>
                 ) : (
                   index === 0 ?  <div 
-                  className="apply-button bg-[#223cff] rounded-sm text-white" 
-                  data-hackathon-slug="YOUR-HACKATHON-SLUG" 
-                  data-button-theme="light"
+                  className="apply-button bg-[#ffffff] rounded-sm text-white" 
+                  data-hackathon-slug="matrix2" 
+                  data-button-theme="dark-inverted"
                   style={{ height: '44px', width: '312px' }}
                 >
 

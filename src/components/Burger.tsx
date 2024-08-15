@@ -60,6 +60,7 @@ const Burger = () => {
       
       <div className='flex flex-col gap-y-5 mt-[40px]'>
       <Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg" onClick={() => setOpenMenu(!openMenu)}>Home</Link>
+      <Link to="/Profile" className="text-white  hover:text-[#00ffd4]  text-lg" onClick={() => setOpenMenu(!openMenu)}>Profile</Link>
 
       { paymentdetails?.payment_status !== 'success' &&
       <Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  onClick={() => setOpenMenu(!openMenu)}>Events</Link>

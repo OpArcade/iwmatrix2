@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useStateContext } from '../globalcontext/ContextProvider'
 import { onValue, ref } from 'firebase/database'
 import { db } from '../firebase/firebase'
-
+import Profile from '../pages/Profile'
 const Navbar = () => {
 
   const { setOpenMenu ,currentUser, openMenu}= useStateContext();
@@ -49,6 +49,7 @@ const Navbar = () => {
         <div className="inline max-md:hidden">
           <ul className="flex flex-row justify-center space-x-7">
           <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  >Home</Link></li>
+          <li><Link to="/Profile" className="text-white  hover:text-[#00ffd4]  text-lg"  >Profile</Link></li>
           { paymentdetails?.payment_status !== 'success' && 
             <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  >Events</Link></li> 
           }

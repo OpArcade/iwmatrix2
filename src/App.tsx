@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 import { Toaster } from 'react-hot-toast';
 import Form from './pages/Form';
 import { useStateContext } from './globalcontext/ContextProvider';
-
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -23,7 +23,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Navbar' element = {<Navbar />} />
           <Route path='/Burger' element = { <Burger />} />
-          <Route path='/Home' element={ <Home />} />`
+          <Route path='/Home' element={ <Home />} />
+          <Route path = '/Profile' element = { <Profile />} />
           <Route path='/Events' element={ currentUser !== null ? <Events /> : <Home/> } />
           <Route path='/Sponsors' element={<Sponsor />} />
           <Route path='/Contact' element = { <Contact /> } />
