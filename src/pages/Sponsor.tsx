@@ -21,7 +21,7 @@ const Sponsor = () => {
       {/* Heading */}
       <div>
       <div className="glitch-wrapper w-2/4 max-md:w-full m-auto text-center flex flex-col items-center ">
-	<div className="glitch text-center max-sm:text-[45px] max-sm:font-bold" data-glitch="Sponsor Us">Sponsor Us</div>
+	<div className="glitch text-center max-sm:text-[45px] max-sm:font-bold text-[1em]" data-glitch="Sponsor Us">Sponsor Us</div>
   <h1 className='text-center text-white text-md md:text-xl max-sm:text-[20px] font-semibold mt-[20px]'>DOWNLOAD THE PROPOSAL</h1>
 
  
@@ -66,11 +66,35 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
       </div>
       </div>
 
+
+ {/* current sponsors */}
+ <div className='w-full flex flex-col  gap-5 mt-[60px] justify-center text-center'>
+
+ <div className="glitch text-center text-lg max-sm:text-[26px] max-sm:font-bold" data-glitch="Our Current Sponsors">Our Current Sponsors</div>
+{/* <h1 className='text-[#00ffd4] text-xl md:text-5xl font-bold'>Our Current Sponsors</h1> */}
+
+<div className='container md:w-[75%] m-auto'>
+ 
+  <div className="sponsor w-full rounded-full">
+  <img src="./assets/fresca.png" alt="" />
+  </div>
+  <div className="sponsor w-full rounded-full">
+  <img src="./assets/giani.png" alt="" />
+  </div>
+  <div className="sponsor w-full rounded-full">
+  <img src="./assets/jamboree.png" alt="" />
+  </div>
+  
+  
+</div>
+</div>
+
+
       {/* previous sponsors */}
       <div className='w-full flex flex-col  gap-5 mt-[60px] justify-center text-center'>
 
-      
-      <h1 className='text-[#00ffd4] text-xl md:text-5xl font-bold'>Our Previous Sponsors</h1>
+      <div className="glitch text-center text-lg max-sm:text-[26px] max-sm:font-bold" data-glitch="Our Previous Sponsors">Our Previous Sponsors</div>
+      {/* <h1 className='text-[#00ffd4] text-xl md:text-5xl font-bold'>Our Previous Sponsors</h1> */}
 
       <div className='container md:w-[75%] m-auto'>
        
@@ -156,7 +180,7 @@ const SponsorContainer = styled.div`
   background: none;
   perspective: 2em;
   font-family: "Raleway", sans-serif;
-  font-size: 1em;
+  /* font-size: 1em; */
   font-weight: 900;
   letter-spacing: 0.5em;
   /* margin:10px; */

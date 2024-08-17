@@ -10,6 +10,7 @@ import toast from 'react-hot-toast'
 import { useStateContext } from '../globalcontext/ContextProvider'
 import { useEffect, useState } from 'react'
 import { get , onValue, ref } from 'firebase/database'
+import Register from '../components/Register'
 
 
 
@@ -72,7 +73,17 @@ if(currentUser!== undefined){
       toast.success(`Welcome!`);
     })
   }
-
+  useEffect(() => {
+    const script: HTMLScriptElement = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return (
     <HomeContainer>
 
@@ -100,19 +111,18 @@ if(currentUser!== undefined){
       <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white max-md:mt-[20px] mt-[20px]  "> Tech Fest</h2>
       <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white  "> September 20-21, 2024</h2>
   </div>
+  <div 
+                  className="apply-button bg-[#ffffff] rounded-sm text-white  " 
+                  data-hackathon-slug="matrix2" 
+                  data-button-theme="dark-inverted"
+                  style={{ height: '44px', width: '312px' }}
+                >
 
+                </div>
   {/* button */}
   <div className='relative max-md:top-[22rem] top-[20rem] z-30 flex flex-col md:flex-row justify-center text-center w-2/4 m-auto '>
 
-  {/* <button className='p-4 rounded-lg border-4 radial-gradient'>
-    <Link to='#' target='_blank' className=' text-white'> Sign In</Link>
-  </button> */}
-  {/* <button className='px-4 py-2 rounded-lg gradient-border'>
-      <Link to='#' target='_blank' className='text-white'>
-        Sign In
-      </Link>
-
-    </button> */}
+ 
 
 {/* log in */}
       {currentUser === null && <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center' onClick={(e)=>googleSignIn(e)}>
@@ -140,11 +150,13 @@ if(currentUser!== undefined){
   </button>
 }
 </div>
+
     </Layout>
 
     <About />
   
     <Eventshome />
+    <Register/>
     <Faq />
 
 
