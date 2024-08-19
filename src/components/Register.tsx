@@ -10,7 +10,7 @@ const Register = () => {
           <div className="glitch-wrapper mb-[20px]">
 	<div className="glitch " data-glitch="How To Register">How To Register</div>
 </div>
-        <div className='flex md:flex-row flex-col justify-center text-center mt-[2.5rem]'>
+        <div className='flex md:flex-row flex-col justify-center gap-5 text-center mt-[2.5rem]'>
         <button className='glowing-btn mx-3 max-md:my-[20px] max-md:mb-[60px] flex justify-center' >
         <Link to='#' className='text-white  my-[10px] md:text-lg text-base'><span className='glowing-txt'>Resgiter<span className='faulty-letter'>For</span>Event</span> </Link></button>
 

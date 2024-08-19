@@ -73,16 +73,16 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
  <div className="glitch text-center text-lg max-sm:text-[26px] max-sm:font-bold" data-glitch="Our Current Sponsors">Our Current Sponsors</div>
 {/* <h1 className='text-[#00ffd4] text-xl md:text-5xl font-bold'>Our Current Sponsors</h1> */}
 
-<div className='container md:w-[75%] m-auto'>
+<div className='container1 md:w-[75%] m-auto'>
  
-  <div className="sponsor w-full rounded-full">
-  <img src="./assets/fresca.png" alt="" />
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/dev.png" alt="" />
   </div>
-  <div className="sponsor w-full rounded-full">
-  <img src="./assets/giani.png" alt="" />
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/poly.png" alt="" />
   </div>
-  <div className="sponsor w-full rounded-full">
-  <img src="./assets/jamboree.png" alt="" />
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/eth.png" alt="" />
   </div>
   
   
@@ -138,7 +138,13 @@ const SponsorContainer = styled.div`
   max-width:100%;
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(170px , 1fr));
-  gap:1rem;
+  gap:2rem;
+}
+.container1{
+  max-width:100%;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(170px , 1fr));
+  gap:3.5rem;
 }
 .sponsor{
   margin: 10px;
@@ -153,10 +159,43 @@ const SponsorContainer = styled.div`
 }
 
 .sponsor img {
-    max-width: 100px;
+    max-width: 130x;
     height: auto;
+    /* border-radius: 50%; */
 }
   
+
+.sponsor1{
+  margin: 10px;
+    padding: 10px;
+    /* background-color: white; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor1 img {
+    max-width: 250px;
+    border-radius: 50%;
+    height: auto;
+}
+
+@media (max-width:650px){
+  .sponsor1 img {
+    max-width: 180px;
+    border-radius: 50%;
+    height: auto;
+}
+.container1{
+  max-width:100%;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(170px , 1fr));
+  gap:1.5rem;
+}
+}
   .gradient-border{
   border: 4px solid #00ffd4;
   border-radius: 30%;

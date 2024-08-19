@@ -11,6 +11,7 @@ import { useStateContext } from '../globalcontext/ContextProvider'
 import { useEffect, useState } from 'react'
 import { get , onValue, ref } from 'firebase/database'
 import Register from '../components/Register'
+import Community from '../components/Community'
 
 
 
@@ -157,6 +158,7 @@ if(currentUser!== undefined){
   
     <Eventshome />
     <Register/>
+    <Community />
     <Faq />
 
 
