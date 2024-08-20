@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Navbar from '../components/Navbar'
+import Navbar from './Navbar'
 import UseWindowDimension from '../hooks/UseWindowDimension'
 import Burger from '../components/Burger'
 import { useStateContext } from '../globalcontext/ContextProvider'

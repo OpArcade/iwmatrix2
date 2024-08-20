@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import styled from 'styled-components';
-import Navbar from './components/Navbar';
+import Navbar from './layout/Navbar';
 import Events from './pages/Events';
 import Sponsor from './pages/Sponsor';
 import Burger from './components/Burger';
@@ -24,11 +24,11 @@ function App() {
           <Route path='/Navbar' element = {<Navbar />} />
           <Route path='/Burger' element = { <Burger />} />
           <Route path='/Home' element={ <Home />} />
-          <Route path = '/Profile' element = { <Profile />} />
+          <Route path = '/Profile' element = { currentUser ? <Profile /> : <Home/>} />
           <Route path='/Events' element={ currentUser !== null ? <Events /> : <Home/> } />
           <Route path='/Sponsors' element={<Sponsor />} />
           <Route path='/Contact' element = { <Contact /> } />
-          <Route path='/Form' element = { <Form /> } />
+          <Route path='/Form' element = { currentUser ?  <Form /> : <Home/> } />
         </Routes>
       </MainDiv>
     </BrowserRouter>
