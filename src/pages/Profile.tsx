@@ -11,10 +11,12 @@ const Profile = () => {
   const {currentUser} = useStateContext()
   const [userData,setUserData] = useState<any>({})
   const [userEventsDetails,setUserEventsDetails] = useState<any>({})
-  const [userEvents,setUserEvents] = useState<string[]>([])
+  const [userEvents,setUserEvents] = useState<string[]>([]);
+  const [isEventsLoading,setEventsLoading] = useState<boolean>(false);
   // let uid = currentUser.uid
 
   const getUseDetails=()=>{
+    setEventsLoading(true);
     if (currentUser?.uid){
       const user = ref(db,`users/${currentUser?.uid}`)
       const eventData = ref(db,`events/`)
@@ -28,8 +30,12 @@ const Profile = () => {
     })
     onValue(eventData,(snapshot)=>{
       if(snapshot?.exists()){
+        
         let info = snapshot?.val();
-        setUserEventsDetails(info)
+        console.log(info)
+        console.log(info['Gaming tournament'][currentUser?.uid])
+        setUserEventsDetails(info);
+
       }
     })
     onValue(UI,(snapshot)=>{
@@ -37,17 +43,16 @@ const Profile = () => {
         let info = snapshot?.val();
       }
     })
+    setEventsLoading(false);
+
   }
 }
 
 
   useEffect(()=>{
     getUseDetails()
-  },[currentUser])
-
-
-  // console.log(userEventsDetails)
-  console.log(userEvents)
+    
+  },[currentUser.uid])
 
   return (
 
@@ -61,7 +66,7 @@ const Profile = () => {
 
           <img src={currentUser?.photoURL ?? 'https://static.vecteezy.com/system/resources/previews/013/042/571/non_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'} alt="profile-image" className='rounded-full' />
 
-        <div className='text-xl md:text-2xl  text-white m-10  '>
+        <div className='text-xl md:text-2xl  text-white m-10 text-left '>
           <p className='m-2'>Name : {currentUser?.displayName}</p>
           <p className='m-2'>Phone number : {userData.phoneNumber} </p>
           <p className='m-2'>Email : {currentUser?.email} </p>
@@ -79,13 +84,27 @@ const Profile = () => {
         <div>
         <div className='flex flex-wrap w-3/4 gap-2 p-2  border-0  m-auto border-black rounded-2xl  mt-3'>
 
-          {userEventsDetails['Data Science']  && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Data Science</span>}
-          {/* {userEventsDetails['Gaming tournament'][currentUser?.uid]["event_name"] === 'Gaming tournament'  && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Gaming tournament</span>}
-          {userEventsDetails['Inside Edge'][currentUser?.uid]["event_name"] === 'Inside Edge'  && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Inside Edge</span>}
-          {userEventsDetails['Live Project'][currentUser?.uid]["event_name"] === 'Live Project'  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Live Project</span>}
-          {userEventsDetails['News Surge'][currentUser?.uid]["event_name"] === 'News Surge'  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>News Surge</span>}
-          {userEventsDetails['Pitchers'][currentUser?.uid]["event_name"] === 'Pitchers'  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Pitchers</span>}
-          {userEventsDetails?.UI['UX Design'][currentUser?.uid]["event_name"] === 'UI/UX Design'  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>UI/UX Design</span>} */}
+        {isEventsLoading && (
+          <>
+          <p className='text-white'>Loading... </p> 
+          </>
+        )}
+
+        {!isEventsLoading && (
+          <div>
+            
+            {userEventsDetails['Data Science'] !== undefined && userEventsDetails['Data Science'][currentUser.uid] !== undefined  && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Data Science</span>}
+            {userEventsDetails['Gaming tournament'] !== undefined && userEventsDetails['Gaming tournament'][currentUser?.uid] !== undefined && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Gaming tournament</span>}
+            {userEventsDetails['Inside Edge'] !== undefined && userEventsDetails['Inside Edge'][currentUser?.uid] !== undefined  && <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Inside Edge</span>}
+            {userEventsDetails['Live Project'] !== undefined && userEventsDetails['Live Project'][currentUser?.uid] !== undefined  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Live Project</span>}
+            {userEventsDetails['News Surge'] !== undefined &&  userEventsDetails['News Surge'][currentUser?.uid] !== undefined  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>News Surge</span>}
+            {userEventsDetails['Pitchers'] !== undefined && userEventsDetails['Pitchers'][currentUser?.uid] !== undefined  &&<span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>Pitchers</span>}
+            {userEventsDetails.UI !== undefined && userEventsDetails?.UI['UX Design'] !== undefined &&  userEventsDetails?.UI['UX Design'][currentUser?.uid] !== undefined  &&
+            <span className='bg-neutral-200 border border-opacity-10 rounded-lg cursor-default inline-block text-base font-semibold mr-1 px-10 py-8 transition duration-300 ease-in-out'>UI/UX Design</span>} 
+          </div>
+        )}
+
+          
 
       </div>
       </div>
