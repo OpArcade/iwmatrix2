@@ -56,15 +56,23 @@ const Profile = () => {
 
   return (
 
-    <Layout>
-    <div className='h-full'>
-      <h1 className='text-[#00ffd4] md:text-[3.5em] font-serif items-center text-center mt-10' >Profile</h1>
+    <Layout >
+       <div className=''>
+          <video autoPlay muted loop id="myVideo" className="brightness-50 z-10 fixed right-0 bottom-0 w-full h-full object-cover   top-0 ">
+            <source src="./assets/3.mov" type="video/mp4" className='w-full h-full object-contain'/>
+          </video>
+          <div className=' absolute z-20  w-full h-full object-cover  top-0 '> 
+    <img src="./assets/7.png" alt=""  className='blur-[350px] bg-no-repeat w-full h-full object-cover'/>
+          </div>
+    </div>
+    <div className='h-full '>
+      <h1 className='text-[#00ffd4] relative z-50  text-[3rem] md:text-[3.5em] font-serif items-center text-center mt-10' >Profile</h1>
       {/* profile section */}
-      <section className='w-full flex md:flex-row justify-center md:justify-around text-center  mt-16'>
+      <section className='w-full z-50 flex md:flex-row  flex-col justify-center md:justify-around text-center  mt-16'>
         {/* image section */}
-      <div className='flex flex-col justify-center text-center  '>
+      <div className='flex flex-col justify-center text-center z-50 '>
 
-          <img src={currentUser?.photoURL ?? 'https://static.vecteezy.com/system/resources/previews/013/042/571/non_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'} alt="profile-image" className='rounded-full' />
+          <img src={currentUser?.photoURL ?? 'https://static.vecteezy.com/system/resources/previews/013/042/571/non_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'} alt="profile-image" className='rounded-full w-[35%] md:w-2/4 m-auto' />
 
         <div className='text-xl md:text-2xl  text-white m-10 text-left '>
           <p className='m-2'>Name : {currentUser?.displayName}</p>
@@ -78,8 +86,8 @@ const Profile = () => {
         </div>
       </div>
 {/* events details  */}
-      <div className='text-center gap-2 md:w-2/4'>
-        <h1 className='text-[#00ffd4] md:text-[3em] font-serif'>Selected Events</h1>
+      <div className='text-center gap-2 md:w-2/4 z-50'>
+        <h1 className='text-[#00ffd4] md:text-[3em] text-[2.5rem] font-serif'>Selected Events</h1>
         
         <div>
         <div className='flex flex-wrap w-3/4 gap-2 p-2  border-0  m-auto border-black rounded-2xl  mt-3'>

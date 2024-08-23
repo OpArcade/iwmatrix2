@@ -73,14 +73,14 @@ const Eventshome = () => {
   }}
 >
 
-{/* Hachathon */}
+{/* Hackathon */}
   <SwiperSlide>
      <div className=" bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
 <img className="rounded-t-lg object-cover" src="./assets/hacakthom.png" alt=""/>
 <div className="p-5 bg-black">
 
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hachathon</h5>
+    <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#00ffd4] dark:text-[#00ffd4]">Hackathon</h5>
 
 <p className="mb-3 font-normal text-white dark:text-white">Hackathon is a 24-hour coding marathon where teams brainstorm, design, and develop ..........</p>
 { paymentdetails?.payment_status !== 'success' && 

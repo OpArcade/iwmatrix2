@@ -45,21 +45,21 @@ const Navbar = () => {
         </div>
 
         {/* nav list */}
-        <div className="inline max-md:hidden">
+        <div className="flex flex-row gap-[2rem] justify-center text-center items-center max-md:hidden">
           <ul className="flex flex-row justify-center space-x-7">
-          <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg"  >Home</Link></li>
+          <li><Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-xl"  >Home</Link></li>
           { paymentdetails?.payment_status !== 'success' && 
-            <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-lg"  >Events</Link></li> 
+            <li><Link to="/Events" className="text-white  hover:text-[#00ffd4] text-xl"  >Events</Link></li> 
           }
-            <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" >Sponsors</Link></li>
-            <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg" > Contact</Link></li>
+            <li><Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-xl" >Sponsors</Link></li>
+            <li><Link to="/Contact" className="text-white hover:text-[#00ffd4] text-xl" > Contact</Link></li>
           </ul>
-        </div>
+        
 
-         {currentUser && <Link to="/Profile" className="border rounded-full w-[156px]">
+         {currentUser && <Link to="/Profile" className=" rounded-full w-[156px]">
             <img src={currentUser?.photoURL ?? 'https://static.vecteezy.com/system/resources/previews/013/042/571/non_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'} alt="" className='w-[50px] h-[50px] rounded-full object-cover'/>
           </Link>}
-
+          </div>
       </nav>
     </NavbarContainer>
   )

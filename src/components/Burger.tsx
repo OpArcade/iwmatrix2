@@ -59,6 +59,9 @@ const Burger = () => {
       </div>
       
       <div className='flex flex-col gap-y-5 mt-[40px]'>
+      {currentUser && <Link to="/Profile" className=" rounded-full w-[156px]">
+            <img src={currentUser?.photoURL ?? 'https://static.vecteezy.com/system/resources/previews/013/042/571/non_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'} alt="" className='w-[50px] h-[50px] rounded-full object-cover'/>
+          </Link>}
       <Link to="/Home" className="text-white  hover:text-[#00ffd4]  text-lg" onClick={() => setOpenMenu(!openMenu)}>Home</Link>
       <Link to="/Profile" className="text-white  hover:text-[#00ffd4]  text-lg" onClick={() => setOpenMenu(!openMenu)}>Profile</Link>
 
@@ -68,6 +71,7 @@ const Burger = () => {
       <Link to="/Sponsors" className="text-white hover:text-[#00ffd4] text-lg" onClick={() => setOpenMenu(!openMenu)}>Sponsors</Link>
       <Link to="/Contact" className="text-white hover:text-[#00ffd4] text-lg"onClick={() => setOpenMenu(!openMenu)}> Contact</Link>
 
+      
       </div>
     </aside>
   )
