@@ -157,7 +157,7 @@ if(currentUser!== undefined){
     <About />
   
     <Eventshome />
-    <Register/>
+    {/* <Register/> */}
     <Community />
     <Faq />
 

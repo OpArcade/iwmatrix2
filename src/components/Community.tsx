@@ -7,11 +7,14 @@ const Community = () => {
    <CommunityContainer  className='relative z-30 md:w-[90%] m-auto top-[48rem] '>
 <div className='  flex flex-col   justify-center text-center'>
           <div className="glitch-wrapper mb-[20px]">
-	<div className="glitch " data-glitch="Our Community Partner">Our Community Partner</div>
+	<div className="glitch max-sm:text-[1.5rem]" data-glitch="Our Community Partner">Our Community Partner</div>
 </div>
 <div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[75%] md:mt-6 w-full m-auto'>
-            
-<div className='container1 md:w-[100%] m-auto'>
+
+         <div className='flex justify-center'>
+          <img src="./assets/Tech Holics.png" alt="" className='max-sm:w-[80%]' />
+          </div>   
+{/* <div className='container1 md:w-[100%] m-auto'>
  
  <div className="sponsor1 w-full rounded-full">
  <img src="./assets/dev.png" alt="" />
@@ -38,7 +41,7 @@ const Community = () => {
  <div className="sponsor1 w-full rounded-full">
  <img src="./assets/Reskilll_white logo.png" alt="" />
  </div>
-</div>
+</div> */}
            </div>
     </div>
    </CommunityContainer>
