@@ -84,6 +84,18 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
   <div className="sponsor1 w-full rounded-full">
   <img src="./assets/eth.png" alt="" />
   </div>
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/micro.png" alt="" />
+  </div>
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/rest.png" alt="" />
+  </div>
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/maac24.png" alt="" />
+  </div>
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/spon2.png" alt="" />
+  </div>
   
   
 </div>
@@ -98,28 +110,28 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
 
       <div className='container md:w-[75%] m-auto'>
        
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/fresca.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/giani.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/jamboree.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/news.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/maac.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/career.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/gillette.png" alt="" />
         </div>
-        <div className="sponsor w-full rounded-full">
+        <div className="sponsor md:w-full rounded-full">
         <img src="./assets/amul.png" alt="" />
         </div>
         
@@ -144,7 +156,7 @@ const SponsorContainer = styled.div`
   max-width:100%;
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(170px , 1fr));
-  gap:3.5rem;
+  gap:4.5rem;
 }
 .sponsor{
   margin: 10px;
