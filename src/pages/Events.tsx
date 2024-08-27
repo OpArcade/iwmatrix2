@@ -255,7 +255,7 @@ useEffect(() => {
             : [...prev, event]
         );
     }
-    if (event.name === "UI/UX Design"){
+    /*if (event.name === "UI/UX Design"){
         setSelectedEvents((prev) =>
           prev.includes(event)
             ? prev.filter((e) => e !== event)
@@ -268,7 +268,7 @@ useEffect(() => {
             ? prev.filter((e) => e !== event)
             : [...prev, event]
         );
-    }
+    }*/
     if (event.name === "Pitchers"){
         setSelectedEvents((prev) =>
           prev.includes(event)
