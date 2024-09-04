@@ -96,7 +96,12 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
   <div className="sponsor1 w-full rounded-full">
   <img src="./assets/spon2.png" alt="" />
   </div>
-  
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/IEEE GTBIT(BLUE).png" alt="" />
+  </div>
+  <div className="sponsor1 w-full rounded-full">
+  <img src="./assets/Copy of preferred.png" alt="" />
+  </div>
   
 </div>
 </div>
