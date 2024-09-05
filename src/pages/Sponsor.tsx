@@ -99,7 +99,7 @@ With a diverse range of competitions spanning various tech domains, MATRIX 2.0 o
   <div className="sponsor1 w-full rounded-full">
   <img src="./assets/IEEE GTBIT(BLUE).png" alt="" />
   </div>
-  <div className="sponsor1 w-full rounded-full">
+  <div className="sponsor2 w-full rounded-full">
   <img src="./assets/Copy of preferred.png" alt="" />
   </div>
   
@@ -197,6 +197,23 @@ const SponsorContainer = styled.div`
 .sponsor1 img {
     max-width: 250px;
     border-radius: 50%;
+    height: auto;
+}
+
+.sponsor2{
+  margin: 10px;
+    padding: 10px;
+    /* background-color: white; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor2 img {
+    max-width: 250px;
     height: auto;
 }
 
