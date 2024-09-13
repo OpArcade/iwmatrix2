@@ -133,12 +133,12 @@ if(currentUser!== undefined){
         <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>Up</span> </Link></button>}
  
 {/* register now */}
-{ paymentdetails?.payment_status !== 'success' && 
+{/* { paymentdetails?.payment_status !== 'success' && 
       currentUser !== null && <button className='glowing-btn mt-[20px] flex justify-center'><Link to='/Events' className='text-white mx-[25px] my-[10px] text-xl'><span className='glowing-txt'>Reg<span className='faulty-letter'>ister</span> Now</span> </Link></button>
-}
+} */}
  {/* Alrwady register */}
 
-{ paymentdetails?.payment_status === 'success' && currentUser !== null &&
+{/* { paymentdetails?.payment_status === 'success' && currentUser !== null &&
  <button className='glowing-btn mt-[20px] flex justify-center'>
   
   <Link to='/Home'  className='text-white mx-[25px] my-[10px] text-xl'>
@@ -149,7 +149,23 @@ if(currentUser!== undefined){
   </Link>
   
   </button>
-}
+} */}
+{ paymentdetails?.payment_status !== 'success' && 
+      currentUser !== null &&
+
+<button className='glowing-btn mt-[20px] flex justify-center'>
+  
+  <Link to='/Home'  className='text-white mx-[25px] my-[10px] text-xl'>
+  
+  <span className='glowing-txt'>Regi<span className='faulty-letter'>steration</span> Closed
+  </span> 
+  
+  </Link>
+  
+  </button>
+ } 
+
+
 </div>
 
     </Layout>

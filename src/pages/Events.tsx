@@ -339,7 +339,7 @@ useEffect(() => {
     }
   };
   
-  const calculateTotalPrice = (): number => {
+  // const calculateTotalPrice = (): number => {
     
     // let total:number = 0;
     // let gameTotal:number = 0;
@@ -369,66 +369,66 @@ useEffect(() => {
 
 // ashish code start
 
-let gameTotal: number = 0;
-let eventTotal: number = 0;
-let liveProjectSelected: boolean = false;
+// let gameTotal: number = 0;
+// let eventTotal: number = 0;
+// let liveProjectSelected: boolean = false;
 
-selectedEvents.forEach((event: { name: string }) => {
-  if (event.name === "Gaming tournament") {
-    gameTotal = 100;
-  } else if (event.name === "Live Project") {
-    liveProjectSelected = true;
-    eventTotal += 1;
-  } else if (event.name !== "Gaming Parlour") {
-    eventTotal += 1;
-  }
-});
+// selectedEvents.forEach((event: { name: string }) => {
+//   if (event.name === "Gaming tournament") {
+//     gameTotal = 100;
+//   } else if (event.name === "Live Project") {
+//     liveProjectSelected = true;
+//     eventTotal += 1;
+//   } else if (event.name !== "Gaming Parlour") {
+//     eventTotal += 1;
+//   }
+// });
 
-if (liveProjectSelected) {
-  if (eventTotal === 1) {
-    eventTotal = 1;
-  } else if (eventTotal === 2) {
-    eventTotal = 51;
-  } else if (eventTotal === 3) {
-    eventTotal = 101;
-  } else if (eventTotal >= 4) {
-    eventTotal = 151;
-  }
-} else {
-  if (eventTotal === 1) {
-    eventTotal = 50;
-  } else if (eventTotal === 2) {
-    eventTotal = 80;
-  } else if (eventTotal === 3) {
-    eventTotal = 110;
-  } else if (eventTotal >= 4) {
-    eventTotal = 150;
-  }
-}
-return gameTotal + eventTotal;
+// if (liveProjectSelected) {
+//   if (eventTotal === 1) {
+//     eventTotal = 1;
+//   } else if (eventTotal === 2) {
+//     eventTotal = 51;
+//   } else if (eventTotal === 3) {
+//     eventTotal = 101;
+//   } else if (eventTotal >= 4) {
+//     eventTotal = 151;
+//   }
+// } else {
+//   if (eventTotal === 1) {
+//     eventTotal = 50;
+//   } else if (eventTotal === 2) {
+//     eventTotal = 80;
+//   } else if (eventTotal === 3) {
+//     eventTotal = 110;
+//   } else if (eventTotal >= 4) {
+//     eventTotal = 150;
+//   }
+// }
+// return gameTotal + eventTotal;
 
 
-// ashish code ends
-};
-const url = "https://iitminternware.com/matrix_backend"
+// // ashish code ends
+// };
+// const url = "https://iitminternware.com/matrix_backend"
 
-const [cashfree, setCashfree] = useState<any>(null);
-  const [paymentSessionId, setPaymentSessionId] = useState<any>(null);
-  const [orderData, setOrderData] = useState<any>(null);
-useEffect(()=>{
-  const initializeSDK = async () => {
-    try {
-      // const sdk = await load({ mode: 'sandbox' });
-      const sdk = await load({ mode: 'production' });
-      setCashfree(sdk);
-    } catch (error) {
-      console.error('Error initializing Cashfree SDK:', error);
-    }
-  };
-  initializeSDK();
-  const totalPrice = calculateTotalPrice();
-  setTotal(totalPrice);
-},[selectedEvents])
+// const [cashfree, setCashfree] = useState<any>(null);
+//   const [paymentSessionId, setPaymentSessionId] = useState<any>(null);
+//   const [orderData, setOrderData] = useState<any>(null);
+// useEffect(()=>{
+//   const initializeSDK = async () => {
+//     try {
+//       // const sdk = await load({ mode: 'sandbox' });
+//       const sdk = await load({ mode: 'production' });
+//       setCashfree(sdk);
+//     } catch (error) {
+//       console.error('Error initializing Cashfree SDK:', error);
+//     }
+//   };
+//   initializeSDK();
+//   const totalPrice = calculateTotalPrice();
+//   setTotal(totalPrice);
+// },[selectedEvents])
 
 // const handleSubmit = async () => {
 //   try {
@@ -473,11 +473,11 @@ useEffect(()=>{
 //   };
 
 
-const handleSubmit = async () => {
-  try {
-    const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
-    const phoneSnapshot = await get(userRef);
-    const phone = phoneSnapshot.val(); // Get the actual phone number value
+// const handleSubmit = async () => {
+//   try {
+//     const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
+//     const phoneSnapshot = await get(userRef);
+//     const phone = phoneSnapshot.val(); // Get the actual phone number value
 
     
 // let gamingTournament, newsSurge,pitchers,insideEdge,uiUx,liveProject;
@@ -518,41 +518,41 @@ const handleSubmit = async () => {
     // });
     // console.log('Event values initialized.');
 
-    const orderId = `order_${new Date().getTime()}`;
+//     const orderId = `order_${new Date().getTime()}`;
 
-    const orderDetails = {
-      order_amount: total,
-      order_id: orderId,
-      order_currency: 'INR',
-      customer_details: {
-        customer_id: currentUser?.uid,
-        customer_name: currentUser?.displayName || '',
-        customer_email: currentUser?.email || '',
-        customer_phone: phone, // Ensure this is a valid phone number with max 20 chars
-      }
-    };
+//     const orderDetails = {
+//       order_amount: total,
+//       order_id: orderId,
+//       order_currency: 'INR',
+//       customer_details: {
+//         customer_id: currentUser?.uid,
+//         customer_name: currentUser?.displayName || '',
+//         customer_email: currentUser?.email || '',
+//         customer_phone: phone, // Ensure this is a valid phone number with max 20 chars
+//       }
+//     };
 
-    const response = await axios.post(`${url}/create-order`, orderDetails);
-    console.log(response.data); // Log the response data
+//     const response = await axios.post(`${url}/create-order`, orderDetails);
+//     console.log(response.data); // Log the response data
 
-    if (response.data && response.data.payment_session_id) {
-      setPaymentSessionId(response.data.payment_session_id); // Store the payment session ID
-      setOrderData({ ...orderDetails, payment_session_id: response.data.payment_session_id });
-      toast('Order confirmed! You can now proceed to payment.', {
-        icon: '🤩',
-      });
-    } else {
-      toast.error('Failed to retrieve payment session ID.');
-    }
+//     if (response.data && response.data.payment_session_id) {
+//       setPaymentSessionId(response.data.payment_session_id); // Store the payment session ID
+//       setOrderData({ ...orderDetails, payment_session_id: response.data.payment_session_id });
+//       toast('Order confirmed! You can now proceed to payment.', {
+//         icon: '🤩',
+//       });
+//     } else {
+//       toast.error('Failed to retrieve payment session ID.');
+//     }
 
-    // Mailer(); //Mailer
+//     // Mailer(); //Mailer
 
-    // Additional logic for form submission can be added here
+//     // Additional logic for form submission can be added here
 
-  } catch (error) {
-    console.error('Error creating order:', error);
-  }
-};
+//   } catch (error) {
+//     console.error('Error creating order:', error);
+//   }
+// };
 
   // handle pay now start--------------
 
@@ -626,131 +626,131 @@ const handleSubmit = async () => {
   
   
   
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const handlePayNow = (): void => {
-    if (!paymentSessionId) {
-      toast('Please confirm the order!', {
-        icon: '👀',
-      });
-      return;
-    }
+  // const handlePayNow = (): void => {
+  //   if (!paymentSessionId) {
+  //     toast('Please confirm the order!', {
+  //       icon: '👀',
+  //     });
+  //     return;
+  //   }
   
-    if (cashfree) {
-      const checkoutOptions = {
-        paymentSessionId: paymentSessionId, // Use paymentSessionId from response
-        redirectTarget: '_modal', // Opens the payment modal
-      };
+    // if (cashfree) {
+    //   const checkoutOptions = {
+    //     paymentSessionId: paymentSessionId, // Use paymentSessionId from response
+    //     redirectTarget: '_modal', // Opens the payment modal
+    //   };
   
-      cashfree.checkout(checkoutOptions).then(async (result: any) => {
-        if (result.error) {
-          // Handle errors or user actions
-          console.error('Payment error:', result.error);
-          toast('Payment failed. Please try again.', {
-            icon: '🥲',
-          });
-        } else if (result.redirect) {
-          // Handle redirection case
-          console.log('Redirecting for payment');
-        } else if (result.paymentDetails) {
-          // Handle successful payment
-          console.log('Payment completed:', result.paymentDetails.paymentMessage);
+    //   cashfree.checkout(checkoutOptions).then(async (result: any) => {
+    //     if (result.error) {
+    //       // Handle errors or user actions
+    //       console.error('Payment error:', result.error);
+    //       toast('Payment failed. Please try again.', {
+    //         icon: '🥲',
+    //       });
+    //     } else if (result.redirect) {
+    //       // Handle redirection case
+    //       console.log('Redirecting for payment');
+    //     } else if (result.paymentDetails) {
+    //       // Handle successful payment
+    //       console.log('Payment completed:', result.paymentDetails.paymentMessage);
           
           // Store payment details in Firebase
-          const user = auth.currentUser;
-          if (user) {
-            const paymentData = {
-              ...orderData,
-              payment_status: 'success',
-              payment_id: result.paymentDetails.paymentId || '',
-              payment_message: result.paymentDetails.paymentMessage || '',
-              payment_time: result.paymentDetails.paymentTime || '',
-              user_id: user.uid
+  //         const user = auth.currentUser;
+  //         if (user) {
+  //           const paymentData = {
+  //             ...orderData,
+  //             payment_status: 'success',
+  //             payment_id: result.paymentDetails.paymentId || '',
+  //             payment_message: result.paymentDetails.paymentMessage || '',
+  //             payment_time: result.paymentDetails.paymentTime || '',
+  //             user_id: user.uid
               
-            };
+  //           };
   
-            // Filter out any undefined fields
-            const filteredPaymentData = Object.fromEntries(
-              Object.entries(paymentData).filter(([key, value]) => value !== undefined)
+  //           // Filter out any undefined fields
+  //           const filteredPaymentData = Object.fromEntries(
+  //             Object.entries(paymentData).filter(([key, value]) => value !== undefined)
 
-            );
+  //           );
   
-            try {
-              const timeZone = 'Asia/Kolkata';
-              const currentDateTime = format(toZonedTime(new Date(), timeZone), 'yyyy-MM-dd HH:mm:ssXXX'); // add timeZone
-              await set(ref(db, 'payments/' + user.uid), {
-                ...filteredPaymentData,
-                processed_at: currentDateTime
-              });
-              console.log('Payment data stored in Firebase successfully');
+  //           try {
+  //             const timeZone = 'Asia/Kolkata';
+  //             const currentDateTime = format(toZonedTime(new Date(), timeZone), 'yyyy-MM-dd HH:mm:ssXXX'); // add timeZone
+  //             await set(ref(db, 'payments/' + user.uid), {
+  //               ...filteredPaymentData,
+  //               processed_at: currentDateTime
+  //             });
+  //             console.log('Payment data stored in Firebase successfully');
 
-              let gamingTournament, newsSurge,pitchers,insideEdge,uiUx,liveProject;
+  //             let gamingTournament, newsSurge,pitchers,insideEdge,uiUx,liveProject;
 
-              selectedEvents.forEach(event => {
-                switch (event.name) {
-                  case 'Gaming tournament':
-                    gamingTournament = event;
-                  break;
-                  case 'News Surge':
-                    newsSurge = event;
-                  break;
-                  case 'Pitchers':
-                    pitchers = event;
-                  break;
-                  case 'Inside Edge':
-                    insideEdge = event;
-                    break;
-                  case 'UI/UX':
-                    uiUx = event;
-                  break;
-                  case 'Live Project':
-                    liveProject = event;
-                  break;
-                  default:
-                    break;
-                }
-              });
+  //             selectedEvents.forEach(event => {
+  //               switch (event.name) {
+  //                 case 'Gaming tournament':
+  //                   gamingTournament = event;
+  //                 break;
+  //                 case 'News Surge':
+  //                   newsSurge = event;
+  //                 break;
+  //                 case 'Pitchers':
+  //                   pitchers = event;
+  //                 break;
+  //                 case 'Inside Edge':
+  //                   insideEdge = event;
+  //                   break;
+  //                 case 'UI/UX':
+  //                   uiUx = event;
+  //                 break;
+  //                 case 'Live Project':
+  //                   liveProject = event;
+  //                 break;
+  //                 default:
+  //                   break;
+  //               }
+  //             });
           
-              // Log initialized variables
+  //             // Log initialized variables
 
-              // Store selected events in Firebase under their respective collections
-              const selectedevents = [gamingTournament, newsSurge, pitchers, insideEdge, uiUx, liveProject];
-              for (const event of selectedEvents) {
-                if (event) {
-                  await set(ref(db, `events/${event.name}/${user.uid}`), {
-                    user_id: user.uid,
-                    event_name: event.name,
-                    teamName:teamName || null,
-                    email : user.email,
-                    registered_at: currentDateTime
-                  });
-                }
-              }
-              console.log('Selected event data and team name stored in Firebase successfully');
+  //             // Store selected events in Firebase under their respective collections
+  //             const selectedevents = [gamingTournament, newsSurge, pitchers, insideEdge, uiUx, liveProject];
+  //             for (const event of selectedEvents) {
+  //               if (event) {
+  //                 await set(ref(db, `events/${event.name}/${user.uid}`), {
+  //                   user_id: user.uid,
+  //                   event_name: event.name,
+  //                   teamName:teamName || null,
+  //                   email : user.email,
+  //                   registered_at: currentDateTime
+  //                 });
+  //               }
+  //             }
+  //             console.log('Selected event data and team name stored in Firebase successfully');
   
-              // Mailer(); //Mailer 
-            } catch (error) {
-              console.error('Error storing payment data in Firebase:', error);
-              toast('Payment successful, but failed to store data in Firebase.', {
-                icon: '🥳',
-              });
-            }
-          } else {
-            toast('User not logged in', {
-              icon: '🤨',
-            });
-          }
-        }
-      }).catch((error: any) => {
-        console.error('Error during payment:', error);
-        toast.error('Error during payment. Please try again.');
-      });
-    } else {
-      toast.error('Cashfree SDK not initialized.');
-    }
+  //             // Mailer(); //Mailer 
+  //           } catch (error) {
+  //             console.error('Error storing payment data in Firebase:', error);
+  //             toast('Payment successful, but failed to store data in Firebase.', {
+  //               icon: '🥳',
+  //             });
+  //           }
+  //         } else {
+  //           toast('User not logged in', {
+  //             icon: '🤨',
+  //           });
+  //         }
+  //       }
+  //     }).catch((error: any) => {
+  //       console.error('Error during payment:', error);
+  //       toast.error('Error during payment. Please try again.');
+  //     });
+  //   } else {
+  //     toast.error('Cashfree SDK not initialized.');
+  //   }
 
-    // ashish
-  navigate("/Home")
+  //   // ashish
+  // navigate("/Home")
 
  
 
@@ -793,7 +793,7 @@ const handleSubmit = async () => {
 
   // ashish 
 
-  };
+  // };
   // handle pay now end -------------
 
   
@@ -804,26 +804,26 @@ const handleSubmit = async () => {
 
   
 
-  const [paticipantData,setParticipantData] = useState<any>({})
-  const {currentUser} = useStateContext()
-  const dbref = ref(db,`users/${currentUser.uid}`)
+  // const [paticipantData,setParticipantData] = useState<any>({})
+  // const {currentUser} = useStateContext()
+  // const dbref = ref(db,`users/${currentUser.uid}`)
 
-  const getParticipantsData=()=>{
-    onValue(dbref,(snapshot)=>{
-      if(snapshot.exists()){
-        let info = snapshot.val();
-        setParticipantData(info)
-      }
-    })
-  }
+  // const getParticipantsData=()=>{
+  //   onValue(dbref,(snapshot)=>{
+  //     if(snapshot.exists()){
+  //       let info = snapshot.val();
+  //       setParticipantData(info)
+  //     }
+  //   })
+  // }
 
-  useEffect(()=>{
-    getParticipantsData()
-  },[currentUser])
+  // useEffect(()=>{
+  //   getParticipantsData()
+  // },[currentUser])
 
 
   // console.log(paticipantData) //
-
+  
   return (
     
     <EventContainer className="bg-white z-50 w-full ">
@@ -872,13 +872,13 @@ const handleSubmit = async () => {
             </div>
 
             {/* submit button */}
-            <div
+            {/* <div
               className={index===0 ?"" : " justify-center items-center gap-3 text-black bg-[#00ffd4] w-3/4 py-3 sm:py-[2px] sm:px-2 md:w-1/4 sm:rounded-md lg:rounded-2xl mb-5 sm:mb-0 cursor-pointer m-2"}
               onClick={() => index === 0 ? window.location.href='#': handleSelect(event)}
             >
               <h1 className="text-xl max-sm:text-[25px] sm:text-2xl font-mono font-extrabold text-center flex justify-center m-[4px]">
                 {selectedEvents.includes(event) ? (
-                  // <CheckCheck className="w-7 h-7 sm:w-10 sm:h-10" />
+                 
                   <><h1>Selected</h1></>
                 ) : (
                   index === 0 ?  <div 
@@ -891,7 +891,7 @@ const handleSubmit = async () => {
                 </div>  : 'Select'
                 )}
               </h1>
-            </div>
+            </div> */}
 
           </div>
         ))}
@@ -912,7 +912,7 @@ const handleSubmit = async () => {
             ))}
           </div>
           <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
-            Total Price: ₹ {calculateTotalPrice()}
+            Total Price: ₹ 
           </h2>
           {teamName !== '' && <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
             Your Team Name Is : {teamName}
@@ -931,7 +931,7 @@ const handleSubmit = async () => {
 
 { isOpen === false &&
         <button
-          onClick={handleSubmit}
+         
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >
@@ -940,7 +940,7 @@ const handleSubmit = async () => {
 }
 
         <button
-          onClick={handlePayNow}
+      
 
           className=" items-center text-center glitch-wrapper border-2 border-[#00ffd4] hover:border-none p-2 m-4 rounded-2xl "
         >

@@ -25,7 +25,7 @@ function App() {
           <Route path='/Burger' element = { <Burger />} />
           <Route path='/Home' element={ <Home />} />
           <Route path = '/Profile' element = { currentUser ? <Profile /> : <Home/>} />
-          <Route path='/Events' element={ currentUser !== null ? <Events /> : <Home/> } />
+          <Route path='/Events' element={  <Events /> } />
           <Route path='/Sponsors' element={<Sponsor />} />
           <Route path='/Contact' element = { <Contact /> } />
           <Route path='/Form' element = { currentUser ?  <Form /> : <Home/> } />
