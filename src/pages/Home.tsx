@@ -157,7 +157,7 @@ if(currentUser!== undefined){
   
   <Link to='/Home'  className='text-white mx-[25px] my-[10px] text-xl'>
   
-  <span className='glowing-txt'>Regi<span className='faulty-letter'>steration</span> Closed
+  <span className='glowing-txt'>View<span className='faulty-letter'>Results</span> 
   </span> 
   
   </Link>
