@@ -16,7 +16,7 @@ function App() {
   const {currentUser} = useStateContext()
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/2024-25/events/matrix'>
     <Toaster/>
       <MainDiv>
         <Routes>
