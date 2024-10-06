@@ -126,11 +126,11 @@ if(currentUser!== undefined){
  
 
 {/* log in */}
-      {currentUser === null && <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center' onClick={(e)=>googleSignIn(e)}>
-        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>}
+      {/* {currentUser === null && <button className='glowing-btn md:mx-[50px] max-md:my-[20px] max-md:mb-[60px] flex justify-center' onClick={(e)=>googleSignIn(e)}>
+        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>L<span className='faulty-letter'>og</span>In</span> </Link></button>} */}
 {/* sign in */}
-      {currentUser === null && <button className='glowing-btn flex justify-center' onClick={(e)=>googleSignIn(e)}>
-        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>Up</span> </Link></button>}
+      {/* {currentUser === null && <button className='glowing-btn flex justify-center' onClick={(e)=>googleSignIn(e)}>
+        <Link to='#' className='text-white mx-[25px] my-[10px] text-xl '><span className='glowing-txt'>S<span className='faulty-letter'>ign</span>Up</span> </Link></button>} */}
  
 {/* register now */}
 {/* { paymentdetails?.payment_status !== 'success' && 
@@ -150,8 +150,6 @@ if(currentUser!== undefined){
   
   </button>
 } */}
-{ paymentdetails?.payment_status !== 'success' && 
-      currentUser !== null &&
 
 <button className='glowing-btn mt-[20px] flex justify-center'>
   
@@ -163,7 +161,6 @@ if(currentUser!== undefined){
   </Link>
   
   </button>
- } 
 
 
 </div>
