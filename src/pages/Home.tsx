@@ -46,24 +46,24 @@ const Home = () => {
 
 
 
-useEffect(() => {
-if(currentUser!== undefined){
-  const checkPhoneNumber = async () => {
+// useEffect(() => {
+// if(currentUser!== undefined){
+//   const checkPhoneNumber = async () => {
   
 
-      if (currentUser) {
-          const userRef = ref(db, `users/${currentUser.uid}/phoneNumber`);
-          const phoneSnapshot = await get(userRef);
+//       if (currentUser) {
+//           const userRef = ref(db, `users/${currentUser.uid}/phoneNumber`);
+//           const phoneSnapshot = await get(userRef);
 
-          if (phoneSnapshot.exists()) {
-              navigate('/');
-          }
-      }
-  };
+//           if (phoneSnapshot.exists()) {
+//               navigate('/');
+//           }
+//       }
+//   };
 
-  checkPhoneNumber();
-}
-}, [currentUser]);
+//   checkPhoneNumber();
+// }
+// }, [currentUser]);
 
   const googleSignIn=async(e:any)=>{
     e.preventDefault();
@@ -112,14 +112,14 @@ if(currentUser!== undefined){
       <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white max-md:mt-[20px] mt-[20px]  "> Tech Fest</h2>
       <h2 className="text-xl 2xl:text-2xl xl:text-2xl font-semibold text-white  "> September 20-21, 2024</h2>
   </div>
-  <div 
+  {/* <div 
                   className="apply-button bg-[#ffffff] rounded-sm text-white  " 
                   data-hackathon-slug="matrix2" 
                   data-button-theme="dark-inverted"
                   style={{ height: '44px', width: '312px' }}
                 >
 
-                </div>
+                </div> */}
   {/* button */}
   <div className='relative max-md:top-[22rem] top-[20rem] z-30 flex flex-col md:flex-row justify-center text-center w-2/4 m-auto '>
 

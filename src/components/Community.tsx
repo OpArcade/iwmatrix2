@@ -14,35 +14,27 @@ const Community = () => {
          <div className='flex justify-center'>
           <img src="./assets/Tech Holics.png" alt="" className='max-sm:w-[80%]' />
           </div>   
-{/* <div className='container1 md:w-[100%] m-auto'>
- 
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/dev.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/poly.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/eth.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/logoss.jpg" alt="" />
- </div>
- 
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/Azdev Black_Blue logo.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/Azdev white logo.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/Reskilll_black logo.png" alt="" />
- </div>
- <div className="sponsor1 w-full rounded-full">
- <img src="./assets/Reskilll_white logo.png" alt="" />
- </div>
-</div> */}
            </div>
+
+
+    </div>
+    <div className='   flex flex-col   justify-center text-center'>
+          <div className="glitch-wrapper mb-[20px]">
+	<div className="glitch max-sm:text-[1.5rem]" data-glitch="Our Hackathon Partner">Our Hackathon  Partner</div>
+</div>
+<div className=''>
+  <p className='text-[1em] max-sm:w-[85%] md:w-[70%] mx-auto text-center md:text-[1.6em] text-white'>
+  Devfolio is the most popular hackathon platform known for its seamless user experience. Our collaboration with Devfolio brought over 900+ registrations, surpassing expectations. The platform made sign-ups easy and attracted diverse talent to MATRIX 2.0. Devfolio also provided swags. Their support enhanced engagement with the tech community.
+  </p>
+</div>
+<div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[75%] md:mt-6 w-full m-auto'>
+
+         <div className='flex justify-center'>
+          <img src="./assets/dev.png" alt="" className='max-sm:w-[80%] md:w-[50%]' />
+          </div>   
+           </div>
+
+
     </div>
    </CommunityContainer>
   )

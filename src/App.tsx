@@ -28,7 +28,7 @@ function App() {
           <Route path='/Events' element={  <Events /> } />
           <Route path='/Sponsors' element={<Sponsor />} />
           <Route path='/Contact' element = { <Contact /> } />
-          <Route path='/Form' element = { currentUser ?  <Form /> : <Home/> } />
+          {/* <Route path='/Form' element = { currentUser ?  <Form /> : <Home/> } /> */}
         </Routes>
       </MainDiv>
     </BrowserRouter>

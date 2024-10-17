@@ -27,24 +27,24 @@ export default function Form() {
         }
     };
 
-    useEffect(() => {
-        if(currentUser!== undefined){
-            const checkPhoneNumber = async () => {
+    // useEffect(() => {
+    //     if(currentUser!== undefined){
+    //         const checkPhoneNumber = async () => {
             
 
-                if (currentUser) {
-                    const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
-                    const phoneSnapshot = await get(userRef);
+    //             if (currentUser) {
+    //                 const userRef = ref(db, `users/${currentUser?.uid}/phoneNumber`);
+    //                 const phoneSnapshot = await get(userRef);
     
-                    if (phoneSnapshot.exists()) {
-                        navigate('/');
-                    }
-                }
-            };
+    //                 if (phoneSnapshot.exists()) {
+    //                     navigate('/');
+    //                 }
+    //             }
+    //         };
     
-            checkPhoneNumber();
-        }
-    }, [currentUser]);
+    //         checkPhoneNumber();
+    //     }
+    // }, [currentUser]);
     
     const submit = async () => {
 
