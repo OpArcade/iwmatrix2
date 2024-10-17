@@ -46,35 +46,33 @@ modules={[EffectCoverflow, Pagination, Autoplay]}
   className="mySwiper"
 >
   <SwiperSlide>
-    <img src="./assets/10.webp" alt='photo' />
+    <img src="./assets/15.webp" alt='photo' />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/11.webp"alt='photo' />
+    <img src="./assets/16.webp"alt='photo' />
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/12.webp" alt='photo'/>
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="./assets/13.webp" alt='photo'/>
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="./assets/14.webp" alt='photo'/>
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="./assets/15.webp" alt='photo'/>
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="./assets/16.webp" alt='photo'/>
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="./assets/17.webp"alt='photo' />
+    <img src="./assets/17.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
     <img src="./assets/18.webp" alt='photo'/>
   </SwiperSlide>
   <SwiperSlide>
-    <img src="./assets/19.webp"alt='photo' />
+    <img src="./assets/20.webp" alt='photo'/>
   </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/21.webp" alt='photo'/>
+  </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/22.webp" alt='photo'/>
+  </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/23.webp"alt='photo' />
+  </SwiperSlide>
+  <SwiperSlide>
+    <img src="./assets/24.webp" alt='photo'/>
+  </SwiperSlide>
+
   
 
 

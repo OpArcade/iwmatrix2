@@ -901,7 +901,7 @@ useEffect(() => {
         setTeamName={setTeamName}
         setOpen={setIsOpen}
       />}
-      <div className="text-white text-center mt-10">
+      {/* <div className="text-white text-center mt-10">
         <div className="flex flex-col justify-center items-center mt-5">
         <h1 className="font-semibold text-2xl font-mono md:text-3xl  text-[#00ffd4]">Your Selected Events</h1>
           <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:mx- text-[#ffffff]">
@@ -917,7 +917,7 @@ useEffect(() => {
           {teamName !== '' && <h2 className="text-[#00ffd4] text-2xl font-mono sm:text-4xl font-extrabold text-center my-10">
             Your Team Name Is : {teamName}
           </h2>}
-        </div>
+        </div> */}
         {/* <button
           onClick={() => {
             console.log(selectedEvents);
@@ -928,7 +928,7 @@ useEffect(() => {
         >
           Proceed
         </button> */}
-
+{/* 
 { isOpen === false &&
         <button
          
@@ -947,7 +947,7 @@ useEffect(() => {
           <div className="glitch m-[20px] sm:text-4xl" data-glitch="Pay Now">Pay Now</div>
         </button>
 
-      </div>
+      </div> */}
     </section>
     </Layout>
     </EventContainer>

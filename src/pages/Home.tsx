@@ -153,7 +153,7 @@ if(currentUser!== undefined){
 
 <button className='glowing-btn mt-[20px] flex justify-center'>
   
-  <Link to='https://drive.google.com/file/d/1JC9Kk9KW30Xe0eU9jgp7tp4KOD56b22F/view?usp=sharing'  className='text-white mx-[25px] my-[10px] text-xl'>
+  <Link to='https://drive.google.com/file/d/1h1Zx3QyVDEQrmbvqTAFTwta-Q8WqgYSg/view?usp=sharing' target="_black"  className='text-white mx-[25px] my-[10px] text-xl'>
   
   <span className='glowing-txt'>View<span className='faulty-letter'>Results</span> 
   </span> 
