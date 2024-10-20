@@ -17,6 +17,8 @@ function App() {
 
   return (
     <BrowserRouter basename='/2024-25/events/matrix'>
+      
+    {/* <BrowserRouter> */}
     <Toaster/>
       <MainDiv>
         <Routes>

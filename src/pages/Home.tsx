@@ -155,7 +155,7 @@ const Home = () => {
   
   <Link to='https://drive.google.com/file/d/1h1Zx3QyVDEQrmbvqTAFTwta-Q8WqgYSg/view?usp=sharing' target="_black"  className='text-white mx-[25px] my-[10px] text-xl'>
   
-  <span className='glowing-txt'>View<span className='faulty-letter'>Results</span> 
+  <span className='glowing-txt'>View<span className='faulty-letter mx-1'>Results</span> 
   </span> 
   
   </Link>

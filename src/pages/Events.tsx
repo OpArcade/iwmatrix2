@@ -836,12 +836,12 @@ useEffect(() => {
           </div>
     </div>
     <Layout>
-    <section className="h-full w-full flex flex-col justify-center text-center z-[10000] relative overflow-x-hidden">
+    <section className=" h-full w-full flex flex-col justify-center text-center z-[10000] relative overflow-x-hidden">
     <div className="glitch-wrapper mt-[45px] max-sm:mb-5 mb-[40px] ">
 	              <div className="glitch max-sm:text-5xl " data-glitch="Events">Events</div>
         </div>
 
-      <div className="  m-auto  flex flex-col justify-center items-center text-center gap-10 sm:gap-20  ">
+      <div className=" mb-[50px] m-auto  flex flex-col justify-center items-center text-center gap-10 sm:gap-20  ">
 
         {events.map((event, index) => (
           <div
@@ -860,7 +860,7 @@ useEffect(() => {
             </div>
 
             {/* event name and desc */}
-            <div className="w-[90%]  lg:w-[800px] max-sm:w-full flex flex-col justify-center items-center py-5">
+            <div className="  w-[90%]  lg:w-[800px] max-sm:w-full flex flex-col justify-center items-center py-5">
               <div className="max-sm:text-[30px] text-[#00ffd4] font-mono 
               md:text-[40px] lg:text-[50px] font-semibold text-center">
                 {event.name}

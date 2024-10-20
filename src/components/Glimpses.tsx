@@ -20,7 +20,9 @@ const Glimpses = () => {
     <GlimpsesContainer className=' w-full md:w-[80%] lg:w-2/4'>
       <section className='  md:m-9 flex flex-col gap-3  justify-center text-center items-center'> 
           
-         
+      <div className="glitch-wrapper  max-sm:mb-5">
+	              <div className="glitch max-sm:text-5xl " data-glitch="Glimpses">Glimpses</div>
+        </div>
          
 <Swiper
 modules={[EffectCoverflow, Pagination, Autoplay]}
