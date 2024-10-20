@@ -30,7 +30,7 @@ const Community = () => {
 <div className='flex  flex-col lg:flex-row justify-center text-center items-center md:w-[75%] md:mt-6 w-full m-auto'>
 
          <div className='flex justify-center'>
-          <img src="./assets/dev.png" alt="" className='max-sm:w-[80%] md:w-[50%]' />
+          <img src="./assets/dev1.png" alt="" className='max-sm:w-[80%] md:w-[50%]' />
           </div>   
            </div>
 
